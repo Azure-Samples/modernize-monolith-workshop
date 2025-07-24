@@ -1,0 +1,66 @@
+﻿@using eShopLite.StoreFx.Models
+@model IEnumerable<StoreInfo>
+@{
+  ViewBag.Title = "Stores";
+  var stores = Model;
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<main aria-labelledby="title">
+  <h2 id="title">@ViewBag.Title</h2>
+  <h3>@ViewBag.Message</h3>
+
+  @if (stores == null)
+  {
+    <div class="text-center p-3">
+      <div class="spinner-container">
+        <i class="bi bi-building spinner-icon" aria-hidden="true"></i>
+      </div>
+      <span class="visually-hidden">Loading store information...</span>
+    </div>
+  }
+  else
+  {
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var store in stores)
+        {
+          <tr>
+            <td><strong>@store.Name</strong></td>
+            <td>@store.City, @store.State</td>
+            <td>@store.Hours</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  <style>
+    .spinner-container {
+      display: inline-block;
+      font-size: 2rem;
+    }
+
+    .spinner-icon {
+      animation: spin 2s linear infinite;
+      display: inline-block;
+    }
+
+    @@keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</main>
