@@ -1,0 +1,42 @@
+﻿@using eShopLite.StoreFx.Models
+@model IEnumerable<Product>
+@{
+  ViewBag.Title = "Products";
+  var products = Model;
+}
+<main aria-labelledby="title">
+  <h2 id="title">@ViewBag.Title</h2>
+  <h3>@ViewBag.Message</h3>
+
+  @if (products == null)
+  {
+    <p><em>Loading...</em></p>
+  }
+  else
+  {
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Products ID</th>
+          <th>Image</th>
+          <th>Details</th>
+          <th>Price (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var product in products)
+        {
+          <tr>
+            <td>@product.Id</td>
+            <td><img src="~/images/@product.ImageUrl" alt="@product.Name" width="150"></td>
+            <td>
+              <strong>@product.Name</strong><br>
+              @product.Description
+            </td>
+            <td>USD @product.Price</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</main>

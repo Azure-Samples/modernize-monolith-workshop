@@ -1,0 +1,52 @@
+﻿@page "/products"
+@using eShopLite.Store.DataEntities
+@using eShopLite.Store.ApiClients
+@attribute [StreamRendering]
+@inject ProductApiClient ProductApi
+
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<p>This component demonstrates showing products data.</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Products ID</th>
+                <th>Image</th>
+                <th>Details</th>
+                <th>Price (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td><img src="images/@product.ImageUrl" alt="@product.Name" width="150"></td>
+                    <td>
+                        <strong>@product.Name</strong><br>
+                        @product.Description
+                    </td>
+                    <td>USD @product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Product>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await ProductApi.GetProductsAsync();
+    }
+}
