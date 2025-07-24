@@ -58,7 +58,6 @@ First, ensure you have the prerequisites installed. If not, [follow the links](#
 ### Installing the .NET Upgrade Assistant Copilot
 To install the .NET Upgrade Assistant Copilot extension for Visual Studio, follow these steps:
 
-
 1. **Open Extension Manager**: 
    - Go to the menu bar and select `Extensions > Manage Extensions`.
     - Alternatively, you can use the shortcut `Ctrl+Q` and type `Extension Manager`.
@@ -82,6 +81,8 @@ To install the .NET Upgrade Assistant Copilot extension for Visual Studio, follo
    ![Modify Installation](./images/install-prompt.png)
    - Select `Modify` and follow the instructions to install the extension.
    
+
+> NOTE: To install the .NET Upgrade Assistant  extension, use the same steps as above, but search for `GitHub Copilot app modernization` instead of `.NET Upgrade Assistant`.
 
 ### Validation
 * Open Visual Studio and check if the extension is enabled by going to `Extensions > Manage Extensions > Installed`.
