@@ -16,11 +16,9 @@ await app.RunAsync();
 
 static void ConfigureServices(WebApplicationBuilder builder)
 {
-    // Add system web adapters for legacy compatibility
-    builder.Services.AddSystemWebAdapters();
-
-    // Add MVC services
-    builder.Services.AddControllersWithViews();
+    // Add Blazor Server services
+    builder.Services.AddRazorPages();
+    builder.Services.AddServerSideBlazor();
 
     // Configure Entity Framework with SQLite
     builder.Services.AddDbContext<StoreDbContext>(options =>
@@ -69,7 +67,7 @@ static async Task ConfigureMiddlewareAsync(WebApplication app)
     // Configure the HTTP request pipeline
     if (!app.Environment.IsDevelopment())
     {
-        app.UseExceptionHandler("/Home/Error");
+        app.UseExceptionHandler("/Error");
         app.UseHsts();
     }
     else
@@ -79,18 +77,15 @@ static async Task ConfigureMiddlewareAsync(WebApplication app)
 
     app.UseHttpsRedirection();
     app.UseStaticFiles();
-
     app.UseRouting();
-    app.UseAuthorization();
-    app.UseSystemWebAdapters();
 
     // Add health check endpoint
     app.MapHealthChecks("/health");
 
-    // Configure routing
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+    // Configure Blazor routing
+    app.MapRazorPages();
+    app.MapBlazorHub();
+    app.MapFallbackToPage("/_Host");
 
     // Initialize database
     await InitializeDatabaseAsync(app);

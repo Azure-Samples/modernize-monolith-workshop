@@ -169,6 +169,16 @@ After completing all modernization steps:
 
 ![Modernized Application Running](./images/modernized-app-running.png)
 
+### 4️⃣ Convert to Blazor Pages
+
+Prompt is "Blazor Migration
+
+Convert all existing pages to use Blazor (preferably Blazor Server or Blazor WebAssembly, depending on suitability).
+Remove all non-Blazor pages and ensure routing is correctly configured.
+Ensure all media (images, videos, etc.) are correctly referenced and rendered in the new Blazor components.
+Fix issues where the page renders blank or fails to load due to routing or layout problems.
+"
+
 ## ✅ Verification
 
 By the end of this section, you should have:

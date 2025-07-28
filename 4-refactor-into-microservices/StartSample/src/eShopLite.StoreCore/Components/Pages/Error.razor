@@ -1,0 +1,67 @@
+@page "/error"
+
+<PageTitle>Error - eShopLite</PageTitle>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="text-center py-5">
+                <div class="error-icon mb-4">
+                    <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+                </div>
+                <h1 class="display-4 fw-bold text-danger mb-3">Oops!</h1>
+                <h2 class="h4 mb-4">Something went wrong</h2>
+                <p class="lead text-muted mb-4">
+                    We're sorry, but an unexpected error occurred while processing your request.
+                    Our team has been notified and is working to fix the issue.
+                </p>
+                
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <NavLink href="/" class="btn btn-primary btn-lg">
+                        <i class="bi bi-house-fill me-2"></i>
+                        Go Home
+                    </NavLink>
+                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="history.back()">
+                        <i class="bi bi-arrow-left me-2"></i>
+                        Go Back
+                    </button>
+                    <NavLink href="/health" class="btn btn-outline-info btn-lg" target="_blank">
+                        <i class="bi bi-heart-pulse me-2"></i>
+                        System Status
+                    </NavLink>
+                </div>
+
+                <div class="mt-5 p-4 bg-light rounded">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-lightbulb text-warning me-2"></i>
+                        What you can do:
+                    </h5>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Try refreshing the page
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Check your internet connection
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Return to the homepage and try again
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Contact our support team if the problem persists
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-4">
+                    <small class="text-muted">
+                        Error occurred at: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
