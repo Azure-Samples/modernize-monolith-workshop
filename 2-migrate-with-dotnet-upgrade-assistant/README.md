@@ -74,11 +74,14 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 ![.NET Upgrade Assistant endpoints](./images/dotnet-upgrade-assistant-endpoints.png)
 
 8. The Upgrade Assistant will give you a list of controllers, views, and other components that could be updated, you can select the ones you want to update, and it will apply the necessary changes. In our case, select the only controller that is available, the Data classes, and check if the views are already in your project, if not, you can select them to be updated. Keep in mind that this may take some time, depending on the size of your project.
+9. 
 ![.NET Upgrade Assistant controllers](./images/dotnet-upgrade-assistant-controllers.png)
+
 ![.NET Upgrade Assistant classes](./images/dotnet-upgrade-assistant-classes.png)
+
 ![.NET Upgrade Assistant upgrade UI](./images/dotnet-upgrade-assistant-upgrade-ui.png)
 
-9. After this, please copy and paste the scripts and the images folder from the old project to the new project, as the Upgrade Assistant does not copy these files automatically.
+10. After this, please copy and paste the scripts and the images folder from the old project to the new project, as the Upgrade Assistant does not copy these files automatically.
 
 With these steps, you should have partially migrated your eShopLiteFx application to a new .NET Core project. However, there are still some manual steps to complete the migration, let's continue with them.
 
