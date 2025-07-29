@@ -168,7 +168,7 @@ This is our final page:
 
 ![Blazor Final Page Store](./images/blazor-final-page-store.png)
 
-!![Blazor Final Page locations](./images/blazor-final-page-locations.png)
+![Blazor Final Page locations](./images/blazor-final-page-locations.png)
 
 
 ## ✅ Verification
