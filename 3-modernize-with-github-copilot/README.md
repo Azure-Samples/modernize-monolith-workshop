@@ -13,7 +13,7 @@ This section explores:
 🔧 Automated refactoring suggestions  
 📈 Improving code quality with AI assistance  
 
-> Important Note: For this section, please use the sample in the StartSample folder, as the previous samples both in 2 and 2b may have diferent results while migrating from .NET Framework.
+> Important Note: For this section, please use the sample in the StartSample folder, as the previous samples both in 2 and 2b may have different results while migrating from .NET Framework.
 
 ## 📚 Instructions
 
