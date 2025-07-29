@@ -1,0 +1,138 @@
+@page "/"
+@page "/home"
+
+<PageTitle>eShopLite - Modern Outdoor Gear</PageTitle>
+
+<div class="hero-section bg-primary text-white py-5 mb-5 rounded">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">
+            <i class="bi bi-mountain me-3"></i>
+            Welcome to eShopLite
+        </h1>
+        <p class="lead mb-4">Your one-stop destination for premium outdoor and camping gear</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="/products" class="btn btn-light btn-lg">
+                <i class="bi bi-box-seam me-2"></i>Shop Products
+            </a>
+            <a href="/stores" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-geo-alt me-2"></i>Find Stores
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-4 col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mx-auto mb-3">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+                <h3 class="card-title h4">Premium Products</h3>
+                <p class="card-text text-muted">
+                    Discover our curated collection of high-quality outdoor gear, 
+                    from hiking essentials to camping equipment.
+                </p>
+                <a href="/products" class="btn btn-outline-primary">
+                    Browse Collection <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-success bg-gradient text-white rounded-circle mx-auto mb-3">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+                <h3 class="card-title h4">Store Locations</h3>
+                <p class="card-text text-muted">
+                    Visit our expert staff at locations nationwide. Get personalized 
+                    advice and hands-on experience with our products.
+                </p>
+                <a href="/stores" class="btn btn-outline-success">
+                    Find Stores <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon bg-warning bg-gradient text-white rounded-circle mx-auto mb-3">
+                    <i class="bi bi-lightning-charge"></i>
+                </div>
+                <h3 class="card-title h4">Modern Technology</h3>
+                <p class="card-text text-muted">
+                    Built with cutting-edge Blazor Server technology for fast, 
+                    interactive experiences with real-time updates.
+                </p>
+                <a href="/health" class="btn btn-outline-warning" target="_blank">
+                    View Status <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card bg-light border-0">
+            <div class="card-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="card-title mb-2">
+                            <i class="bi bi-star-fill text-warning me-2"></i>
+                            Why Choose eShopLite?
+                        </h4>
+                        <p class="card-text mb-0">
+                            We combine years of outdoor expertise with modern technology to bring you 
+                            the best shopping experience for your adventures.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="d-flex justify-content-center gap-3">
+                            <div class="text-center">
+                                <div class="fw-bold fs-4 text-primary">500+</div>
+                                <small class="text-muted">Products</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="fw-bold fs-4 text-success">50+</div>
+                                <small class="text-muted">Stores</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="fw-bold fs-4 text-warning">24/7</div>
+                                <small class="text-muted">Support</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>
