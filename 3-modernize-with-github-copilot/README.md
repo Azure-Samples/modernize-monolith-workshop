@@ -1,6 +1,8 @@
 # 🤖 Modernize with GitHub Copilot
 
-Discover how GitHub Copilot can accelerate your application modernization process with AI-powered code suggestions and refactoring assistance.
+Now, we successfully ported our eShopLite application to .NET Core in the previous section. However, it still has room for improvement, as it may not fully utilize the latest .NET 9 features and best practices.
+
+In this section, we will modernize our application using GitHub Copilot, which will assist us in refactoring the codebase, improving architecture, and enhancing overall performance.
 
 ## 📋 What You'll Do
 
@@ -11,6 +13,8 @@ This section explores:
 🔧 Automated refactoring suggestions  
 📈 Improving code quality with AI assistance  
 
+> Important Note: For this section, please use the sample in the StartSample folder, as the previous samples both in 2 and 2b may have diferent results while migrating from .NET Framework.
+
 ## 📚 Instructions
 
 Let's leverage GitHub Copilot to modernize our migrated eShopLite application, transforming it from a basic .NET Core port to a fully modernized .NET 9 application following current best practices.
@@ -19,27 +23,28 @@ Let's leverage GitHub Copilot to modernize our migrated eShopLite application, t
 
 Before starting, ensure you have:
 - GitHub Copilot installed and activated in Visual Studio
-- The "migrate_dotnet" tool enabled in Agent Mode
-- Your migrated eShopLite.StoreCore project from the previous section
+- The "migrate_dotnet" tool enabled in Agent Mode (If not, install the GitHub Copilot Modernization for .NET extension)
+- The project from the StartSample folder
 
-### 🎯 Check GitHub Copilot Agent Mode
+### Check GitHub Copilot Agent Mode
 
 First, verify that the migrate_dotnet tool is enabled in GitHub Copilot's Agent Mode:
 
 1. Open Visual Studio and navigate to your solution
-2. Check the GitHub Copilot status in the bottom right corner
-3. Ensure Agent Mode is active with the migrate_dotnet tool enabled
+2. Ensure Agent Mode is active with the migrate_dotnet tool enabled
 
 ![GitHub Copilot Agent Mode](./images/copilot-agent-mode.png)
 
-### 🚀 Starting the Modernization Process
+### Starting the Modernization Process
 
 1. **Right-click on your solution** in Solution Explorer
 2. Select **"Upgrade with Copilot"** from the context menu
 
 ![Upgrade with Copilot Menu](./images/upgrade-with-copilot-menu.png)
 
-3. When prompted to select a version or provide context, paste the following comprehensive modernization request:
+3. When prompted to select a version or provide context, do not select a version. Because we did already the migration in the previous section, here, we are aiming to modernize the application architecture and codebase.
+
+4. Paste the following comprehensive modernization request:
 
 ```
 I am working on a project that has recently been upgraded from .NET Framework to .NET 9. I need help modernizing the architecture and refactoring the codebase to align with .NET 9 best practices. Please assist with the following tasks:
@@ -62,12 +67,12 @@ GitHub Copilot will guide you through several modernization phases:
 
 #### 1️⃣ Namespace and Naming Consistency
 
-Copilot will analyze your codebase and suggest namespace corrections:
+Because of the older namespace structure from .NET Framework, we need to ensure that all namespaces and naming conventions are consistent in our application. For example, our models may have namespaces like `eShopLite.StoreFx.Models` instead of `eShopLite.StoreCore.Models`.
 
-![Namespace Analysis](./images/namespace-analysis.png)
+To achieve this, we added steps to Copilot analyze your codebase and suggest namespace corrections, before accepting any changes, please follow these steps:
 
-- Review suggested namespace changes
-- Accept modifications to align with .NET 9 conventions
+- Review suggested namespace changes, you can accept or modify them as needed.
+- Accept modifications to align with .NET 9 conventions and packages, such as going from `Newtonsoft.Json` to `System.Text.Json`.
 - Ensure all models follow consistent naming patterns
 
 ![Fix Namespace Models](./images/fix-namespace-models.png)
@@ -76,55 +81,27 @@ Copilot will analyze your codebase and suggest namespace corrections:
 
 ##### Modernize Data Layer with SQLite
 
-Copilot will help transition from SQL Express to SQLite:
-
-![SQLite Migration](./images/sqlite-migration.png)
+We are transitioning from SQL Express using InMemory to SQLite, thus using a real database for persistence. Copilot will help transition from SQL Express to SQLite:
 
 - Update Entity Framework Core packages
 - Configure SQLite provider
 - Adjust connection strings
 
-##### Modernize Service Layer
+![SQLite Migration](./images/sqlite-migration.png)
 
-Transform services to use modern dependency injection patterns:
-
-![Service Layer Modernization](./images/service-layer-modernization.png)
-
-##### Fix Controller Namespace and Modernize
-
-Update controllers with async/await patterns and modern routing:
-
-![Controller Modernization](./images/controller-modernization.png)
-
-##### Modernize Program.cs
-
-Refactor to use minimal hosting model and modern configuration:
-
-![Program.cs Modernization](./images/program-modernization.png)
-
-##### Update Views
-
-Ensure views are compatible with async operations:
-
-![Views Update](./images/views-update.png)
-
-##### Create Error View
-
-Add proper error handling views:
-
-![Error View Creation](./images/error-view-creation.png)
-
-#### 3️⃣ Database Migration
-
-##### Update Configuration
-
-Configure SQLite connection strings:
+![SQLite Program.cs](./images/sqlite-program.png)
 
 ![SQLite Configuration](./images/sqlite-configuration.png)
 
-##### Create the Database
+##### Modernizations
 
-If Copilot fails to automatically create the database:
+Transform services to use modern dependency injection patterns and update controllers with async/await patterns and modern routing:
+
+![Service Layer Modernization](./images/service-layer-modernization.png)
+
+#### 3️⃣ Database Migration
+
+Copilot should automatically handle the database migration to SQLite, but if it doesn't, you can follow these steps:
 
 1. Open a terminal in your project directory
 2. Run the following commands:
@@ -132,10 +109,9 @@ If Copilot fails to automatically create the database:
 ```bash
 cd eShopLite.StoreCore
 dotnet ef migrations add InitialCreate
-dotnet ef database update
 ```
 
-![EF Migrations](./images/ef-migrations.png)
+3. Now, build and run the application to ensure the database is created and seeded correctly.
 
 ### 🔧 Troubleshooting Common Issues
 
@@ -144,8 +120,6 @@ dotnet ef database update
 If you encounter YARP (Yet Another Reverse Proxy) errors:
 - Ask Copilot to remove YARP references from your project
 - These are typically not needed for this application
-
-![YARP Error Resolution](./images/yarp-error-resolution.png)
 
 #### Missing Images
 
@@ -171,13 +145,31 @@ After completing all modernization steps:
 
 ### 4️⃣ Convert to Blazor Pages
 
-Prompt is "Blazor Migration
+Great, now we are ready continuing our modernization journey by converting the existing ASP.NET MVC pages to Blazor components. Use the following prompt to guide Copilot:
+
+```plaintext
+Convert the existing ASP.NET MVC pages to Blazor components. This includes:
 
 Convert all existing pages to use Blazor (preferably Blazor Server or Blazor WebAssembly, depending on suitability).
 Remove all non-Blazor pages and ensure routing is correctly configured.
 Ensure all media (images, videos, etc.) are correctly referenced and rendered in the new Blazor components.
 Fix issues where the page renders blank or fails to load due to routing or layout problems.
-"
+```
+
+![Blazor Migration](./images/blazor-migration.png)
+
+Copilot will convert the MVC pages to Blazor components, ensuring that all functionality is preserved and adding some new features.
+
+> Note: If you encounter any issues with the Blazor migration, you can ask Copilot to help troubleshoot specific problems, such as missing components or routing errors.
+
+This is our final page:
+
+![Blazor Final Page](./images/blazor-final-page.png)
+
+![Blazor Final Page Store](./images/blazor-final-page-store.png)
+
+!![Blazor Final Page locations](./images/blazor-final-page-locations.png)
+
 
 ## ✅ Verification
 
