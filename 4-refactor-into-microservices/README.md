@@ -55,7 +55,7 @@ Before starting, ensure you have:
 
    ![.mcp.json file](./images/refactor-into-microservices-01.png)
 
-### Modernize Blazor Server App to Blazor Web App
+### 📝 Modernize Blazor Server App to Blazor Web App
 
 1. Add a new Blazor web app project to the solution. The new Blazor web app project is `eShopLite.Store`.
 1. Make sure you've included both `context7` and `sequentialthinking` MCP servers as tools.
@@ -107,7 +107,7 @@ Before starting, ensure you have:
 
 Althouth the `eShopLite.Store` app has been modernized, it is still monolith. For the app to be more cloud-native, let's divide the `eShopLite.Store` app into three &ndash; the existing `eShopLite.Store` still takes care of the UI frontend part, but the product data and store location data are running as separate API apps. GitHub Copilot makes this monolith app into microservice apps way easier.
 
-### Separate `eShopLite.Products` and `eShopLite.StoreInfo` from `eShopLite.Store`
+### ✂️ Separate `eShopLite.Products` and `eShopLite.StoreInfo` from `eShopLite.Store`
 
 1. In a new GitHub Copilot Chat, make sure it's the agent mode.
 1. Make sure both `context7` and `sequentialthinking` MCP servers are up and running, and included as tools.
@@ -130,12 +130,19 @@ Althouth the `eShopLite.Store` app has been modernized, it is still monolith. Fo
 
 1. Once the separation to microservices is complete, build the entire solution, run all the apps and verify whether everything works well or not.
 
-*Detailed microservices refactoring instructions will be added here.*
+### ⛓️‍💥 Delete `eShopLite.StoreCore`
+
+`eShopLite.StoreCore` has now been mondernized to `eShopLite.Store`, followed by being split into three microservices &ndash; `eShopLite.Store` for UI frontend, `eShopLite.Products` for product API and `eShopLite.StoreInfo` for store info API.
+
+Therefore, we don't need `eShopLite.StoreCore` any longer. Remove it from the solution.
+
+Done! Your `eShopLite` app is now fully working in the microservice architecture!
 
 ## ✅ Verification
 
 By the end of this section, you should have:
 
+🔹 Modernized Blazor Server app to Blazor Web app
 🔹 Decomposed monolith into logical microservices  
 🔹 Implemented proper service boundaries  
 🔹 Established communication patterns between services  
