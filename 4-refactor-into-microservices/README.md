@@ -51,9 +51,11 @@ Before starting, ensure you have:
     }
     ```
 
-   Once you add this `.mcp.json` file, you'll be able to run both directly on the file. Click `start` or `restart` button.
+   Once you add this `.mcp.json` file, you'll be able to see both MCP servers are in the `active` state.
 
    ![.mcp.json file](./images/refactor-into-microservices-01.png)
+
+   > **NOTE**: Either MCP server might not be in the `active` state. In this case,  click the `restart` button to restart the MCP server.
 
 ### 📝 Modernize Blazor Server App to Blazor Web App
 
@@ -61,6 +63,8 @@ Before starting, ensure you have:
 1. Make sure you've included both `context7` and `sequentialthinking` MCP servers as tools.
 
    ![MCP servers added](./images/refactor-into-microservices-02.png)
+
+   > **NOTE**: It might not be appearing at the first time. In this case, close Visual Studio and reopen it.
 
 1. Enter the following prompt for migration.
 
