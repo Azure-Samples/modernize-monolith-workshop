@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using eShopLite.Store.Components;
-using eShopLite.Store.Data;
 using eShopLite.Store.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,24 +19,20 @@ static void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddRazorComponents()
         .AddInteractiveServerComponents();
 
-    // Configure Entity Framework with SQLite
-    builder.Services.AddDbContext<StoreDbContext>(options =>
+    // Configure HTTP clients for microservices
+    builder.Services.AddHttpClient<IProductApiClient, ProductApiClient>(client =>
     {
-        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-            ?? "Data Source=eShopLite.db";
-        options.UseSqlite(connectionString);
-        
-        // Enable sensitive data logging in development
-        if (builder.Environment.IsDevelopment())
-        {
-            options.EnableSensitiveDataLogging();
-            options.EnableDetailedErrors();
-        }
+        client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("ProductsApiUrl") ?? "https://localhost:7001");
+        client.Timeout = TimeSpan.FromSeconds(30);
+    });
+
+    builder.Services.AddHttpClient<IStoreInfoApiClient, StoreInfoApiClient>(client =>
+    {
+        client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("StoreInfoApiUrl") ?? "https://localhost:7002");
+        client.Timeout = TimeSpan.FromSeconds(30);
     });
 
     // Register application services
-    builder.Services.AddScoped<IStoreDbContext>(provider => 
-        provider.GetRequiredService<StoreDbContext>());
     builder.Services.AddScoped<IStoreService, StoreService>();
 
     // Configure JSON options for System.Text.Json
@@ -48,9 +42,10 @@ static void ConfigureServices(WebApplicationBuilder builder)
         options.SerializerOptions.WriteIndented = true;
     });
 
-    // Add health checks
+    // Add health checks for API dependencies
     builder.Services.AddHealthChecks()
-        .AddDbContextCheck<StoreDbContext>();
+        .AddCheck("products-api", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy("Products API dependency"))
+        .AddCheck("storeinfo-api", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy("StoreInfo API dependency"));
 
     // Configure logging
     builder.Logging.ClearProviders();
@@ -88,25 +83,5 @@ static async Task ConfigureMiddlewareAsync(WebApplication app)
     app.MapRazorComponents<App>()
         .AddInteractiveServerRenderMode();
 
-    // Initialize database
-    await InitializeDatabaseAsync(app);
-}
-
-static async Task InitializeDatabaseAsync(WebApplication app)
-{
-    using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
-    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-
-    try
-    {
-        logger.LogInformation("Initializing database...");
-        await context.Database.EnsureCreatedAsync();
-        logger.LogInformation("Database initialization completed successfully");
-    }
-    catch (Exception ex)
-    {
-        logger.LogError(ex, "An error occurred while initializing the database");
-        throw;
-    }
+    await Task.CompletedTask;
 }

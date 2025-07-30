@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using eShopLite.Store.Data;
 using eShopLite.Store.Models;
 using Microsoft.Extensions.Logging;
 
@@ -19,12 +16,17 @@ namespace eShopLite.Store.Services
 
     public class StoreService : IStoreService
     {
-        private readonly IStoreDbContext _context;
+        private readonly IProductApiClient _productApiClient;
+        private readonly IStoreInfoApiClient _storeInfoApiClient;
         private readonly ILogger<StoreService> _logger;
 
-        public StoreService(IStoreDbContext context, ILogger<StoreService> logger)
+        public StoreService(
+            IProductApiClient productApiClient,
+            IStoreInfoApiClient storeInfoApiClient,
+            ILogger<StoreService> logger)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _productApiClient = productApiClient ?? throw new ArgumentNullException(nameof(productApiClient));
+            _storeInfoApiClient = storeInfoApiClient ?? throw new ArgumentNullException(nameof(storeInfoApiClient));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -32,12 +34,12 @@ namespace eShopLite.Store.Services
         {
             try
             {
-                _logger.LogInformation("Retrieving all products");
-                return await _context.Products.ToListAsync();
+                _logger.LogInformation("Retrieving all products via API");
+                return await _productApiClient.GetProductsAsync();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving products");
+                _logger.LogError(ex, "Error retrieving products via API");
                 throw;
             }
         }
@@ -46,12 +48,12 @@ namespace eShopLite.Store.Services
         {
             try
             {
-                _logger.LogInformation("Retrieving all stores");
-                return await _context.Stores.ToListAsync();
+                _logger.LogInformation("Retrieving all stores via API");
+                return await _storeInfoApiClient.GetStoresAsync();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving stores");
+                _logger.LogError(ex, "Error retrieving stores via API");
                 throw;
             }
         }
@@ -60,12 +62,12 @@ namespace eShopLite.Store.Services
         {
             try
             {
-                _logger.LogInformation("Retrieving product with ID: {ProductId}", id);
-                return await _context.Products.FindAsync(id);
+                _logger.LogInformation("Retrieving product with ID: {ProductId} via API", id);
+                return await _productApiClient.GetProductByIdAsync(id);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving product with ID: {ProductId}", id);
+                _logger.LogError(ex, "Error retrieving product with ID: {ProductId} via API", id);
                 throw;
             }
         }
@@ -74,12 +76,12 @@ namespace eShopLite.Store.Services
         {
             try
             {
-                _logger.LogInformation("Retrieving store with ID: {StoreId}", id);
-                return await _context.Stores.FindAsync(id);
+                _logger.LogInformation("Retrieving store with ID: {StoreId} via API", id);
+                return await _storeInfoApiClient.GetStoreByIdAsync(id);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving store with ID: {StoreId}", id);
+                _logger.LogError(ex, "Error retrieving store with ID: {StoreId} via API", id);
                 throw;
             }
         }

@@ -100,6 +100,9 @@ Before starting, ensure you have:
     ```
 
 1. Once all the fix is complete run the `eShopLite.Store` app and verify everything works as expected.
+
+   > **Pro Tips**: It would be great if you click the "Keep" button after each turn GitHub Copilot completes steps, so that you can easily track changes between turns.
+
 1. Modernization to Blazor Web App has now been complete.
 
 Althouth the `eShopLite.Store` app has been modernized, it is still monolith. For the app to be more cloud-native, let's divide the `eShopLite.Store` app into three &ndash; the existing `eShopLite.Store` still takes care of the UI frontend part, but the product data and store location data are running as separate API apps. GitHub Copilot makes this monolith app into microservice apps way easier.
@@ -109,6 +112,23 @@ Althouth the `eShopLite.Store` app has been modernized, it is still monolith. Fo
 1. In a new GitHub Copilot Chat, make sure it's the agent mode.
 1. Make sure both `context7` and `sequentialthinking` MCP servers are up and running, and included as tools.
 1. Add two ASP.NET Core Web API projects called `eShopLite.Products` and `eShopLite.StoreInfo`.
+1. Enter the following prompt to covert microservices.
+
+    ```text
+    Here's the Blazor monolith app, `eShopLite.Store`. I'd like to covert it into microservices by separating the product API to `eShopLite.Products` and store info API to `eShopLite.StoreInfo`. The main UI logic should remain at `eShopLite.Store`. Here are my instructions for you to follow:
+    
+    - Use `context7` and `sequentialthinking` MCP servers.
+    - Extract the product API to `eShopLite.Products` from `eShopLite.Store`.
+    - Extract the store info API to `eShopLite.StoreInfo` from `eShopLite.Store`.
+    - The existing database structure should also be separated - `ProductDbContext` and `StoreInfoDbContext`.
+    - Both API apps should keep using SQLite.
+    - Both API apps should follow the Minimal API approach instead of Controllers/Actions.
+    - The `eShopLite.Store` app should communicate with both APIs through the `ApiClient` class like `ProductApiClient` or `StoreInfoApiClient` inheriting the base `ApiClient` class.
+    - DO NOT ADD new features
+    - DO NOT ALT existing features
+    ```
+
+1. Once the separation to microservices is complete, build the entire solution, run all the apps and verify whether everything works well or not.
 
 *Detailed microservices refactoring instructions will be added here.*
 
