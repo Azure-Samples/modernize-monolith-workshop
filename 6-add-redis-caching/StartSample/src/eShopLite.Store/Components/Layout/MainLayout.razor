@@ -1,0 +1,73 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <NavLink class="navbar-brand" href="/">
+                <i class="bi bi-shop me-2"></i>eShopLite
+            </NavLink>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" 
+                    title="Toggle navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                            <i class="bi bi-house-fill me-1"></i>Home
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/products">
+                            <i class="bi bi-box-seam me-1"></i>Products
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/stores">
+                            <i class="bi bi-shop me-1"></i>Stores
+                        </NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/health" target="_blank">
+                            <i class="bi bi-heart-pulse me-1"></i>Health
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container body-content">
+        @Body
+    </main>
+
+    <footer class="container mt-5">
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; @DateTime.Now.Year - eShopLite</p>
+                <p class="text-muted">
+                    <i class="bi bi-lightning-charge text-warning me-1"></i>
+                    Powered by Blazor Server & .NET 9
+                </p>
+            </div>
+            <div class="col-md-6 text-end">
+                <div class="d-flex justify-content-end align-items-center">
+                    <small class="text-muted me-3">
+                        <i class="bi bi-database me-1"></i>SQLite Database
+                    </small>
+                    <small class="text-muted">
+                        <i class="bi bi-speedometer2 me-1"></i>Real-time Updates
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<style>
+    .navbar-nav .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.25rem;
+    }
+</style>
