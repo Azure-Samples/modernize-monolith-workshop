@@ -176,6 +176,8 @@ Let's see the effect of our caching implementation in the .NET Aspire dashboard.
 
    ![Dashboard with the stores without caching enabled](./images/add-redis-caching-11.png)
 
+1. Close the web browser to stop debugging the applications.
+
 So far, we have integrated Redis Cache container through .NET Aspire orchestration. .NET Aspire doesn't only make this type of integration easier, but it also makes all other cloud-native features like observability, traceability and discoverability easier and simpler.
 
 ## ✅ Verification
