@@ -191,6 +191,13 @@ namespace eShopLite.StoreCore.Data
   @RenderSection("scripts", required: false)
 ```
 
+8. If copilot did not create the database migration, you can create it manually by running the following command in the Package Manager Console:
+
+```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
 Now, you should be able to run the application and see the migrated eShopLite.StoreCore application running on .NET Core/.NET. If you wish, you could delete the old eShopLiteFx project, as it is no longer needed.
 
 ![eShopLite.StoreCore running](./images/eshoplite-storecore-running.png)
