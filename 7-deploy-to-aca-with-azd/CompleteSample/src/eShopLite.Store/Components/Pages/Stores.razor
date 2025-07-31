@@ -1,0 +1,295 @@
+@page "/stores"
+@inject IStoreService StoreService
+@inject ILogger<Stores> Logger
+@inject IJSRuntime JSRuntime
+@rendermode InteractiveServer
+
+<PageTitle>Store Locations - eShopLite</PageTitle>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="mb-1">
+            <i class="bi bi-geo-alt text-success me-2"></i>Store Locations
+        </h1>
+        <p class="text-muted mb-0">Visit our expert staff at locations nationwide</p>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-outline-success" @onclick="RefreshStores" disabled="@isLoading">
+            <i class="bi bi-arrow-clockwise me-1"></i>
+            @if (isLoading) { <span>Loading...</span> } else { <span>Refresh</span> }
+        </button>
+        @if (stores != null && stores.Any())
+        {
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-funnel me-1"></i>Filter by State
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" @onclick="() => SetStateFilter(null)" href="#">
+                        <i class="bi bi-globe me-2"></i>All States
+                    </a></li>
+                    @foreach (var state in GetUniqueStates())
+                    {
+                        <li><a class="dropdown-item" @onclick="() => SetStateFilter(state)" href="#">
+                            <i class="bi bi-geo-alt me-2"></i>@state
+                        </a></li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        @errorMessage
+        <button type="button" class="btn-close" @onclick="ClearError" aria-label="Close"></button>
+    </div>
+}
+
+@if (isLoading)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading store locations...</span>
+        </div>
+        <p class="mt-3 text-muted">Finding stores near you...</p>
+    </div>
+}
+else if (stores == null || !stores.Any())
+{
+    <div class="text-center py-5">
+        <i class="bi bi-shop display-1 text-muted"></i>
+        <h3 class="mt-3">No Stores Available</h3>
+        <p class="text-muted mb-4">We're expanding our locations. Check back soon for updates!</p>
+        <button class="btn btn-success btn-lg" @onclick="RefreshStores">
+            <i class="bi bi-arrow-clockwise me-2"></i>Try Again
+        </button>
+    </div>
+}
+else
+{
+    @if (!string.IsNullOrEmpty(selectedState))
+    {
+        <div class="alert alert-info alert-dismissible fade show">
+            <i class="bi bi-info-circle me-2"></i>
+            Showing stores in <strong>@selectedState</strong>
+            <button type="button" class="btn-close" @onclick="() => SetStateFilter(null)" aria-label="Clear filter"></button>
+        </div>
+    }
+
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <small class="text-muted">
+            <i class="bi bi-info-circle me-1"></i>
+            Showing @GetFilteredStores().Count() of @stores.Count stores | Last updated: @DateTime.Now.ToString("HH:mm:ss")
+        </small>
+    </div>
+
+    <div class="row g-4 mb-4">
+        @foreach (var store in GetFilteredStores())
+        {
+            <div class="col-xl-4 col-lg-6">
+                <div class="card h-100 shadow-sm store-card border-success">
+                    <div class="card-header bg-success text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">
+                                <i class="bi bi-shop me-2"></i>@store.Name
+                            </h5>
+                            <span class="badge bg-light text-dark">#@store.Id</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-2">
+                                <i class="bi bi-geo-alt-fill text-danger me-1"></i>Location
+                            </h6>
+                            <p class="mb-0 fw-semibold">@store.City, @store.State</p>
+                            <small class="text-muted">United States</small>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-2">
+                                <i class="bi bi-clock-fill text-primary me-1"></i>Business Hours
+                            </h6>
+                            <p class="mb-0">@store.Hours</p>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-sm btn-outline-primary" @onclick="() => GetDirections(store)">
+                                <i class="bi bi-map me-1"></i>Directions
+                            </button>
+                            <button class="btn btn-sm btn-outline-success" @onclick="() => ViewStoreDetails(store)">
+                                <i class="bi bi-info-circle me-1"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light border-0">
+                <div class="card-body p-4">
+                    <h5 class="card-title">
+                        <i class="bi bi-bar-chart text-info me-2"></i>Store Statistics
+                    </h5>
+                    <div class="row text-center">
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="stat-item">
+                                <div class="stat-number text-success">@stores.Count</div>
+                                <div class="stat-label text-muted">Total Stores</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="stat-item">
+                                <div class="stat-number text-primary">@GetUniqueStates().Count()</div>
+                                <div class="stat-label text-muted">States</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="stat-item">
+                                <div class="stat-number text-warning">@GetUniqueCities().Count()</div>
+                                <div class="stat-label text-muted">Cities</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="stat-item">
+                                <div class="stat-number text-info">24/7</div>
+                                <div class="stat-label text-muted">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">States We Serve:</h6>
+                            <p class="mb-0 text-muted">
+                                @string.Join(", ", GetUniqueStates().OrderBy(s => s))
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Expert Services:</h6>
+                            <ul class="list-unstyled mb-0 text-muted">
+                                <li><i class="bi bi-check-circle text-success me-1"></i>Gear Consultation</li>
+                                <li><i class="bi bi-check-circle text-success me-1"></i>Equipment Testing</li>
+                                <li><i class="bi bi-check-circle text-success me-1"></i>Custom Fitting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<StoreInfo>? stores;
+    private bool isLoading = true;
+    private string? errorMessage;
+    private string? selectedState;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadStores();
+    }
+
+    private async Task LoadStores()
+    {
+        try
+        {
+            isLoading = true;
+            errorMessage = null;
+            StateHasChanged();
+
+            Logger.LogInformation("Loading stores via Blazor component");
+            stores = (await StoreService.GetStoresAsync()).ToList();
+            Logger.LogInformation("Successfully loaded {Count} stores", stores.Count);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error loading stores in Blazor component");
+            errorMessage = "Unable to load store locations at this time. Please try again later.";
+            stores = new List<StoreInfo>();
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task RefreshStores()
+    {
+        await LoadStores();
+    }
+
+    private void ClearError()
+    {
+        errorMessage = null;
+    }
+
+    private void SetStateFilter(string? state)
+    {
+        selectedState = state;
+    }
+
+    private IEnumerable<StoreInfo> GetFilteredStores()
+    {
+        if (stores == null) return Enumerable.Empty<StoreInfo>();
+        
+        if (string.IsNullOrEmpty(selectedState))
+            return stores;
+            
+        return stores.Where(s => s.State == selectedState);
+    }
+
+    private IEnumerable<string> GetUniqueStates()
+    {
+        return stores?.Select(s => s.State).Distinct().OrderBy(s => s) ?? Enumerable.Empty<string>();
+    }
+
+    private IEnumerable<string> GetUniqueCities()
+    {
+        return stores?.Select(s => s.City).Distinct() ?? Enumerable.Empty<string>();
+    }
+
+    private async Task GetDirections(StoreInfo store)
+    {
+        var mapsUrl = $"https://www.google.com/maps/search/{Uri.EscapeDataString($"{store.Name} {store.City} {store.State}")}";
+        await JSRuntime.InvokeVoidAsync("window.open", mapsUrl, "_blank");
+    }
+
+    private async Task ViewStoreDetails(StoreInfo store)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", 
+            $"Store: {store.Name}\nLocation: {store.City}, {store.State}\nHours: {store.Hours}\n\nServices Available:\n• Expert Gear Consultation\n• Equipment Testing\n• Custom Fitting");
+    }
+}
+
+<style>
+    .store-card {
+        transition: all 0.3s ease;
+    }
+
+    .store-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,.15) !important;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .stat-item {
+        padding: 1rem 0;
+    }
+</style>

@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "principalId": {
+        "value": "${AZURE_PRINCIPAL_ID}"
+      },
+      "pg_products_password": {
+        "value": "${AZURE_PG_PRODUCTS_PASSWORD}"
+      },
+      "pg_storeinfo_password": {
+        "value": "${AZURE_PG_STOREINFO_PASSWORD}"
+      },
+      "redis_password": {
+        "value": "${AZURE_REDIS_PASSWORD}"
+      },
+      "environmentName": {
+        "value": "${AZURE_ENV_NAME}"
+      },
+      "location": {
+        "value": "${AZURE_LOCATION}"
+      }
+    }
+  }
+  

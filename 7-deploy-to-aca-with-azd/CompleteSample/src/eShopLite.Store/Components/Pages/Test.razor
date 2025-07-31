@@ -1,0 +1,43 @@
+@page "/test"
+
+<PageTitle>Test - eShopLite</PageTitle>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-success">? Blazor is Working!</h1>
+            <p class="lead">If you can see this page, your Blazor application is running correctly.</p>
+            
+            <div class="alert alert-success">
+                <h4 class="alert-heading">Application Status:</h4>
+                <p><strong>? Blazor Server:</strong> Running</p>
+                <p><strong>? Routing:</strong> Working</p>
+                <p><strong>? Components:</strong> Rendering</p>
+                <p class="mb-0"><strong>? Current Time:</strong> @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</p>
+            </div>
+
+            <div class="mt-4">
+                <h3>Quick Navigation Test:</h3>
+                <div class="d-flex gap-2">
+                    <NavLink href="/" class="btn btn-primary">Home</NavLink>
+                    <NavLink href="/products" class="btn btn-outline-primary">Products</NavLink>
+                    <NavLink href="/stores" class="btn btn-outline-success">Stores</NavLink>
+                    <a href="/health" class="btn btn-outline-info" target="_blank">Health Check</a>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h3>CSS Test:</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Bootstrap Icons Working
+                        </h5>
+                        <p class="card-text">If you can see the green checkmark icon above, Bootstrap and CSS are loading correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
