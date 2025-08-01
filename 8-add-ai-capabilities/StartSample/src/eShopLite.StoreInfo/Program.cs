@@ -4,12 +4,14 @@ using eShopLite.StoreInfo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.AddServiceDefaults();
 
 // Configure services
 ConfigureServices(builder);
 
 var app = builder.Build();
+
 
 app.MapDefaultEndpoints();
 

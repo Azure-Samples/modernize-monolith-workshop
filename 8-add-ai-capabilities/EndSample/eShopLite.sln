@@ -9,10 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLite.Products", "src\e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLite.StoreInfo", "src\eShopLite.StoreInfo\eShopLite.StoreInfo.csproj", "{566AC275-DAF1-47D5-AEB2-1F4EEEE1D484}"
 EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLite.AppHost", "src\eShopLite.AppHost\eShopLite.AppHost.csproj", "{D2F1E678-199F-4F41-B070-FE784B350D7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLite.ServiceDefaults", "src\eShopLite.ServiceDefaults\eShopLite.ServiceDefaults.csproj", "{84630803-5913-1A87-E6F6-A126994CB532}"
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,7 @@ Global
 		{84630803-5913-1A87-E6F6-A126994CB532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84630803-5913-1A87-E6F6-A126994CB532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84630803-5913-1A87-E6F6-A126994CB532}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

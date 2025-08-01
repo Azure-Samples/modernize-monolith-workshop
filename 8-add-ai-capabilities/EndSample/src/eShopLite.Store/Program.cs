@@ -1,5 +1,6 @@
 using eShopLite.Store.Components;
 using eShopLite.Store.Services;
+
 using Azure.AI.Inference;
 using Azure;
 
@@ -11,6 +12,7 @@ builder.AddServiceDefaults();
 ConfigureServices(builder);
 
 var app = builder.Build();
+
 
 app.MapDefaultEndpoints();
 
@@ -67,6 +69,7 @@ static void ConfigureServices(WebApplicationBuilder builder)
     }
 }
 
+
 static void ConfigureChatbotServices(WebApplicationBuilder builder)
 {
     // Register ChatCompletionsClient as singleton with GitHub token from environment
@@ -101,7 +104,6 @@ static void ConfigureChatbotServices(WebApplicationBuilder builder)
     // Register IChatbotService as scoped
     builder.Services.AddScoped<IChatbotService, ChatbotService>();
 }
-
 static async Task ConfigureMiddlewareAsync(WebApplication app)
 {
     // Configure the HTTP request pipeline

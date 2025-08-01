@@ -3,12 +3,14 @@ using eShopLite.Store.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.AddServiceDefaults();
 
 // Configure services
 ConfigureServices(builder);
 
 var app = builder.Build();
+
 
 app.MapDefaultEndpoints();
 
@@ -26,6 +28,7 @@ static void ConfigureServices(WebApplicationBuilder builder)
     // Configure HTTP clients for microservices
     builder.Services.AddHttpClient<IProductApiClient, ProductApiClient>(client =>
     {
+
         client.BaseAddress = new Uri("https+http://eshoplite-products");
         client.Timeout = TimeSpan.FromSeconds(30);
     });
@@ -33,6 +36,7 @@ static void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddHttpClient<IStoreInfoApiClient, StoreInfoApiClient>(client =>
     {
         client.BaseAddress = new Uri("https+http://eshoplite-storeinfo");
+
         client.Timeout = TimeSpan.FromSeconds(30);
     });
 
