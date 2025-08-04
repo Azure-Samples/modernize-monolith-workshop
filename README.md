@@ -40,11 +40,11 @@ Let's go! 🎉
 
 Some additional learning resources for you!
 
-🎥 [Microsoft Build Sessions - BRK199](https://build.microsoft.com/en-US/sessions/BRK199?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK101](https://build.microsoft.com/en-US/sessions/BRK101?source=sessions)  
-🎥 [Microsoft Build Sessions - DEM549](https://build.microsoft.com/en-US/sessions/DEM549?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK106](https://build.microsoft.com/en-US/sessions/BRK106?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK182](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
+🎥 [From legacy to cloud native: Accelerating Modernization at scale and AI](https://build.microsoft.com/en-US/sessions/BRK199?source=sessions)  
+🎥 [The Future of .NET App Modernization Streamlined with AI](https://build.microsoft.com/en-US/sessions/BRK101?source=sessions)  
+🎥 [Using agentic AI to simplify .NET upgrades with GitHub Copilot](https://build.microsoft.com/en-US/sessions/DEM549?source=sessions)  
+🎥 [Elevating Development with .NET Aspire: AI, Cloud, and Beyond](https://build.microsoft.com/en-US/sessions/BRK106?source=sessions)  
+🎥 [Better Microservices Development using Azure Container Apps](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
 ⬆️ [.NET Platform Upgrade](https://dotnet.microsoft.com/en-us/platform/upgrade)  
 📖 [GitHub Copilot App Modernization Overview](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview)
   
