@@ -1,10 +1,10 @@
-# 🚀 Modernize with GitHub Copilot
+# 🚀 Upgrade with GitHub Copilot
 
-Let's explore an alternative approach to modernizing our eShopLite application using the GitHub Copilot Upgrade Assistant extension. 
+Let's explore an alternative approach to upgrading our eShopLite application using the GitHub Copilot Upgrade Assistant extension. 
 
 ![GitHub Copilot Modernization App](./images/github-copilot-modernization-app.png)
 
-This powerful tool leverages AI to automate and guide the modernization process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
+This powerful tool leverages AI to automate and guide the upgrade process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
 
 ## 📋 What You'll Do
 
@@ -20,9 +20,9 @@ This section covers:
 
 > **Warning**: If you're working locally, please copy the StartSample folder to another location before proceeding. The extension will attempt to create branches and git commits to save modifications as it progresses!
 
-## 🤖 Getting Started with GitHub Copilot Modernization
+## 🤖 Getting Started with GitHub Copilot Upgrade
 
-In this tutorial, we'll modernize our application to achieve three major goals:
+In this tutorial, we'll upgrade our application to achieve three major goals:
 - Upgrade to .NET 9
 - Migrate from SQL Express to SQLite
 - Transform our MVC frontend to modern Blazor components
@@ -196,4 +196,4 @@ By using GitHub Copilot's modernization capabilities, you've:
 The combination of framework upgrade, database migration, and frontend transformation would typically take days or weeks of manual work, but with GitHub Copilot's assistance, you've accomplished it in a fraction of the time!
 
 ---
-[← Previous: Modernize .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)
+[← Previous: Upgrade .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)

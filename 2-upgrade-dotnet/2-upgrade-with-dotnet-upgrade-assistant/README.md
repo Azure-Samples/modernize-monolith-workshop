@@ -1,12 +1,12 @@
-# 🔄 Modernize with .NET Upgrade Assistant
+# 🔄 Upgrade with .NET Upgrade Assistant
 
-Let's modernize our eShopLite application to modern .NET using the .NET Upgrade Assistant. 
+Let's upgrade our eShopLite application to modern .NET using the .NET Upgrade Assistant. 
 
 The .NET Upgrade Assistant is a powerful tool available as both a Visual Studio extension and command-line interface that helps migrate .NET Framework, .NET Core, or older .NET projects to the latest .NET version. 
 
 ![.NET Upgrade Assistant](./images/dotnet-upgrade-assistant.png)
 
-Featuring an analysis engine that scans your projects and dependencies, generating detailed reports with upgrade recommendations that allow you to modernize entire projects or specific components like configuration files, while automatically detecting and fixing potential incompatibilities.
+Featuring an analysis engine that scans your projects and dependencies, generating detailed reports with upgrade recommendations that allow you to upgrade entire projects or specific components like configuration files, while automatically detecting and fixing potential incompatibilities.
 
 The following uses are supported by the extension:
 
@@ -213,4 +213,4 @@ By the end of this section, you should have:
 🔹 A working modern .NET application  
 
 ---
-[← Previous: Modernize .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)
+[← Previous: Upgrade .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)
