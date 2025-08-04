@@ -1,6 +1,6 @@
-# 🔄 Migrate with .NET Upgrade Assistant
+# 🔄 Modernize with .NET Upgrade Assistant
 
-Let's update our eShopLite application to modern .NET using the .NET Upgrade Assistant. 
+Let's modernize our eShopLite application to modern .NET using the .NET Upgrade Assistant. 
 
 The .NET Upgrade Assistant is a powerful tool available as both a Visual Studio extension and command-line interface that helps migrate .NET Framework, .NET Core, or older .NET projects to the latest .NET version. 
 

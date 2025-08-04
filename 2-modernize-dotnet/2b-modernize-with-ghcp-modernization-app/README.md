@@ -1,4 +1,4 @@
-# 🚀 Migrate with GitHub Copilot Modernization
+# 🚀 Modernize with GitHub Copilot
 
 Let's explore an alternative approach to modernizing our eShopLite application using the GitHub Copilot Upgrade Assistant extension. 
 
