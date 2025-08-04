@@ -100,4 +100,4 @@ By the end of this section, you should have:
 🔹 Access to necessary services verified  
 
 ---
-[← Back to Main Workshop](../README.md) | [Next: Migrate with .NET Upgrade Assistant →](../2-migrate-with-dotnet-upgrade-assistant/README.md)
+[← Back to Main Workshop](../README.md) | [Next: Modernize .NET Applications →](../2-modernize-dotnet/README.md)

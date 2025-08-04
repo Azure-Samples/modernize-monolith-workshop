@@ -26,7 +26,7 @@ Here are some things you will need:
 This workshop is split into 8 different parts. Each shows you an aspect of modernizing your app. The sections each have their own learning materials and hands-on exercises in sub-folders.
 
 1. [🔧 Setup your environment](./1-setup-your-environment/README.md)
-2. [🔄 Migrate with .NET Upgrade assistant Fx -> Core](./2-migrate-with-dotnet-upgrade-assistant/README.md)
+2. [🔄 Modernize .NET Applications](./2-modernize-dotnet/README.md)
 3. [🤖 Modernize with GitHub Copilot app modernization](./3-modernize-with-github-copilot/README.md)
 4. [🏗️ Refactor into microservices](./4-refactor-into-microservices/README.md)
 5. [⭐ Add .NET Aspire (service discovery, dashboard / telemetry)](./5-add-dotnet-aspire/README.md)

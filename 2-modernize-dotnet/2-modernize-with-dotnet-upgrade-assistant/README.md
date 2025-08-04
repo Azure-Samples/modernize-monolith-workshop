@@ -202,7 +202,7 @@ Now, you should be able to run the application and see the migrated eShopLite.St
 
 ![eShopLite.StoreCore running](./images/eshoplite-storecore-running.png)
 
->**Note**: For the complete migration for the sample, look at the [eShopLite.StoreCore](../3-modernize-with-github-copilot/StartSample) folder, which contains the fully migrated project.
+>**Note**: For the complete migration for the sample, look at the [eShopLite.StoreCore](../../3-modernize-with-github-copilot/StartSample) folder, which contains the fully migrated project.
 
 ## ✅ Verification
 
@@ -213,4 +213,4 @@ By the end of this section, you should have:
 🔹 A working modern .NET application  
 
 ---
-[← Previous: Setup Environment](../1-setup-your-environment/README.md) | [Next: Modernize with GitHub Copilot →](../3-modernize-with-github-copilot/README.md)
+[← Previous: Modernize .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)

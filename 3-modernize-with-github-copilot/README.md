@@ -180,4 +180,4 @@ By the end of this section, you should have:
 🔹 Enhanced application performance and maintainability  
 
 ---
-[← Previous: Migrate with .NET Upgrade Assistant](../2-migrate-with-dotnet-upgrade-assistant/README.md) | [Next: Refactor into Microservices →](../4-refactor-into-microservices/README.md)
+[← Previous: Modernize .NET Applications](../2-modernize-dotnet/README.md) | [Next: Refactor into Microservices →](../4-refactor-into-microservices/README.md)
