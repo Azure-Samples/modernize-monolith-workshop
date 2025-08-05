@@ -34,8 +34,8 @@ The following use cases are supported by the extension:
 
 This section covers:
 
-⬆️ Understanding the modernization process  
-🛠️ Using .NET Upgrade Assistant  
+⬆️ Understand the modernization process  
+🛠️ Use .NET Upgrade Assistant  
 🎯 Complete modernization from .NET Framework to .NET Core/.NET  
 🔍 Analyze the modernization results  
 
