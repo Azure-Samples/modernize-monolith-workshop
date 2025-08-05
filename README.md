@@ -1,10 +1,10 @@
-# 🚀 Modernize Your Monolith: From .NET Framework to Microservices in Azure
+# 🚀 Modernize your monolith: From .NET Framework to microservices in Azure
 
 In this full-day workshop, you'll take a legacy [.NET Framework](https://docs.microsoft.com/en-us/dotnet/framework/) monolith and modernize it to the latest [.NET](https://docs.microsoft.com/en-us/dotnet/) release using AI-powered tooling and [GitHub Copilot](https://docs.github.com/en/copilot) agents. You'll learn how to layer in cloud-native capabilities with [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) for service discovery, telemetry, and orchestration, containerize the app, and deploy it to [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/) using [GitHub Actions](https://docs.github.com/en/actions) and [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/). Along the way, you'll even explore how to integrate [Azure AI services](https://docs.microsoft.com/en-us/azure/cognitive-services/) to enhance your application with intelligent capabilities, culminating in a production-ready microservices solution built for scale and agility.
 
 ## 📚 What you'll learn
 
-By the end of the day, you'll have learned:
+By the end of the day, you'll have gained:
 
 ⬆️ Hands-on experience upgrading to modern .NET  
 🏗️ Practical experience of building cloud-native applications with .NET Aspire  
@@ -21,7 +21,7 @@ Here are some things you will need:
 🤖 Access to a GitHub Copilot Pro subscription  
 🐳 [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or another way to run container images locally)
 
-## 🎯 Getting Started
+## 🎯 Getting started
 
 This workshop is split into 8 different parts. Each shows you an aspect of modernizing your app. The sections each have their own learning materials and hands-on exercises in sub-folders.
 
@@ -47,4 +47,4 @@ Some additional learning resources for you!
 🎥 [Better Microservices Development using Azure Container Apps](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
 ⬆️ [.NET Platform Upgrade](https://dotnet.microsoft.com/en-us/platform/upgrade)  
 📖 [GitHub Copilot App Modernization Overview](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview)
-  
+
