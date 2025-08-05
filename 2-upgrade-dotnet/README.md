@@ -1,8 +1,8 @@
-# 🔄 Upgrade .NET Applications
+# 🔄 Upgrade .NET applications
 
 Welcome to Chapter 2 of the upgrade workshop! This section focuses on upgrading your .NET Framework applications to modern .NET using different approaches and tools.
 
-## 📋 What You'll Learn
+## 📋 What you'll learn
 
 In this chapter, you'll explore two different approaches to upgrade your .NET applications:
 
@@ -11,27 +11,25 @@ In this chapter, you'll explore two different approaches to upgrade your .NET ap
 
 Both approaches accomplish the same goal - transforming your legacy .NET Framework application into a modern .NET application - but use different methodologies and tools.
 
-## 🚀 Choose Your Path
+## 🚀 Choose your path
 
 Select the approach that best fits your learning style and requirements:
 
-### Option A: .NET Upgrade Assistant (Traditional Approach)
+### Option A: .NET Upgrade Assistant (traditional approach)
 **[🔄 Upgrade with .NET Upgrade Assistant](./2-upgrade-with-dotnet-upgrade-assistant/README.md)**
 
-- Structured, step-by-step migration process
-- Uses Microsoft's official .NET Upgrade Assistant tool
-- Provides detailed control over the migration process
-- Ideal for understanding the technical details of .NET migration
+- Scans your project and gives a report to guide your upgrade.
+- Lets you choose in-place, side-by-side, or incremental upgrade modes.
+- Works with many project types like ASP.NET, Windows Forms, and more.
 
-### Option B: GitHub Copilot Upgrade (AI-Powered Approach)
+### Option B: What is GitHub Copilot app modernization (AI-powered approach)
 **[🤖 Upgrade with GitHub Copilot](./2-upgrade-with-ghcp-modernization-app/README.md)**
 
-- AI-driven upgrade with intelligent suggestions
-- Leverages GitHub Copilot's upgrade capabilities
-- Automated analysis and upgrade recommendations
-- Ideal for exploring AI-assisted development workflows
+- Analyzes your solution and creates a smart upgrade plan, handling dependencies in the right order.
+- Automates code changes and upgrades, but asks for your help when needed and learns from your fixes.
+- Runs your unit tests after upgrading to make sure everything works as expected.
 
-## 🎯 Next Steps
+## 🎯 Next steps
 
 After completing either approach (or both!), you'll be ready to move on to:
 
@@ -39,7 +37,7 @@ After completing either approach (or both!), you'll be ready to move on to:
 
 ---
 
-**💡 Pro Tip**: Both approaches will give you hands-on experience with .NET upgrade. Choose based on whether you want to focus on traditional tooling or explore AI-powered development workflows. You can always come back and try the other approach later!
+**💡 Pro Tip**: Both approaches will give you hands-on experience with modernizing .NET code. Choose based on whether you want to focus on traditional tooling or explore AI-powered development workflows. You can always come back and try the other approach later!
 
 ---
 [← Previous: Setup Environment](../1-setup-your-environment/README.md) | [Next: Modernize with GitHub Copilot →](../3-modernize-with-github-copilot/README.md)
