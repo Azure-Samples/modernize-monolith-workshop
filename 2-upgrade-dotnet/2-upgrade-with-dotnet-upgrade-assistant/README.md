@@ -2,21 +2,21 @@
 
 Let's upgrade our eShopLite application to modern .NET using the .NET Upgrade Assistant. 
 
-The .NET Upgrade Assistant is a powerful tool available as both a Visual Studio extension and command-line interface that helps migrate .NET Framework, .NET Core, or older .NET projects to the latest .NET version. 
+The .NET Upgrade Assistant is a powerful tool available as both a Visual Studio extension and command-line interface that helps migrate .NET Framework, .NET Core, to the latest .NET version. 
 
 ![.NET Upgrade Assistant](./images/dotnet-upgrade-assistant.png)
 
-Featuring an analysis engine that scans your projects and dependencies, generating detailed reports with upgrade recommendations that allow you to upgrade entire projects or specific components like configuration files, while automatically detecting and fixing potential incompatibilities.
+The Upgrade Assistant features an analysis engine that scans your projects and dependencies, then generates detailed reports with upgrade recommendations. It helps you upgrade entire projects or specific components, like configuration files, and automatically detects and fixes potential incompatibilities.
 
-The following uses are supported by the extension:
+The following use cases are supported by the extension:
 
-### Supported Project Types
+### Supported project types
 
 | Language Support | Project Types |
 |------------------|---------------|
 | **C# & Visual Basic** | ASP.NET, Azure Functions, WPF, Windows Forms, Class Libraries, Console Apps, Xamarin Forms, .NET MAUI, .NET Native UWP |
 
-### Available Upgrade Paths
+### Available upgrade paths
 
 | From | To | Notes |
 |------|----|----|
@@ -30,27 +30,30 @@ The following uses are supported by the extension:
 > **Note**: XAML transformations support namespace upgrades only. For comprehensive XAML changes, use Visual Studio 2022 v17.6+.
 
 
-## 📋 What You'll Do
+## 📋 What you'll do
 
 This section covers:
 
-⬆️ Understanding the migration process  
+⬆️ Understanding the modernization process  
 🛠️ Using .NET Upgrade Assistant  
-🎯 Complete transition from .NET Framework to .NET Core/.NET  
-🔍 Analyzing migration results  
+🎯 Complete modernization from .NET Framework to .NET Core/.NET  
+🔍 Analyze the modernization results  
 
-## ⬆️ Understanding the Migration Process
+## ⬆️ Understanding the modernization process
 
-Let's learn how to migrate your application using the .NET Upgrade Assistant, for it we will use our Framework-based eShopLite application as an example.
+When modernizing a codebase with the .NET Upgrade Assistant, several key activities are involved:
 
-Don't forget to **Install .NET Upgrade Assistant**, if you haven't already, install the .NET Upgrade Assistant from the Visual Studio Marketplace or as a global tool using the .NET CLI.
-
-About the migration process, it typically involves the following steps:
-- Analyzing the existing project structure and dependencies with the Upgrade Assistant. It can recommend to update the current project or to create a porting the old code to the Core version.
-- Selecting the target .NET version for migration, such as .NET 9 or other supported versions. [See above](#available-upgrade-paths).
-- Generating a migration report with recommended actions. It will provide which endpoints, could be updated by the Upgrade Assistant, plus some views and controllers that could be ported to the new version.
-- Going to each part to apply the migration steps.
-- Some parts of the code may require manual adjustments, especially if there are breaking changes or deprecated APIs in the new version, for example, if you are using the `EntityFramework` package, you will need to update it to the `Microsoft.EntityFrameworkCore` package.
+- **Project analysis and scanning**: The tool includes an analysis engine that scans your projects and their dependencies to identify upgrade opportunities and potential incompatibilities
+- **Automated project format conversion**: Upgrades projects from the .NET Framework project format to the latest .NET SDK project format automatically
+- **NuGet package cleanup and optimization**: Analyzes package references and removes unnecessary dependencies while ensuring proper package versions for the target framework
+- **Target framework migration**: Changes the target framework moniker (TFM) from .NET Framework to the appropriate modern .NET version (such as net6.0 or net9.0)
+- **Code transformation and namespace updates**: Performs source-specific code changes, updates namespaces, and migrates APIs to their modern equivalents
+- **Configuration file migration**: Updates configuration files from older formats to newer types compatible with modern .NET
+- **Analyzer integration**: Adds analyzers to the project that assist with completing the migration process and identifying remaining issues
+- **Task list generation**: Creates TODO items in Visual Studio's Task List for manual migration tasks that require developer attention
+- **Side-by-side or in-place upgrade options**: Offers flexibility to either create a copy of your project for migration or upgrade the existing project in place
+- **Template and boilerplate file generation**: Adds or updates necessary template, config, and code files required for the target platform
+- **Checking the work**: You may need to check the work or manually do adjustments to make sure everything works as you'd expect.
 
 ## 🛠️ Using .NET Upgrade Assistant
 
@@ -85,7 +88,7 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 
 With these steps, you should have partially migrated your eShopLiteFx application to a new .NET Core project. However, there are still some manual steps to complete the migration, let's continue with them.
 
-## 🎯 Complete Transition from .NET Framework to .NET Core/.NET
+## 🎯 Complete transition from .NET Framework to .NET Core/.NET
 
 After running the Upgrade Assistant, you will have a new project in your solution that is based on .NET Core/.NET. However, there are still some manual steps to complete the migration:
 
@@ -212,5 +215,4 @@ By the end of this section, you should have:
 🔹 Understanding of common migration patterns  
 🔹 A working modern .NET application  
 
----
 [← Previous: Upgrade .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)
