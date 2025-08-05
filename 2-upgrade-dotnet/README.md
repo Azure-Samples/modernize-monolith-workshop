@@ -24,7 +24,7 @@ Select the approach that best fits your learning style and requirements:
 - Ideal for understanding the technical details of .NET migration
 
 ### Option B: GitHub Copilot Upgrade (AI-Powered Approach)
-**[🤖 Upgrade with GitHub Copilot](./2b-upgrade-with-ghcp-modernization-app/README.md)**
+**[🤖 Upgrade with GitHub Copilot](./2-upgrade-with-ghcp-modernization-app/README.md)**
 
 - AI-driven upgrade with intelligent suggestions
 - Leverages GitHub Copilot's upgrade capabilities
