@@ -57,9 +57,13 @@ When modernizing a codebase with the .NET Upgrade Assistant, several key activit
 
 ## 🛠️ Using .NET Upgrade Assistant
 
+> 🪧**IMPORTANT**
+>
+> **Windows Path Length Limitation**: If you encounter NuGet package restore errors, this is likely due to Windows path length restrictions. To resolve this, copy the starter solution to a shorter path such as `C:\Dev` to ensure optimal performance during the upgrade process.
+
 Let's start the migration process by running the Upgrade Assistant on our eShopLiteFx (.NET Framework) application.
 
-1. Open our sample project in Visual Studio 2022 or later.
+1. Open our sample project in Visual Studio 2022.
 
 1. Right-click on the solution in Solution Explorer and select **Upgrade**.
 
@@ -79,13 +83,13 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 
     ![.NET Upgrade Assistant target](./images/dotnet-upgrade-assistant-target.png)
 
-1. The Upgrade Assistant will start analyzing the project and will give you a report with the summary of the migration, and start to apply the necessary changes.
+1. The Upgrade Assistant will start analyzing the project and will give you a report with the summary of the migration, and start to apply the necessary changes. Click **Finish** to run the migration.
 
     ![.NET Upgrade Assistant report](./images/dotnet-upgrade-assistant-report.png)
 
     ![.NET Upgrade Assistant applying changes](./images/dotnet-upgrade-assistant-applying-changes.png)
 
-1. Once the migration is complete, you will need to upgrade some other parts of the code, like the controllers, views, and some individual classses.
+1. Once the migration is complete click the **Done** button. By default now any communications coming to the new .NET application will be proxied through to the existing .NET Framework application. You will need to upgrade some other parts of the code, like the controllers, views, and some individual classses. You can click on the individual links **Upgrade Controller**, **Upgrade Class** and **Upgrade View** to perform those upgrades.
 
     ![.NET Upgrade Assistant migration complete](./images/dotnet-upgrade-assistant-migration-complete.png)
 
