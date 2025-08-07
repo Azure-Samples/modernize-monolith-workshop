@@ -61,6 +61,15 @@ When modernizing a codebase with the .NET Upgrade Assistant, several key activit
 >
 > **Windows Path Length Limitation**: If you encounter NuGet package restore errors, this is likely due to Windows path length restrictions. To resolve this, copy the starter solution to a shorter path such as `C:\Dev` to ensure optimal performance during the upgrade process.
 
+> 🪧**IMPORTANT**
+>
+> If you encounter an error similar to the followng while trying to debug:
+> ![Screenshot of the nuget error stating cannot find csc.exe](./images/nuget-error.png)
+> 
+> Run the following command in the **NuGet Package Manager Console** (Open via the menu: **Tools > NuGet Package Manager > Package Manager Console**)
+> 
+> `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+
 Let's start the migration process by running the Upgrade Assistant on our eShopLiteFx (.NET Framework) application.
 
 1. Open our sample project in Visual Studio 2022.
@@ -69,39 +78,49 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 
     ![.NET Upgrade Assistant in Visual Studio](./images/dotnet-upgrade-assistant-vs.png)
 
-1. The Upgrade Assistant will give some option to how to upgrade the project, you can upgrade the entire project, just the packages, or to SDK-style project. Choose the option that best fits your needs, in our case we will select to do the side-by-side upgrade.
+1. The Upgrade Assistant will give some options to how to upgrade the project, you can upgrade the entire project. We'll select the **side-by-side** upgrade.
 
     ![.NET Upgrade Assistant options](./images/dotnet-upgrade-assistant-options.png)
 
-1. For this option, the Upgrade Assistant will give the option to create a new project in the same solution, or the same project, for our use case we need to create the new project, select the option to create a new project and give it a name, for example `eShopLite.StoreCore`.
+1. Then select **New Project** for the upgrade target. 
 
     ![.NET Upgrade Assistant create new project](./images/dotnet-upgrade-assistant-create-new-project.png)
 
+1. Give it a name, for example **eShopLite.StoreCore**. You can leave the **Project template** as **ASP.NET Core MVC**.
+
     ![.NET Upgrade Assistant create new project name](./images/dotnet-upgrade-assistant-create-new-project-name.png)
 
-1. Now, select the target for the new project, in our case we will select `.NET 9.0`, but you can select any other supported version.
+1. Select **.NET 9.0** for the target framework if you have that installed. If not select **.NET 8**.
 
     ![.NET Upgrade Assistant target](./images/dotnet-upgrade-assistant-target.png)
 
-1. The Upgrade Assistant will start analyzing the project and will give you a report with the summary of the migration, and start to apply the necessary changes. Click **Finish** to run the migration.
+1. The Upgrade Assistant will start analyzing the project and will give you a report with the summary of the changes it needs to make to complete the migration. Click **Finish** to run the migration.
 
     ![.NET Upgrade Assistant report](./images/dotnet-upgrade-assistant-report.png)
 
     ![.NET Upgrade Assistant applying changes](./images/dotnet-upgrade-assistant-applying-changes.png)
 
-1. Once the migration is complete click the **Done** button. By default now any communications coming to the new .NET application will be proxied through to the existing .NET Framework application. You will need to upgrade some other parts of the code, like the controllers, views, and some individual classses. You can click on the individual links **Upgrade Controller**, **Upgrade Class** and **Upgrade View** to perform those upgrades.
+1. Once the migration is complete click the **Done** button. Now any communications coming to the new .NET application will be proxied from the new .NET 9 application through to the existing .NET Framework application. However, you will need to upgrade some other parts of the code, like the controllers, views, and some individual classses. You can click on the individual links **Upgrade Controller**, **Upgrade Class** and **Upgrade View** to perform those upgrades.
 
     ![.NET Upgrade Assistant migration complete](./images/dotnet-upgrade-assistant-migration-complete.png)
 
     ![.NET Upgrade Assistant endpoints](./images/dotnet-upgrade-assistant-endpoints.png)
 
-1. The Upgrade Assistant will give you a list of controllers, views, and other components that could be updated, you can select the ones you want to update, and it will apply the necessary changes. In our case, select the only controller that is available, the Data classes, and check if the views are already in your project, if not, you can select them to be updated. Keep in mind that this may take some time, depending on the size of your project.
+1. If you click on any of those links, you'll see a list of controllers, views, and other components that could be upgraded. Click **Upgrade Controller** and then select **eShopLite.StoreFx.Controllers.HomeController**. (Keep everything checked below it.)
 
     ![.NET Upgrade Assistant controllers](./images/dotnet-upgrade-assistant-controllers.png)
 
-    ![.NET Upgrade Assistant classes](./images/dotnet-upgrade-assistant-classes.png)
-
     ![.NET Upgrade Assistant upgrade UI](./images/dotnet-upgrade-assistant-upgrade-ui.png)
+
+1. Click **Upgrade Selection** and the Assistant will go through and upgrade the controller. A report will appear with success, skipped, and failures.
+
+1. Now select **Upgrade > Class** from the dropdown on the top menu bar of the assistant.
+
+    ![Screenshot showing the menubar for upgrading classes](./images/upgrade-class-dropdown.png)
+
+1. One by one, go through and select all of the data classes to upgrade them.
+
+    ![Screenshot of the data classes that need to be upgraded](./images/dotnet-upgrade-assistant-classes.png)
 
 1. After this, please copy and paste the scripts and the images folder from the old project to the new project, as the Upgrade Assistant does not copy these files automatically.
 
@@ -111,9 +130,16 @@ With these steps, you have partially modernized the eShopLite .NET Framework app
 
 After running the Upgrade Assistant, you will have a new project in your solution that is based on .NET Core/.NET. However, there are still some manual steps to complete the migration:
 
-1. **Install the necessary NuGet packages**: The Upgrade Assistant will not install all the necessary packages, so you will need to install them manually. For example, you will need to install the `Microsoft.EntityFrameworkCore` and `Newtonsoft.Json` packages, and any other package that your project depends on.
-1. **Check if the files are importing the correct libraries**: The Upgrade Assistant will not update the using statements in your files, so you will need to check if the files are importing the correct libraries. Use Visual Studio "Use Local xxx library" feature to update the using statements.
+# MATT NOTES
+> Instead of step by step instructions, since there will be many, let's create a new folder and have the updated files in there so people can copy them in. Then for each file list the things that were changes. 
+> To do this, create a custom copilot commit instruction that tells it to list every file and then sum up the changes that were made to the file. I think that's probably the easiest(??)
+
+1. **Install the necessary NuGet packages**: The Upgrade Assistant will not install all the necessary packages, so you will need to install them manually. Install the `Microsoft.EntityFrameworkCore` and `Newtonsoft.Json` packages, and any other package that your project depends on.
+
+1. **Check if the files are importing the correct libraries**: The Upgrade Assistant will not update the using statements in your files. This means you need to go through any files throwing exceptions and update the `using` statements. The **quick fix** (`ctrl+.`) function is great for this.
+
 1. **Change the namespaces**: The Upgrade Assistant will not change the namespaces in your files, so you will need to change them manually. For example, in the `Store Service` and in the `Data Service` classes, you will need to change the namespaces to match the new project name. In our case, we will change the namespaces from `eShopLiteFx` to `eShopLite.StoreCore`.
+
 1. **Update the `program.cs file**: Inject both `StoreService` and `DataService` in the `program.cs` file, as the Upgrade Assistant will not do this automatically. You can use the following code to do this:
 
     ```csharp
@@ -227,7 +253,11 @@ Now, you should be able to run the application and see the migrated eShopLite.St
 
 >**Note**: For the complete migration for the sample, look at the [eShopLite.StoreCore](../../3-modernize-with-github-copilot/StartSample) folder, which contains the fully migrated project.
 
-## ✅ Summary
+# END OF MATT NOTES
+
+---
+
+## ✅ Wrap-up
 
 By the end of this section, you should have:
 

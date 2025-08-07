@@ -11,6 +11,11 @@ In this chapter, you'll explore two different approaches to upgrade your .NET ap
 
 Both approaches accomplish the same goal - transforming your legacy .NET Framework application into a modern .NET application - but use different methodologies and tools.
 
+> ‼️**IMPORTANT**
+> 
+> If you try to debug the .NET Framework version of the eShopLite application you may receive an error similar to the following:
+> `Could not find part of the path 
+
 ## 🚀 Choose your path
 
 Select the approach that best fits your learning style and requirements:
