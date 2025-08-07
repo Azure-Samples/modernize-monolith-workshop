@@ -130,130 +130,48 @@ With these steps, you have partially modernized the eShopLite .NET Framework app
 
 After running the Upgrade Assistant, you will have a new project in your solution that is based on .NET Core/.NET. However, there are still some manual steps to complete the migration:
 
-# MATT NOTES
-> Instead of step by step instructions, since there will be many, let's create a new folder and have the updated files in there so people can copy them in. Then for each file list the things that were changes. 
-> To do this, create a custom copilot commit instruction that tells it to list every file and then sum up the changes that were made to the file. I think that's probably the easiest(??)
 
-1. **Install the necessary NuGet packages**: The Upgrade Assistant will not install all the necessary packages, so you will need to install them manually. Install the `Microsoft.EntityFrameworkCore` and `Newtonsoft.Json` packages, and any other package that your project depends on.
+#### 📁 How to Apply the Updated Files
+1. Make sure your solution builds after the Upgrade Assistant run (baseline migrated project present).
+2. Create a backup (optional) of your current upgraded project folder (e.g. `eShopLite.StoreCore`).
+3. From `./UpdatedSample`, copy over the changed files (see list below) into your upgraded project.
+4. Restore packages and build.
+5. Run and verify functionality matches expectations.
 
-1. **Check if the files are importing the correct libraries**: The Upgrade Assistant will not update the using statements in your files. This means you need to go through any files throwing exceptions and update the `using` statements. The **quick fix** (`ctrl+.`) function is great for this.
+#### 🗂️ Key Files You Will Replace (or Add) and What Changed
+| File | Change Summary |
+|------|----------------|
+| `Program.cs` | Converted to minimal hosting model, added service registrations (DbContext, Store/Data services), ensured database seeding logic. |
+| `eShopLite.StoreCore.csproj` | Updated TargetFramework, cleaned legacy package refs, added modern EF Core + tooling, removed obsolete references. |
+| `Data/StoreDbContext.cs` | Introduced EF Core DbContext with seeding (Products + Stores) replacing prior in-memory / legacy data access patterns. |
+| `Services/StoreService.cs` | Namespace + dependency injection adjustments; updated to async patterns where applicable. |
+| `Controllers/HomeController.cs` | Updated usings, namespace, action return types to align with ASP.NET Core conventions. |
+| `Views/Shared/_Layout.cshtml` | Updated script + style references (bootstrap bundle, latest jquery), removed obsolete WebForms-era references. |
+| `wwwroot/` assets | Moved images, scripts, css into proper static web root instead of legacy `Content/` + `Scripts/` layout. |
+| `appsettings.json` | Added structured configuration placeholder for future persistence (if moving from in-memory). |
+| `Models/*` | JSON serialization attributes. |
 
-1. **Change the namespaces**: The Upgrade Assistant will not change the namespaces in your files, so you will need to change them manually. For example, in the `Store Service` and in the `Data Service` classes, you will need to change the namespaces to match the new project name. In our case, we will change the namespaces from `eShopLiteFx` to `eShopLite.StoreCore`.
+> If a file does not exist in your current upgraded project, add it. If it exists, overwrite it with the version from the StartSample unless you have intentional differences.
 
-1. **Update the `program.cs file**: Inject both `StoreService` and `DataService` in the `program.cs` file, as the Upgrade Assistant will not do this automatically. You can use the following code to do this:
+#### 🧪 Post-Copy Validation Checklist
+- `dotnet restore` succeeds
+- `dotnet build` succeeds
+- App runs and product list renders
+- Images load from `wwwroot`
+- EF Core seeding creates expected sample data
 
-    ```csharp
-    // Add services to the container.
-    builder.Services.AddControllersWithViews();
-
-    // Add Entity Framework Core with In-Memory database
-    builder.Services.AddDbContext<StoreDbContext>(options =>
-        options.UseInMemoryDatabase("StoreDatabase"));
-
-    // Add StoreService and DbContext
-    builder.Services.AddScoped<IStoreService, StoreService>();
-    builder.Services.AddScoped<IStoreDbContext>(provider => provider.GetService<StoreDbContext>()!);
-
-    var app = builder.Build();
-
-    // Ensure database is created
-    using (var scope = app.Services.CreateScope())
-    {
-        var context = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
-        context.Database.EnsureCreated();
-    }
-    ```
-
-1. **Update the database to use Entity Framework Core**: The Upgrade Assistant will not update the database to use Entity Framework Core, so you will need to do this manually. You can use the following code to do this:
-
-    ```csharp
-    using System.Collections.Generic;
-    using Microsoft.EntityFrameworkCore;
-    using eShopLite.StoreFx.Models;
-
-    namespace eShopLite.StoreCore.Data
-    {
-        public interface IStoreDbContext
-        {
-            DbSet<Product> Products { get; set; }
-            DbSet<StoreInfo> Stores { get; set; }
-            int SaveChanges();
-        }
-
-        public class StoreDbContext : DbContext, IStoreDbContext
-        {
-            public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
-            {
-            }
-
-            public DbSet<Product> Products { get; set; }
-            public DbSet<StoreInfo> Stores { get; set; }
-
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
-                base.OnModelCreating(modelBuilder);
-
-                // Seed data
-                var products = new List<Product>
-                {
-                    new Product { Id = 1, Name = "Solar Powered Flashlight", Description = "A fantastic product for outdoor enthusiasts", Price = 19.99m, ImageUrl = "product1.png" },
-                    new Product { Id = 2, Name = "Hiking Poles", Description = "Ideal for camping and hiking trips", Price = 24.99m, ImageUrl = "product2.png" },
-                    new Product { Id = 3, Name = "Outdoor Rain Jacket", Description = "This product will keep you warm and dry in all weathers", Price = 49.99m, ImageUrl = "product3.png" },
-                    new Product { Id = 4, Name = "Survival Kit", Description = "A must-have for any outdoor adventurer", Price = 99.99m, ImageUrl = "product4.png" },
-                    new Product { Id = 5, Name = "Outdoor Backpack", Description = "This backpack is perfect for carrying all your outdoor essentials", Price = 39.99m, ImageUrl = "product5.png" },
-                    new Product { Id = 6, Name = "Camping Cookware", Description = "This cookware set is ideal for cooking outdoors", Price = 29.99m, ImageUrl = "product6.png" },
-                    new Product { Id = 7, Name = "Camping Stove", Description = "This stove is perfect for cooking outdoors", Price = 49.99m, ImageUrl = "product7.png" },
-                    new Product { Id = 8, Name = "Camping Lantern", Description = "This lantern is perfect for lighting up your campsite", Price = 19.99m, ImageUrl = "product8.png" },
-                    new Product { Id = 9, Name = "Camping Tent", Description = "This tent is perfect for camping trips", Price = 99.99m, ImageUrl = "product9.png" },
-                };
-
-                modelBuilder.Entity<Product>().HasData(products);
-
-                var stores = new List<StoreInfo>()
-                {
-                    new StoreInfo { Id = 1, Name = "Outdoor Store", City = "Seattle", State = "WA", Hours = "9am - 5pm" },
-                    new StoreInfo { Id = 2, Name = "Camping Supplies", City = "Portland", State = "OR", Hours = "10am - 6pm" },
-                    new StoreInfo { Id = 3, Name = "Hiking Gear", City = "San Francisco", State = "CA", Hours = "11am - 7pm" },
-                    new StoreInfo { Id = 4, Name = "Fishing Equipment", City = "Los Angeles", State = "CA", Hours = "8am - 4pm" },
-                    new StoreInfo { Id = 5, Name = "Climbing Gear", City = "Denver", State = "CO", Hours = "9am - 5pm" },
-                    new StoreInfo { Id = 6, Name = "Cycling Supplies", City = "Austin", State = "TX", Hours = "10am - 6pm" },
-                    new StoreInfo { Id = 7, Name = "Winter Sports Gear", City = "Salt Lake City", State = "UT", Hours = "11am - 7pm" },
-                    new StoreInfo { Id = 8, Name = "Water Sports Equipment", City = "Miami", State = "FL", Hours = "8am - 4pm" },
-                    new StoreInfo { Id = 9, Name = "Outdoor Clothing", City = "New York", State = "NY", Hours = "9am - 5pm" }
-                };
-
-                modelBuilder.Entity<StoreInfo>().HasData(stores);
-            }
-        }
-    }
-    ```
-
-1. Lastly, update the layout to use the new components and styles.
-
-    ```html
-    Under the title tag
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    Change the scripts to
-    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    @RenderSection("scripts", required: false)
-    ```
-
-1. If a database migration wasn't created, you can create it manually by running the following command in the terminal:
-
-    ```bash
-    dotnet ef migrations add InitialCreate
-    dotnet ef database update
-    ```
+#### 🛠 Optional: Generate an EF Core Migration (If Using a Real Provider)
+If you later switch from InMemory to SQLite or SQL Server:
+```
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
 
 Now, you should be able to run the application and see the migrated eShopLite.StoreCore application running on .NET Core/.NET. If you wish, you could delete the old eShopLiteFx project, as it is no longer needed.
 
 ![eShopLite.StoreCore running](./images/eshoplite-storecore-running.png)
 
 >**Note**: For the complete migration for the sample, look at the [eShopLite.StoreCore](../../3-modernize-with-github-copilot/StartSample) folder, which contains the fully migrated project.
-
-# END OF MATT NOTES
 
 ---
 
