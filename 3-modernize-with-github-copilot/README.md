@@ -30,18 +30,18 @@ Before starting, ensure you have:
 
 ### Check GitHub Copilot agent mode
 
-First, verify that the **migrate_dotnet** tool is enabled in GitHub Copilot's Agent Mode:
+First, verify that the **upgrade_dotnet** tool is enabled in GitHub Copilot's Agent Mode:
 
 1. Open Visual Studio and navigate to your solution
 1. Open the GitHub Copilot chat window and switch to **Agent** mode
 1. Click the icon that looks like a wrench and a screwdriver.
-1. Ensure the **migrate_dotnet** tool enabled
+1. Ensure the **upgrade_dotnet** tool enabled
 
 ![GitHub Copilot Agent Mode](./images/copilot-agent-mode.png)
 
 ## Starting the modernization process
 
-Let's start the modernization by invoking the GitHub Copilot **migrate_dotnet** tool, which analyzes your solution and produces a prioritized plan (framework version gaps, architectural layering, dependency injection, async/await usage, nullability, analyzers) aligned with current .NET coding standards. Review the recommendations and apply them incrementally, using Copilot to implement refactors while keeping builds and tests green.
+Let's start the modernization by invoking the GitHub Copilot **upgrade_dotnet** tool, which analyzes your solution and produces a prioritized plan (framework version gaps, architectural layering, dependency injection, async/await usage, nullability, analyzers) aligned with current .NET coding standards. Review the recommendations and apply them incrementally, using Copilot to implement refactors while keeping builds and tests green.
 
 1. **Right-click on your solution** in Solution Explorer
 1. Select **"Upgrade with Copilot"** from the context menu
