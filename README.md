@@ -1,10 +1,10 @@
-# 🚀 Modernize Your Monolith: From .NET Framework to Microservices in Azure
+# 🚀 Modernize your monolith: From .NET Framework to microservices in Azure
 
 In this full-day workshop, you'll take a legacy [.NET Framework](https://docs.microsoft.com/en-us/dotnet/framework/) monolith and modernize it to the latest [.NET](https://docs.microsoft.com/en-us/dotnet/) release using AI-powered tooling and [GitHub Copilot](https://docs.github.com/en/copilot) agents. You'll learn how to layer in cloud-native capabilities with [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) for service discovery, telemetry, and orchestration, containerize the app, and deploy it to [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/) using [GitHub Actions](https://docs.github.com/en/actions) and [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/). Along the way, you'll even explore how to integrate [Azure AI services](https://docs.microsoft.com/en-us/azure/cognitive-services/) to enhance your application with intelligent capabilities, culminating in a production-ready microservices solution built for scale and agility.
 
 ## 📚 What you'll learn
 
-By the end of the day, you'll have learned:
+By the end of the day, you'll have gained:
 
 ⬆️ Hands-on experience upgrading to modern .NET  
 🏗️ Practical experience of building cloud-native applications with .NET Aspire  
@@ -21,12 +21,12 @@ Here are some things you will need:
 🤖 Access to a GitHub Copilot Pro subscription  
 🐳 [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or another way to run container images locally)
 
-## 🎯 Getting Started
+## 🎯 Getting started
 
 This workshop is split into 8 different parts. Each shows you an aspect of modernizing your app. The sections each have their own learning materials and hands-on exercises in sub-folders.
 
 1. [🔧 Setup your environment](./1-setup-your-environment/README.md)
-2. [🔄 Migrate with .NET Upgrade assistant Fx -> Core](./2-migrate-with-dotnet-upgrade-assistant/README.md)
+2. [🔄 Upgrade .NET Applications](./2-upgrade-dotnet/README.md)
 3. [🤖 Modernize with GitHub Copilot app modernization](./3-modernize-with-github-copilot/README.md)
 4. [🏗️ Refactor into microservices](./4-refactor-into-microservices/README.md)
 5. [⭐ Add .NET Aspire (service discovery, dashboard / telemetry)](./5-add-dotnet-aspire/README.md)
@@ -40,11 +40,11 @@ Let's go! 🎉
 
 Some additional learning resources for you!
 
-🎥 [Microsoft Build Sessions - BRK199](https://build.microsoft.com/en-US/sessions/BRK199?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK101](https://build.microsoft.com/en-US/sessions/BRK101?source=sessions)  
-🎥 [Microsoft Build Sessions - DEM549](https://build.microsoft.com/en-US/sessions/DEM549?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK106](https://build.microsoft.com/en-US/sessions/BRK106?source=sessions)  
-🎥 [Microsoft Build Sessions - BRK182](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
+🎥 [From legacy to cloud native: Accelerating Modernization at scale and AI](https://build.microsoft.com/en-US/sessions/BRK199?source=sessions)  
+🎥 [The Future of .NET App Modernization Streamlined with AI](https://build.microsoft.com/en-US/sessions/BRK101?source=sessions)  
+🎥 [Using agentic AI to simplify .NET upgrades with GitHub Copilot](https://build.microsoft.com/en-US/sessions/DEM549?source=sessions)  
+🎥 [Elevating Development with .NET Aspire: AI, Cloud, and Beyond](https://build.microsoft.com/en-US/sessions/BRK106?source=sessions)  
+🎥 [Better Microservices Development using Azure Container Apps](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
 ⬆️ [.NET Platform Upgrade](https://dotnet.microsoft.com/en-us/platform/upgrade)  
 📖 [GitHub Copilot App Modernization Overview](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview)
-  
+

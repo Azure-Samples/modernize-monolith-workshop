@@ -1,10 +1,10 @@
-# 🚀 Migrate with GitHub Copilot Modernization
+# 🚀 Upgrade with GitHub Copilot
 
-Let's explore an alternative approach to modernizing our eShopLite application using the GitHub Copilot Upgrade Assistant extension. 
+Let's explore an alternative approach to upgrading our eShopLite application using the GitHub Copilot Upgrade Assistant extension. 
 
 ![GitHub Copilot Modernization App](./images/github-copilot-modernization-app.png)
 
-This powerful tool leverages AI to automate and guide the modernization process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
+This tool leverages AI to automate and guide the upgrade process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
 
 ## 📋 What You'll Do
 
@@ -16,13 +16,24 @@ This section covers:
 ⚡ Converting MVC frontend to Blazor components  
 🔧 Troubleshooting common migration issues  
 
-## 🚨 Important Note
+## 🚨 Important note
 
-> **Warning**: If you're working locally, please copy the StartSample folder to another location before proceeding. The extension will attempt to create branches and git commits to save modifications as it progresses!
+> If you're working directly from this workshop's repository, please copy the StartSample folder to another location before proceeding. The extension will attempt to create branches and git commits to save modifications as it progresses!
 
-## 🤖 Getting Started with GitHub Copilot Modernization
+## ⚠️ Another important note
 
-In this tutorial, we'll modernize our application to achieve three major goals:
+> If you try to run the .NET Framework app and encounter an error similar to the followng:
+> ![Screenshot of the nuget error stating cannot find csc.exe](./images/nuget-error.png)
+> 
+> Run the following command in the **NuGet Package Manager Console** (Open via the menu: **Tools > NuGet Package Manager > Package Manager Console**)
+> 
+> `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+
+
+## 🤖 Getting Started with GitHub Copilot Upgrade
+
+We're going to upgrade our application to achieve three major goals:
+
 - Upgrade to .NET 9
 - Migrate from SQL Express to SQLite
 - Transform our MVC frontend to modern Blazor components
@@ -30,29 +41,33 @@ In this tutorial, we'll modernize our application to achieve three major goals:
 ### Step 1: Initiate the Upgrade
 
 1. Right-click on the solution in Solution Explorer
-2. Select **"Upgrade with GitHub Copilot"**
+1. Select **"Upgrade with GitHub Copilot"**
 
 ![Upgrade with GitHub Copilot](./images/upgrade-with-copilot.png)
 
-This will open a chat interface with agent mode enabled for analysis.
+This will open a chat interface with agent mode enabled for analysis. Enter a prompt telling Copilot what you want to do:
+
+```markdown
+Help me upgrade to a newer version of .NET
+```
 
 ### Step 2: Configure the Target Version
 
-3. When prompted for the target version, select **.NET 9.0** and send the message in the chat
+1. When prompted for the target version, select **.NET 9.0** and send the message in the chat
 
 ![Select .NET Version](./images/select-dotnet-version.png)
 
-4. The tool will begin analyzing your project
+1. The tool will begin analyzing your project
 
 ![Upgrade Analysis](./images/upgrade-analysis.png)
 
 ### Step 3: Review and Enhance the Upgrade Plan
 
-5. After analysis completes, a markdown file with the upgrade plan will be generated and will open in your editor. Review the plan carefully.
+1. After analysis completes, a markdown file with the upgrade plan will be generated and will open in your editor. Review the plan carefully.
 
 ![Upgrade Plan](./images/upgrade-plan.png)
 
-6. Scroll down in the markdown file and add the following requirements:
+1. Scroll down in the markdown file and add the following requirements:
 
 ```markdown
 - Update the front-end from the MVC to Blazor components
@@ -70,8 +85,8 @@ This will open a chat interface with agent mode enabled for analysis.
 ```
 ![Upgrade Requirements](./images/upgrade-requirements.png)
 
-7. Save the markdown file
-8. Type in the Copilot chat window that it can continue with the upgrade
+1. Save the markdown file
+1. Type in the Copilot chat window that it can continue with the upgrade
 
 ![Upgrade Requirements Confirmation](./images/upgrade-requirements-confirmation.png)
 
@@ -138,7 +153,7 @@ If pages aren't loading correctly, use this prompt:
 Hey the pages are loading correctly, but the scripts that are in folders are not, could you check those to load on the pages. And we need to use Blazor pages, port to those! Do them step by step.
 ```
 
-Usually, the Copilot will create a step-by-step plan to fix the issues and complete the migration. References, images, and other assets will be moved to the new Blazor folder structure, if not please check the folders and move them manually.
+Usually, Copilot will create a step-by-step plan to fix the issues and complete the migration. References, images, and other assets will be moved to the new Blazor folder structure, if not please check the folders and move them manually.
 
 After some iterations and adjustments, you should see the Blazor components being created and the pages loading correctly.
 
@@ -157,6 +172,7 @@ The products are not loading correctly, please check if the images and data are 
 Sometimes, the problem is that Copilot did not do the database migration correctly, if so, you can fix it by:
 
 1. Run the following command in the terminal to apply migrations:
+
 ```bash
 dotnet ef migrations add InitialCreate
 dotnet ef database update
@@ -196,4 +212,4 @@ By using GitHub Copilot's modernization capabilities, you've:
 The combination of framework upgrade, database migration, and frontend transformation would typically take days or weeks of manual work, but with GitHub Copilot's assistance, you've accomplished it in a fraction of the time!
 
 ---
-[← Previous: Setup Environment](../1-setup-your-environment/README.md) | [Next: Modernize with GitHub Copilot →](../3-modernize-with-github-copilot/README.md)
+[← Previous: Upgrade .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)
