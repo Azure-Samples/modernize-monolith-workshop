@@ -46,5 +46,8 @@ Some additional learning resources for you!
 🎥 [Elevating Development with .NET Aspire: AI, Cloud, and Beyond](https://build.microsoft.com/en-US/sessions/BRK106?source=sessions)  
 🎥 [Better Microservices Development using Azure Container Apps](https://build.microsoft.com/en-US/sessions/BRK182?source=sessions)  
 ⬆️ [.NET Platform Upgrade](https://dotnet.microsoft.com/en-us/platform/upgrade)  
-📖 [GitHub Copilot App Modernization Overview](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview)
+📖 [GitHub Copilot App Modernization Overview](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview)  
+🚀 [Beast Mode](https://github.com/github/awesome-copilot) (search beast mode, under chat modes)  
+🎓 [Learn MCP](https://aka.ms/learn-mcp-link)  
+🛠️ [Awesome azd (for templates)](https://aka.ms/awesome-azd)
 
