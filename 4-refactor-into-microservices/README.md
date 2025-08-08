@@ -25,18 +25,15 @@ Before starting, ensure you have:
 
 ### 🎯 Add MCP Servers
 
-1. First, add some useful MCP servers for modernization. Add a JSON file, `.mcp.json` directly under the solution. Then add the following two MCP servers - [`context7`](https://github.com/upstash/context7) and [`sequentialthinking`](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking).
+1. First, add some useful MCP servers for modernization. Add a JSON file, `.mcp.json` directly under the solution. Then add the following two MCP servers - [`Microsoft Learn Docs`](https://learn.microsoft.com/en-us/training/support/mcp) and [`sequentialthinking`](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking).
 
     ```jsonc
     // .mcp.json
     {
       "servers": {
-        "context7": {
-          "command": "npx",
-          "args": [
-            "-y",
-            "@upstash/context7-mcp"
-          ]
+        "microsoft.docs.mcp": {
+            "type": "http",
+            "url": "https://learn.microsoft.com/api/mcp"
         },
         "sequentialthinking": {
           "command": "docker",
@@ -52,6 +49,8 @@ Before starting, ensure you have:
     ```
 
    Once you add this `.mcp.json` file, you'll be able to see both MCP servers are in the `active` state.
+
+   > **NOTE**: The images below show a **Context7** MCP server - we replaced that with Microsoft Docs and will update the reference images soon!
 
    ![.mcp.json file](./images/refactor-into-microservices-01.png)
 
