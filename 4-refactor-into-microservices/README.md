@@ -50,7 +50,7 @@ Before starting, ensure you have:
 
    Once you add this `.mcp.json` file, you'll be able to see both MCP servers are in the `active` state.
 
-   > **NOTE**: The images below show a **Context7** MCP server - we replaced that with Microsoft Docs and will update the reference images soon!
+   > **NOTE**: The reference images may show a different MCP server configuration, but the `.mcp.json` config above is current and reflects the latest setup.
 
    ![.mcp.json file](./images/refactor-into-microservices-01.png)
 
@@ -59,7 +59,7 @@ Before starting, ensure you have:
 ### 📝 Modernize Blazor Server App to Blazor Web App
 
 1. Add a new Blazor web app project to the solution. The new Blazor web app project is `eShopLite.Store`.
-1. Make sure you've included both `context7` and `sequentialthinking` MCP servers as tools.
+1. Make sure you've included both `microsoft.docs.mcp` and `sequentialthinking` MCP servers as tools.
 
    ![MCP servers added](./images/refactor-into-microservices-02.png)
 
@@ -70,7 +70,7 @@ Before starting, ensure you have:
     ```text
     Here's the current Blazor app, `eShopLite.StoreCore`. I'd like to migrate this app to `eShopLite.Store`. Here are my instructions for you to follow:
     
-    - Use `context7` and `sequentialthinking` MCP servers.
+    - Use `microsoft.docs.mcp` and `sequentialthinking` MCP servers.
     - Migrate `eShopLite.StoreCore` to `eShopLite.Store`.
     - Keep the layout unchanged.
     - Keep the CSS style unchanged.
@@ -113,14 +113,14 @@ Althouth the `eShopLite.Store` app has been modernized, it is still monolith. Fo
 ### ✂️ Separate `eShopLite.Products` and `eShopLite.StoreInfo` from `eShopLite.Store`
 
 1. In a new GitHub Copilot Chat, make sure it's the agent mode.
-1. Make sure both `context7` and `sequentialthinking` MCP servers are up and running, and included as tools.
+1. Make sure both `microsoft.docs.mcp` and `sequentialthinking` MCP servers are up and running, and included as tools.
 1. Add two ASP.NET Core Web API projects called `eShopLite.Products` and `eShopLite.StoreInfo`.
 1. Enter the following prompt to covert microservices.
 
     ```text
     Here's the Blazor monolith app, `eShopLite.Store`. I'd like to covert it into microservices by separating the product API to `eShopLite.Products` and store info API to `eShopLite.StoreInfo`. The main UI logic should remain at `eShopLite.Store`. Here are my instructions for you to follow:
     
-    - Use `context7` and `sequentialthinking` MCP servers.
+    - Use `microsoft.docs.mcp` and `sequentialthinking` MCP servers.
     - Extract the product API to `eShopLite.Products` from `eShopLite.Store`.
     - Extract the store info API to `eShopLite.StoreInfo` from `eShopLite.Store`.
     - The existing database structure should also be separated - `ProductDbContext` and `StoreInfoDbContext`.
@@ -158,3 +158,4 @@ By the end of this section, you should have:
 
 ---
 [← Previous: Modernize with GitHub Copilot](../3-modernize-with-github-copilot/README.md) | [Next: Add .NET Aspire →](../5-add-dotnet-aspire/README.md)
+
