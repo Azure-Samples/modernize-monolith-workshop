@@ -55,7 +55,7 @@ We need to sort out these maintenance overheads.
 
 ### What is .NET Aspire?
 
-A cloud-native application is a web application built from small microservices, which make use of common services such as messaging queues to communicate or caches to optimize performance. Cloud-native applications are proven and widely implemented but they can be difficult to architect and build. Since .NET 8, it includes the new .NET Aspire stack, which makes it easier to build cloud-native applications by providing service discovery, common components in NuGet packages, and simple tools for both coding and monitoring apps.
+A cloud-native application is a web application built from small microservices, which make use of common services such as messaging queues to communicate or caches to optimize performance. Cloud-native applications are proven and widely implemented but they can be difficult to architect and build. .NET Aspire, introduced with .NET 8 and now a mature part of the .NET 10 ecosystem, makes it easier to build cloud-native applications by providing service discovery, common components in NuGet packages, and comprehensive tools for both coding and monitoring apps.
 
 It helps solve some of the common challenges in building cloud-native applications by providing tooling for:
 

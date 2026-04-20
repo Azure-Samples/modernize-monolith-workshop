@@ -39,9 +39,24 @@ First, verify that the **upgrade_dotnet** tool is enabled in GitHub Copilot's Ag
 
 ![GitHub Copilot Agent Mode](./images/copilot-agent-mode.png)
 
+## How GitHub Copilot Modernization Works
+
+GitHub Copilot's modernization tool follows a structured three-stage workflow: **Assessment → Planning → Execution**. First, it analyzes your codebase to identify upgrade opportunities and technical debt. Next, it creates a prioritized, step-by-step plan with proper dependency ordering. Finally, it implements changes incrementally, keeping your build green between steps.
+
+The tool includes built-in scenarios for common modernization tasks:
+- **Namespace cleanup** — Corrects inconsistent or outdated namespace declarations
+- **Dependency injection migration** — Converts legacy service patterns to modern DI
+- **Async/await patterns** — Refactors synchronous code to async best practices
+- **Database modernization** — Migrates between database providers (e.g., SQL Express → SQLite)
+- **Blazor conversion** — Transforms ASP.NET MVC/Web Forms to Blazor components
+- **JSON serialization** — Migrates Newtonsoft.Json to System.Text.Json
+- **EF6 → EF Core** — Upgrades Entity Framework to the modern ORM
+
+You can run the tool in **Automatic mode** (hands-off execution) or **Guided mode** (step-by-step with approval gates). For project-specific patterns, you can create custom upgrade skills in `.github/skills/`.
+
 ## Starting the modernization process
 
-Let's start the modernization by invoking the GitHub Copilot **upgrade_dotnet** tool, which analyzes your solution and produces a prioritized plan (framework version gaps, architectural layering, dependency injection, async/await usage, nullability, analyzers) aligned with current .NET coding standards. Review the recommendations and apply them incrementally, using Copilot to implement refactors while keeping builds and tests green.
+Let's start the modernization by invoking the GitHub Copilot **upgrade_dotnet** tool. The tool's **Assessment** stage will analyze your solution for upgrade opportunities, then the **Planning** stage produces a prioritized plan (framework version gaps, architectural layering, dependency injection, async/await usage, nullability, analyzers) aligned with current .NET coding standards. Finally, the **Execution** stage applies the changes incrementally, keeping builds and tests green between steps.
 
 1. **Right-click on your solution** in Solution Explorer
 1. Select **"Upgrade with Copilot"** from the context menu or use the default **Copilot Chat**
@@ -66,6 +81,10 @@ Replace the existing SQLExpress database with SQLite. Update connection strings 
 ```
 
 ![Copilot Modernization Request](./images/copilot-modernization-request.png)
+
+> 💡 **TIP**
+>
+> The modernization tool has built-in scenarios for many of these tasks (namespace cleanup, DI migration, database modernization, Blazor conversion). The prompt above provides guidance and context, but the tool may also suggest additional modernization opportunities based on its assessment of your codebase.
 
 > 🪧**IMPORTANT**
 >
@@ -155,7 +174,12 @@ After completing all modernization steps:
 
 ## 4️⃣ Convert to Blazor pages
 
-Great, now we are ready continuing our modernization journey by converting the existing ASP.NET MVC pages to Blazor components. Use the following prompt to guide Copilot:
+Great, now we are ready continuing our modernization journey by converting the existing ASP.NET MVC pages to Blazor components. 
+
+> 💡 **NOTE**  
+> Blazor conversion is one of the tool's built-in scenarios. While the manual prompt below gives you hands-on control, you can also explore the tool's automated Blazor conversion approach by right-clicking the project and selecting "Upgrade with Copilot" → selecting "Blazor conversion."
+
+Use the following prompt to guide Copilot:
 
 ```plaintext
 Convert the existing ASP.NET MVC pages to Blazor components. This includes:

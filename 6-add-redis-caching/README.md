@@ -33,7 +33,7 @@ Now imagine that the user refreshes the page. Instead of reconstructing the enti
 
 Redis is a popular choice for caching in a cloud-native application. In particular, distributed caching allows one microservice to retrieve information stored in the cache by another microservice.
 
-We'll use .NET Aspire integrations to add Redis caching to the **eShopLite** application..NET Aspire integrations are a curated suite of NuGet packages specifically selected to facilitate the integration of cloud-native applications with prominent services and platforms such as Redis. .NET Aspire integrations handle many cloud-native concerns for you through standardized configuration patterns, such as adding health checks and telemetry.
+We'll use .NET Aspire integrations to add Redis caching to the **eShopLite** application. .NET Aspire integrations are a curated suite of NuGet packages specifically selected to facilitate the integration of cloud-native applications with prominent services and platforms such as Redis. .NET Aspire integrations handle many cloud-native concerns for you through standardized configuration patterns, such as adding health checks and telemetry.
 
 Most .NET Aspire integrations consist of two separate libraries &ndash; one for AppHost and the other for individual applications. For Redis cache, we add the **Aspire.Hosting.Redis** package to the **eShopLite.AppHost** project and add the **Aspire.StackExchange.Redis.OutputCache** package to the **eShopLite.Store** project. Let's add them.
 
