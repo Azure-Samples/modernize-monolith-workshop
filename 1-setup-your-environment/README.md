@@ -21,7 +21,7 @@ We'll provide starter solutions for each part - so if you want to jump right int
 
 ## Requirements all-up
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) : The latest version of the .NET SDK that you'll need for development.
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) : The latest version of the .NET SDK that you'll need for development.
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) with the web workload installed.
 
 ## Requirements for part 1 - modernizing code

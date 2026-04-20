@@ -46,7 +46,7 @@ When modernizing a codebase with the .NET Upgrade Assistant, several key activit
 - **Project analysis and scanning**: The tool includes an analysis engine that scans your projects and their dependencies to identify upgrade opportunities and potential incompatibilities
 - **Automated project format conversion**: Upgrades projects from the .NET Framework project format to the latest .NET SDK project format automatically
 - **NuGet package cleanup and optimization**: Analyzes package references and removes unnecessary dependencies while ensuring proper package versions for the target framework
-- **Target framework migration**: Changes the target framework moniker (TFM) from .NET Framework to the appropriate modern .NET version (such as net6.0 or net9.0)
+- **Target framework migration**: Changes the target framework moniker (TFM) from .NET Framework to the appropriate modern .NET version (such as net6.0 or net10.0)
 - **Code transformation and namespace updates**: Performs source-specific code changes, updates namespaces, and migrates APIs to their modern equivalents
 - **Configuration file migration**: Updates configuration files from older formats to newer types compatible with modern .NET
 - **Analyzer integration**: Adds analyzers to the project that assist with completing the migration process and identifying remaining issues
@@ -90,7 +90,7 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 
     ![.NET Upgrade Assistant create new project name](./images/dotnet-upgrade-assistant-create-new-project-name.png)
 
-1. Select **.NET 9.0** for the target framework if you have that installed. If not select **.NET 8**.
+1. Select **.NET 10.0** for the target framework if you have that installed. If not select **.NET 8**.
 
     ![.NET Upgrade Assistant target](./images/dotnet-upgrade-assistant-target.png)
 
@@ -100,7 +100,7 @@ Let's start the migration process by running the Upgrade Assistant on our eShopL
 
     ![.NET Upgrade Assistant applying changes](./images/dotnet-upgrade-assistant-applying-changes.png)
 
-1. Once the migration is complete click the **Done** button. Now any communications coming to the new .NET application will be proxied from the new .NET 9 application through to the existing .NET Framework application. However, you will need to upgrade some other parts of the code, like the controllers, views, and some individual classses. You can click on the individual links **Upgrade Controller**, **Upgrade Class** and **Upgrade View** to perform those upgrades.
+1. Once the migration is complete click the **Done** button. Now any communications coming to the new .NET application will be proxied from the new .NET 10 application through to the existing .NET Framework application. However, you will need to upgrade some other parts of the code, like the controllers, views, and some individual classses. You can click on the individual links **Upgrade Controller**, **Upgrade Class** and **Upgrade View** to perform those upgrades.
 
     ![.NET Upgrade Assistant migration complete](./images/dotnet-upgrade-assistant-migration-complete.png)
 

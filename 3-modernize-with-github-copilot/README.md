@@ -1,6 +1,6 @@
 # 🤖 Modernize with GitHub Copilot
 
-By using the upgrade assistants from Chapter 2, our application is now running on .NET 9. But it may not be using best practices or design patterns.
+By using the upgrade assistants from Chapter 2, our application is now running on .NET 10. But it may not be using best practices or design patterns.
 
 In this chapter, we will focus on modernizing our application using GitHub Copilot, which will assist us in refactoring the codebase, improving architecture, and enhancing overall performance.
 
@@ -19,7 +19,7 @@ This section explores:
 
 > ⚠️ **Another Important Note**
 > 
-> If you upgrade to .NET 9 using GitHub Copilot, it's entirely possible that you may have done some of these modernization steps during that upgrade - and that's OK! The upgrade process is fluid and you should do what makes sense to you during a session. The point is that you can have more than a single modernization / upgrade session.
+> If you upgrade to .NET 10 using GitHub Copilot, it's entirely possible that you may have done some of these modernization steps during that upgrade - and that's OK! The upgrade process is fluid and you should do what makes sense to you during a session. The point is that you can have more than a single modernization / upgrade session.
 
 ## 🔍 Prerequisites
 
@@ -53,13 +53,13 @@ Let's start the modernization by invoking the GitHub Copilot **upgrade_dotnet** 
 4. Paste the following comprehensive modernization request:
 
 ```plaintext
-I am working on a project that has recently been upgraded from .NET Framework to .NET 9. I need help modernizing the architecture and refactoring the codebase to align with .NET 9 best practices. Please assist with the following tasks:
+I am working on a project that has recently been upgraded from .NET Framework to .NET 10. I need help modernizing the architecture and refactoring the codebase to align with .NET 10 best practices. Please assist with the following tasks:
 
 Namespace and Naming Consistency
 Scan the entire solution for inconsistent or outdated namespace declarations. Identify and correct naming inconsistencies in classes, methods, and files. Apply consistent naming conventions throughout the codebase. The steps will be: Namespace and Naming Consistency, Fix Namespace Consistency - Models
 
 Architecture Modernization
-Refactor legacy architectural patterns to modern .NET 9 standards. Introduce dependency injection using Microsoft.Extensions.DependencyInjection. Replace obsolete or deprecated APIs with .NET 9-compatible alternatives. The steps will be: Modernize Data Layer with SQLite, Modernize Service Layer, Fix Controller Namespace and Modernize, Modernize Program.cs with .NET 9 Best Practices, Update Views to Handle Async Operations and New Namespaces, Create Error View
+Refactor legacy architectural patterns to modern .NET 10 standards. Introduce dependency injection using Microsoft.Extensions.DependencyInjection. Replace obsolete or deprecated APIs with .NET 10-compatible alternatives. The steps will be: Modernize Data Layer with SQLite, Modernize Service Layer, Fix Controller Namespace and Modernize, Modernize Program.cs with .NET 10 Best Practices, Update Views to Handle Async Operations and New Namespaces, Create Error View
 
 Database Migration
 Replace the existing SQLExpress database with SQLite. Update connection strings and DbContext configuration to support SQLite. Migrate schema and seed data from SQLExpress to SQLite. Ensure all SQL queries are compatible with SQLite syntax. The steps will be: Update Configuration with SQLite Connection String, Create the database, Build and Test the Application
@@ -82,7 +82,7 @@ Because of the older namespace structure from .NET Framework, we need to ensure 
 To achieve this, we added steps to Copilot analyze your codebase and suggest namespace corrections, before accepting any changes, please follow these steps:
 
 - Review suggested namespace changes, you can accept or modify them as needed.
-- Accept modifications to align with .NET 9 conventions and packages, such as going from `Newtonsoft.Json` to `System.Text.Json`.
+- Accept modifications to align with .NET 10 conventions and packages, such as going from `Newtonsoft.Json` to `System.Text.Json`.
 - Ensure all models follow consistent naming patterns
 
 ![Fix Namespace Models](./images/fix-namespace-models.png)

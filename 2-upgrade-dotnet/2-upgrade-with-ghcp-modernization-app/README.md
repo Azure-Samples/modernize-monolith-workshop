@@ -11,7 +11,7 @@ This tool leverages AI to automate and guide the upgrade process, making it easi
 This section covers:
 
 🤖 Using GitHub Copilot for intelligent upgrades  
-🔄 Migrating from .NET Framework to .NET 9  
+🔄 Migrating from .NET Framework to .NET 10  
 💾 Transitioning from SQL Express to SQLite  
 ⚡ Converting MVC frontend to Blazor components  
 🔧 Troubleshooting common migration issues  
@@ -34,7 +34,7 @@ This section covers:
 
 We're going to upgrade our application to achieve three major goals:
 
-- Upgrade to .NET 9
+- Upgrade to .NET 10
 - Migrate from SQL Express to SQLite
 - Transform our MVC frontend to modern Blazor components
 
@@ -53,7 +53,7 @@ Help me upgrade to a newer version of .NET
 
 ### Step 2: Configure the Target Version
 
-1. When prompted for the target version, select **.NET 9.0** and send the message in the chat
+1. When prompted for the target version, select **.NET 10.0** and send the message in the chat
 
 ![Select .NET Version](./images/select-dotnet-version.png)
 
@@ -195,7 +195,7 @@ After all changes, run your application to verify:
 ![Blazor Page Example](./images/blazor-page-example.png)
 
 Your application should now feature:
-- ✅ Running on .NET 9
+- ✅ Running on .NET 10
 - ✅ Using SQLite instead of SQL Express
 - ✅ Modern Blazor components replacing MVC views
 - ✅ Improved performance and maintainability

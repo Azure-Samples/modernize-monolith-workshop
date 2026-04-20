@@ -13,3 +13,4 @@
 - **Workshop Terminology Outdated:** "GitHub Copilot Upgrade Assistant" → "GitHub Copilot modernization" / `@Modernize` (VS) / `@modernize-dotnet` (VS Code). Tool names changed post-preview.
 - **Module 2 Gaps:** Missing Assessment workflow explanation, flow modes (Automatic/Guided), scenario inventory, IDE flexibility (VS Code path). Target is .NET 9; tool supports .NET 10+.
 - **Module 3 Gaps:** Long manual prompts (namespace, DI, Newtonsoft, EF, Blazor) can be replaced by built-in scenarios/skills. Module 3 architecture modernization largely overlaps tool's built-in capabilities.
+- **Version Bump Sprint (2026-04-20):** Coordinated with Darlene to update 31 csproj files (.NET 9→10, Aspire 9.4.0→13.2.2) while leaving Module 2 .NET Framework 4.8 starter projects untouched. Zero breaking changes. Version jump from 9.x to 13.x reflects Aspire deprecation cycle with .NET 10 GA.

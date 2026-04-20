@@ -7,4 +7,4 @@
 
 ## Learnings
 
-<!-- Append new learnings below. Each entry is something lasting about the project. -->
+- **Version Bump Sprint (2026-04-20):** Updated all 13 prose references (.NET 9→10) across 4 README files (Modules 1, 2A, 2B, 3) while Arvid handled csproj/package updates. Surgical prose-only approach maintains code block integrity and complements Arvid's XML scope.
