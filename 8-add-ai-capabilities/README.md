@@ -10,7 +10,7 @@ Transform your eShopLite store into an intelligent shopping experience with an A
 
 This section explores:
 
-🤖 GitHub Models integration with Azure.AI.Inference  
+🤖 GitHub Models integration with Microsoft.Extensions.AI (MEAI)  
 💬 AI-powered chatbot implementation  
 🛍️ Product-aware conversation capabilities  
 🔗 Connecting AI services to your microservices architecture  
@@ -20,9 +20,10 @@ This section explores:
 
 ## 🚀 Understanding AI Integration Architecture
 
- Our AI chatbot implementation follows a robust architecture four our eShopLite application:
+ Our AI chatbot implementation follows a robust architecture for our eShopLite application:
 - **GitHub Models**: Leveraging LLMs for intelligent responses, to prototype with AI capabilities!
 - **Azure.AI.Inference**: Modern SDK for AI service integration
+- **Microsoft.Extensions.AI (MEAI)**: Abstraction layer that decouples your code from specific AI providers, making it easy to swap between GitHub Models, Azure OpenAI, or other backends without changing application logic
 - **Product Catalog Integration**: Context-aware responses about store inventory
 - **Session Management**: Maintaining conversation history and context
 
@@ -87,7 +88,7 @@ var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariabl
 var client = new ChatCompletionsClient(
     new Uri("https://models.github.ai/inference"),
     credential,
-    new AzureAIInferenceClientOptions()););
+    new AzureAIInferenceClientOptions());
 
 var requestOptions = new ChatCompletionsOptions()
 {
@@ -96,9 +97,9 @@ var requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage(""),
         new ChatRequestUserMessage("Can you explain the basics of machine learning?"),
     },
-    Model = "openai/o3-mini",
-    Temperature = {temperature},
-    MaxTokens = {max_tokens},
+    Model = "gpt-4o-mini",
+    Temperature = 0.7f,
+    MaxTokens = 500,
 
 };
 
