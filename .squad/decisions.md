@@ -228,6 +228,59 @@
 **Directive:** Make local commits only, do NOT push anything to GitHub.
 **Reason:** User request — captured for team memory
 
+### 9. Module 2B → Module 3 Transition Clarity
+
+**Status:** Implemented | **Date:** 2026-04-24  
+**Agent:** Darlene (Content Developer)
+
+**Context:** Workshop attendees completing Module 2B (GitHub Copilot Modernization upgrade) have working .NET 10 code with Blazor components and SQLite. Module 3 provides a fresh `StartSample` baseline. The instructions were ambiguous about which to use.
+
+**Decision:** Added explicit guidance in Module 3 Prerequisites explaining both valid paths:
+
+1. **Continue with Module 2B output** — Your code is already upgraded; proceed directly to architectural modernization.
+2. **Use Module 3's StartSample baseline** — Fresh, consistent starting point; ideal if you completed Module 2A or want standardized state.
+
+**Rationale:**
+- **Learner agency:** Both paths are valid; let attendees choose based on their learning flow preference.
+- **Clarity reduces friction:** Explicit "either works" statement removes decision anxiety.
+- **Acknowledges module overlap:** GitHub Copilot Modernization covers both upgrade AND modernization; some tasks may overlap (OK, per existing notes).
+
+**Implementation:** Modified **3-modernize-with-github-copilot/README.md** Prerequisites section with decision tree and "Either works" normalization.
+
+**Files Modified:**
+- `3-modernize-with-github-copilot/README.md` (Prerequisites section, ~8 lines)
+
+**Impact:**
+- User impact: High (removes learner confusion)
+- Dev impact: Low (documentation only)
+
+---
+
+### 10. GitHub Copilot Product Naming Directive
+
+**Status:** Implemented | **Date:** 2026-04-24  
+**By:** Jeffrey T. Fritz (via Copilot)
+
+**Directive:** GitHub renamed the product this month to simply "GitHub Copilot Modernization"; use that product name in workshop updates.
+
+**Rationale:** User request — official product naming alignment
+
+**Implementation:** Standardized terminology across all workshop README files:
+- Replaced "GitHub Copilot Upgrade Assistant" with "GitHub Copilot Modernization"
+- Updated product reference links and descriptions throughout Modules 1–3
+- Ensured consistency in learner-facing documentation
+
+**Files Modified:**
+- 1-setup-your-environment/README.md
+- 2-upgrade-dotnet/README.md
+- 2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md
+- 3-modernize-with-github-copilot/README.md
+- README.md (pending final wording review)
+
+**Impact:** Learners now see official product name throughout workshop; reduces confusion about tooling identity.
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
