@@ -13,14 +13,6 @@ This section explores:
 🔧 Automated refactoring suggestions  
 📈 Improving code quality with AI assistance
 
-> ⚠️ **Important Note: Starting Sample Selection**
-> 
-> **If you completed Module 2B (GitHub Copilot Modernization upgrade):** Your code is now running on .NET 10 with SQLite and Blazor components. You can continue with your Module 2B output for architectural modernization. 
->
-> **If you want a consistent baseline:** Use the sample in **`3-modernize-with-github-copilot/StartSample`**. This is a post-upgrade .NET 10 codebase ideal for starting Module 3 fresh. Use this if you completed Module 2A or prefer a standardized starting point across all workshop participants.
->
-> **Either works.** Both approaches are valid paths to Module 3.
-
 ## 🔍 Prerequisites
 
 Before starting, ensure you have:

@@ -28,7 +28,7 @@ We'll provide starter solutions for each part - so if you want to jump right int
 
 - [.NET 4.8 Framework](https://dotnet.microsoft.com/download/dotnet-framework/net48): A version of the .NET Framework that the existing application for this workshop is currently using.
 - [.NET Upgrade Assistant](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview): A tool to help you upgrade your .NET applications.
-- [.NET Upgrade Assistant Copilot](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-install#visual-studio-extension): This copilot extension will assist you in the migration process by providing suggestions and automating some tasks.
+- [GitHub Copilot Modernization](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-install#visual-studio-extension): This extension will assist you in the migration process by providing AI-powered suggestions and automating modernization tasks.
 - [SQL Express](https://www.microsoft.com/en-us/download/details.aspx?id=104781&lc=1033&msockid=3bf02f53610f677810c73afb608a66da): A lightweight version of SQL Server for local development and testing.
 - [GitHub Copilot Pro](https://github.com/features/copilot): Optional, as you can read through the [update with GitHub Copilot](../2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md) section.
 
