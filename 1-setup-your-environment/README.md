@@ -41,11 +41,11 @@ We'll provide starter solutions for each part - so if you want to jump right int
  
 ## 📚 Installing the upgrade assistants
 
-Let's walk through installing the upgrade assistants. The instructions are the same for whether you want to install the **.NET Upgrade Assistant** or the **GitHub Copilot app modernization** - you only have to change what you search for.
+Let's walk through installing the upgrade assistants. The instructions are the same for whether you want to install the **.NET Upgrade Assistant** or the **GitHub Copilot Modernization** tool - you only have to change what you search for.
 
 1. Open **Visual Studio**
 1. Go to the menu bar and select **Extensions > Manage Extensions**.
-1. Select the **Browse** tab and search for `.NET Upgrade Assistant` or `GitHub Copilot App Modernization`
+1. Select the **Browse** tab and search for `.NET Upgrade Assistant` or `GitHub Copilot Modernization`
 1. Click the **Install** button to install the extension.
 
    ![Visual Studio Installation](./images/visual-studio-manage-extensions.png)

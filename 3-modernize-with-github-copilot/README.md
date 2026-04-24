@@ -8,25 +8,35 @@ In this chapter, we will focus on modernizing our application using GitHub Copil
 
 This section explores:
 
-🚀 AI-powered code modernization  
+🚀 AI-powered code modernization using **GitHub Copilot Modernization**  
 💡 GitHub Copilot best practices
 🔧 Automated refactoring suggestions  
-📈 Improving code quality with AI assistance  
+📈 Improving code quality with AI assistance
 
-> ⚠️ **Important Note**
+> ⚠️ **Important Note: Starting Sample Selection**
 > 
-> For this section, please use the sample in the **3-modernize-with-github-copilot/StartSample** folder, as the previous samples Chapter 2 may have different results while migrating from .NET Framework.
-
-> ⚠️ **Another Important Note**
-> 
-> If you upgrade to .NET 10 using GitHub Copilot, it's entirely possible that you may have done some of these modernization steps during that upgrade - and that's OK! The upgrade process is fluid and you should do what makes sense to you during a session. The point is that you can have more than a single modernization / upgrade session.
+> **If you completed Module 2B (GitHub Copilot Modernization upgrade):** Your code is now running on .NET 10 with SQLite and Blazor components. You can continue with your Module 2B output for architectural modernization. 
+>
+> **If you want a consistent baseline:** Use the sample in **`3-modernize-with-github-copilot/StartSample`**. This is a post-upgrade .NET 10 codebase ideal for starting Module 3 fresh. Use this if you completed Module 2A or prefer a standardized starting point across all workshop participants.
+>
+> **Either works.** Both approaches are valid paths to Module 3.
 
 ## 🔍 Prerequisites
 
 Before starting, ensure you have:
 
 - GitHub Copilot installed and activated in Visual Studio
-- The GitHub Copilot Modernization for .NET extension installed
+- **GitHub Copilot Modernization** extension installed in Visual Studio
+
+### Choose Your Starting Point
+
+> ⚠️ **Important: Starting Sample Selection**
+> 
+> **If you completed Module 2B (GitHub Copilot Modernization upgrade):** You can continue with your upgraded code. Your Module 2B output should be running on .NET 10 with SQLite and Blazor components—perfect for modernization tasks in this module.
+>
+> **If you completed Module 2A (Traditional .NET Upgrade Assistant) or want a consistent baseline:** Use the fresh sample in **`3-modernize-with-github-copilot/StartSample`**. This ensures you have a stable, known starting point regardless of your Module 2 path. The StartSample is a post-upgrade .NET 10 codebase ready for architectural modernization.
+>
+> **Either path works.** Choose based on whether you want to keep your Module 2B progress or start fresh with a standardized baseline.
 
 ### Check GitHub Copilot agent mode
 
