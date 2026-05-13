@@ -22,7 +22,7 @@
 ## Project Context
 
 - **Owner:** Jeff Fritz
-- **Project:** Modernize your monolith workshop — an 8-module full-day workshop taking a .NET Framework monolith through upgrade, modernization with GitHub Copilot, refactoring to microservices, .NET Aspire, Redis caching, Azure Container Apps deployment, and AI integration.
-- **Stack:** C#, .NET Framework → .NET (latest), Blazor, ASP.NET Core Web API, .NET Aspire, Docker, Azure Container Apps, azd, GitHub Copilot, GitHub Actions, Bicep, Azure AI
+- **Project:** Modernize your monolith workshop — an 8-module full-day workshop taking a .NET Framework monolith through upgrade, modernization with GitHub Copilot, refactoring to microservices, Aspire, Redis caching, Azure Container Apps deployment, and AI integration.
+- **Stack:** C#, .NET Framework → .NET (latest), Blazor, ASP.NET Core Web API, Aspire, Docker, Azure Container Apps, azd, GitHub Copilot, GitHub Actions, Bicep, Azure AI
 - **Created:** 2026-04-20
 - **Universe:** Head of the Class

@@ -2,7 +2,7 @@
 
 This workshop is designed to help you modernize .NET applications. 
 
-Everything from modernizing code from .NET Framework to a modern .NET, getting all that code ready for the cloud with microservices and .NET Aspire, and even adding in a sprinkling of AI.
+Everything from modernizing code from .NET Framework to a modern .NET, getting all that code ready for the cloud with microservices and Aspire, and even adding in a sprinkling of AI.
 
 But before we get to all that we need to install some tools.
 
@@ -24,11 +24,15 @@ We'll provide starter solutions for each part - so if you want to jump right int
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) : The latest version of the .NET SDK that you'll need for development.
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) with the web workload installed.
 
+> 💡 **IDE Flexibility**
+>
+> This workshop is written for **Visual Studio 2022 (17.14+)**, which has the deepest integration with GitHub Copilot modernization (right-click → Modernize, Guided/Automatic modes, inline plan review). **VS Code** with the GitHub Copilot extension also supports modernization via `@Modernize` in Copilot Chat, though some visual features like the context-menu launch and plan editor may differ. Choose the IDE you're most comfortable with — the core workflow (Assessment → Planning → Execution) is the same.
+
 ## Requirements for part 1 - modernizing code
 
 - [.NET 4.8 Framework](https://dotnet.microsoft.com/download/dotnet-framework/net48): A version of the .NET Framework that the existing application for this workshop is currently using.
 - [.NET Upgrade Assistant](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview): A tool to help you upgrade your .NET applications.
-- [GitHub Copilot Modernization](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-install#visual-studio-extension): This extension will assist you in the migration process by providing AI-powered suggestions and automating modernization tasks.
+- [GitHub Copilot Modernization](https://learn.microsoft.com/dotnet/core/porting/github-copilot-app-modernization/install): Built into Visual Studio 2022 17.14+ as an optional component. Enable it via the Visual Studio Installer. Assists in migration by providing AI-powered suggestions and automating modernization tasks.
 - [SQL Express](https://www.microsoft.com/en-us/download/details.aspx?id=104781&lc=1033&msockid=3bf02f53610f677810c73afb608a66da): A lightweight version of SQL Server for local development and testing.
 - [GitHub Copilot Pro](https://github.com/features/copilot): Optional, as you can read through the [update with GitHub Copilot](../2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md) section.
 

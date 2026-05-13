@@ -15,7 +15,7 @@ This section explores:
 🛍️ Product-aware conversation capabilities  
 🔗 Connecting AI services to your microservices architecture  
 📱 Modern floating chat UI with Blazor components  
-🔒 Secure token management with .NET Aspire  
+🔒 Secure token management with Aspire  
 🛡️ Fallback systems for AI service availability  
 
 ## 🚀 Understanding AI Integration Architecture
@@ -30,7 +30,7 @@ This section explores:
 ### Technical Stack
 - **Backend**: C# with Azure.AI.Inference SDK
 - **Frontend**: Blazor Server components with interactive rendering
-- **Configuration**: .NET Aspire parameter management
+- **Configuration**: Aspire parameter management
 
 ## 🛠️ Implementation Guide
 
@@ -146,7 +146,7 @@ Create a complete chat UI for eShopLite.Store:
 3. Update _Imports.razor:
    - Add @using eShopLite.Store.Components.Shared
 
-Configure .NET Aspire integration
+Configure Aspire integration
 4. Update AppHost Program.cs:
    - Add parameter: builder.AddParameter("github-token", secret: true)
    - Pass to Store: .WithEnvironment("GITHUB_TOKEN", githubToken)
@@ -156,9 +156,9 @@ Configure .NET Aspire integration
 This prompt creates a production-ready chat widget with modern UI/UX, responsive design, and seamless integration with your Blazor application.
 
 
-### Step 3: Configure .NET Aspire Integration
+### Step 3: Configure Aspire Integration
 
-Run our application, to start to use the AI chatbot, we need to configure .NET Aspire for secure token management and service dependencies.
+Run our application, to start to use the AI chatbot, we need to configure Aspire for secure token management and service dependencies.
 
 Follow these steps:
 
@@ -172,9 +172,9 @@ Follow these steps:
 
 ![Configuration Missing](./images/configuration-missing.png)
 
-3. Click on the parameter on the .NET Aspire dashboard to add your GitHub token. If you don't have a token yet, follow the instructions to create one in your GitHub account settings [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+3. Click on the parameter on the Aspire dashboard to add your GitHub token. If you don't have a token yet, follow the instructions to create one in your GitHub account settings [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-4. Add your GitHub token in the .NET Aspire dashboard in a popup window, that looks like this:
+4. Add your GitHub token in the Aspire dashboard in a popup window, that looks like this:
 
 ![Token Configuration](./images/token-configuration.png)
 
@@ -210,12 +210,14 @@ Your AI-enhanced eShopLite store should now feature:
 ✅ **Product Awareness**: Context-aware recommendations from your catalog  
 ✅ **Modern UI**: Responsive, floating chat interface  
 ✅ **Robust Architecture**: Fallback systems and error handling  
-✅ **Secure Configuration**: Token management through .NET Aspire  
+✅ **Secure Configuration**: Token management through Aspire  
 ✅ **Production Ready**: Scalable session management and performance optimization  
 
 ## 🎯 What You've Accomplished
 
-Your modernized application now represents a complete transformation from a legacy .NET Framework monolith to a cutting-edge, AI-enhanced microservices solution ready for deployment!
+Your modernized application now represents a complete transformation from a legacy .NET Framework monolith to a cutting-edge, AI-enhanced microservices solution ready for deployment.
+
+If your modernization roadmap also includes desktop apps, continue to the optional capstone to modernize the WinForms admin experience.
 
 ---
-[← Previous: Deploy to ACA with azd](../7-deploy-to-aca-with-azd/README.md) | [🎉 Workshop Complete! Back to Main →](../README.md)
+[← Previous: Deploy to Azure Container Apps with Aspire CLI](../7-deploy-to-aca/README.md) | **Next:** [Module 9 - Migrate a WinForms Application (Optional Capstone)](../9-migrate-winforms/README.md)

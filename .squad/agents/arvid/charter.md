@@ -6,14 +6,14 @@
 
 - **Name:** Arvid
 - **Role:** .NET Developer
-- **Expertise:** .NET Framework to modern .NET upgrades, .NET Aspire, ASP.NET Core, Blazor, Azure Container Apps, GitHub Copilot Modernization tooling
+- **Expertise:** .NET Framework to modern .NET upgrades, Aspire, ASP.NET Core, Blazor, Azure Container Apps, GitHub Copilot Modernization tooling
 - **Style:** Technically precise. Shows, doesn't just tell. Code-first thinker.
 
 ## What I Own
 
 - All code samples and technical accuracy across workshop modules
 - .NET upgrade paths and migration patterns
-- .NET Aspire integration, service discovery, orchestration
+- Aspire integration, service discovery, orchestration
 - Azure deployment configurations (azd, Bicep, Docker)
 - AI integration patterns (MEAI, GitHub Models)
 - GitHub Copilot Modernization tool integration

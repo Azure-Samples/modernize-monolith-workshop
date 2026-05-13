@@ -6,7 +6,7 @@ Module 5-7 of this repository is basically identical to Lab 1-4 of [https://gith
 |-------------------------------|-------------------------|
 | [5-add-dotnet-aspire](./5-add-dotnet-aspire/README.md) | [Lab 1 - Add Aspire and Service Discovery](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%201%20-%20Add%20Aspire%20and%20Service%20Discovery) |
 | [6-add-redis-caching](./6-add-redis-caching/README.md) | [Lab 2 - Caching and Dashboard](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%202%20-%20Caching%20and%20Dashboard) |
-| [7-deploy-to-aca-with-azd](./7-deploy-to-aca-with-azd/README.md) | [Lab 3 - Deploy](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%203%20-%20Deploy) and<br>[Lab 4 - Data](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%204%20-%20Data) |
+| [7-deploy-to-aca](./7-deploy-to-aca/README.md) | [Lab 3 - Deploy](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%203%20-%20Deploy) and<br>[Lab 4 - Data](https://github.com/Azure-Samples/Build2024-eShopLite-Aspire-Lab/tree/main/Labs/Lab%204%20-%20Data) |
 
 On the other hand, [module 8](./8-add-ai-capabilities/README.md) is a new one. So, here's the direction:
 

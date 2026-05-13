@@ -1,8 +1,8 @@
 # Project Context
 
 - **Owner:** Jeff Fritz
-- **Project:** Modernize your monolith workshop — 8-module full-day workshop upgrading .NET Framework monolith to modern .NET with microservices, .NET Aspire, Azure Container Apps, and AI.
-- **Stack:** C#, .NET Framework → .NET, Blazor, ASP.NET Core Web API, .NET Aspire, Docker, Azure Container Apps, azd, GitHub Copilot, GitHub Actions, Bicep, Azure AI
+- **Project:** Modernize your monolith workshop — 8-module full-day workshop upgrading .NET Framework monolith to modern .NET with microservices, Aspire, Azure Container Apps, and AI.
+- **Stack:** C#, .NET Framework → .NET, Blazor, ASP.NET Core Web API, Aspire, Docker, Azure Container Apps, azd, GitHub Copilot, GitHub Actions, Bicep, Azure AI
 - **Created:** 2026-04-20
 
 ## Learnings
@@ -36,3 +36,26 @@
 4. **Sprint 2:** Built-in scenarios table + custom skills reference (medium effort, advanced features)
 5. **Sprint 2:** Module 2B → 3 transition clarity (low effort, workflow continuity)
 6. **Backlog:** IDE flexibility note (low effort, inclusivity)
+
+### Module 9 WinForms Architecture (2026-05-11)
+
+- **Module 9 direction:** Add `9-migrate-winforms` as a standalone eShopLite admin-tool module with the standard workshop shape: `README.md`, `StartSample`, `CompleteSample`, and `images`.
+- **Story decision:** Position the WinForms app as the last legacy operational client in the eShopLite portfolio, complementing the web modernization and microservices modules instead of replacing them.
+- **StartSample pattern:** Use a `.NET Framework 4.8` WinForms project named `eShopLite.Admin.WinFormsFx` with legacy `App.config`, `packages.config`, EF6 + LocalDB style persistence, product CRUD, and a read-only order viewer.
+- **CompleteSample pattern:** Use a `net10.0-windows` SDK-style WinForms project named `eShopLite.Admin.WinForms` with `appsettings.json`, generic host + DI, EF Core + SQLite, async service-based form logic, and the same functional screens for clean before/after comparison.
+- **Tooling decision:** Teach **.NET Upgrade Assistant first** for project/designer conversion, then **GitHub Copilot Modernization** for cleanup, refactoring, async updates, and post-port code quality work.
+- **Aspire decision:** Keep Module 9 standalone; desktop migration should not require Aspire orchestration, though API integration with an Aspire-hosted environment can be an optional stretch goal.
+- **Data model decision:** Reuse the existing eShopLite `Product` shape (`Id`, `Name`, `Description`, `Price`, `ImageUrl`) and add lightweight `Order` / `OrderLineItem` tables only inside Module 9 so the admin scenario feels real without forcing upstream module changes.
+- **Architecture merged to decisions.md for team adoption (2026-05-11T20:56:17Z).**
+
+- **Module 9 direction:** Add `9-migrate-winforms` as a standalone eShopLite admin-tool module with the standard workshop shape: `README.md`, `StartSample`, `CompleteSample`, and `images`.
+- **Story decision:** Position the WinForms app as the last legacy operational client in the eShopLite portfolio, complementing the web modernization and microservices modules instead of replacing them.
+- **StartSample pattern:** Use a `.NET Framework 4.8` WinForms project named `eShopLite.Admin.WinFormsFx` with legacy `App.config`, `packages.config`, EF6 + LocalDB style persistence, product CRUD, and a read-only order viewer.
+- **CompleteSample pattern:** Use a `net10.0-windows` SDK-style WinForms project named `eShopLite.Admin.WinForms` with `appsettings.json`, generic host + DI, EF Core + SQLite, async service-based form logic, and the same functional screens for clean before/after comparison.
+- **Tooling decision:** Teach **.NET Upgrade Assistant first** for project/designer conversion, then **GitHub Copilot Modernization** for cleanup, refactoring, async updates, and post-port code quality work.
+- **Aspire decision:** Keep Module 9 standalone; desktop migration should not require Aspire orchestration, though API integration with an Aspire-hosted environment can be an optional stretch goal.
+- **Data model decision:** Reuse the existing eShopLite `Product` shape (`Id`, `Name`, `Description`, `Price`, `ImageUrl`) and add lightweight `Order` / `OrderLineItem` tables only inside Module 9 so the admin scenario feels real without forcing upstream module changes.
+- **Key file path:** Architecture written to `.squad/decisions/inbox/charlie-module9-architecture.md`.
+- **Narrative continuity gap:** Workshop arc is strongest from Modules 2–7; biggest breaks are Module 3→4 overlap, Module 7 deployment-story drift, and Module 8 ending the workshop before Module 9.
+- **Story-shape learning:** Module 9 works best when framed as an optional epilogue about the last legacy eShopLite client, not as an unintroduced extension after a declared ending.
+- **Promise alignment gap:** Root README still promises azd / GitHub Actions / Bicep deployment language that no longer matches the current Module 7 Aspire CLI story.

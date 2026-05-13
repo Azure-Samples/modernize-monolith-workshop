@@ -1,0 +1,26 @@
+[
+  {
+    "orderNumber": "ESH-10001",
+    "customerName": "Megan Bowen",
+    "status": "Shipped",
+    "orderedAt": "2026-05-02T10:15:00Z",
+    "total": 124.97,
+    "itemCount": 3
+  },
+  {
+    "orderNumber": "ESH-10002",
+    "customerName": "Isaac Levinson",
+    "status": "Processing",
+    "orderedAt": "2026-05-03T14:40:00Z",
+    "total": 79.99,
+    "itemCount": 1
+  },
+  {
+    "orderNumber": "ESH-10003",
+    "customerName": "Adele Vance",
+    "status": "Backorder",
+    "orderedAt": "2026-05-05T09:00:00Z",
+    "total": 49.99,
+    "itemCount": 2
+  }
+]

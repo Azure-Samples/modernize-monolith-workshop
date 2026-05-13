@@ -54,18 +54,18 @@
   - Line 123: Tool name in prompt
 - **csproj bumped:** `eShopLite.StoreCore` — `net9.0` → `net10.0`
 
-### Module 5 — Add .NET Aspire
+### Module 5 — Add Aspire
 **File:** `5-add-dotnet-aspire/README.md`
-- Reframed Aspire description from "Since .NET 8, it includes the **new** .NET Aspire stack" → ".NET Aspire, introduced with .NET 8 and now a **mature part of the .NET 10 ecosystem**"
+- Reframed Aspire description from "Since .NET 8, it includes the **new** Aspire stack" → "Aspire, introduced with .NET 8 and now a **mature part of the .NET 10 ecosystem**"
 - **5 csproj files bumped:** All `net9.0` → `net10.0`
 
 ### Module 6 — Add Redis Caching
 **File:** `6-add-redis-caching/README.md`
-- **Typo fix:** `application..NET Aspire` → `application. .NET Aspire` (missing space after period)
+- **Typo fix:** `application..NET Aspire` → `application. Aspire` (missing space after period)
 - **5 csproj files bumped:** All `net9.0` → `net10.0`, Aspire hosting packages `9.x` → `13.2.2`
 
-### Module 7 — Deploy to ACA with azd
-**File:** `7-deploy-to-aca-with-azd/README.md`
+### Module 7 — Deploy to ACA with Aspire CLI
+**File:** `7-deploy-to-aca/README.md`
 - ⚠️ **NOT YET UPDATED** — identified issue: false claim about GitHub Actions CI/CD coverage
 - **5 csproj files bumped:** All `net9.0` → `net10.0`, Aspire hosting packages `9.x` → `13.2.2`
 

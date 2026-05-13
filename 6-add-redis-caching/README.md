@@ -1,6 +1,6 @@
 # 🚀 Add Redis Caching
 
-Boost your application's performance by implementing Redis caching and integrating it seamlessly with your .NET Aspire setup.
+Boost your application's performance by implementing Redis caching and integrating it seamlessly with your Aspire setup.
 
 ## 📋 What You'll Do
 
@@ -33,9 +33,9 @@ Now imagine that the user refreshes the page. Instead of reconstructing the enti
 
 Redis is a popular choice for caching in a cloud-native application. In particular, distributed caching allows one microservice to retrieve information stored in the cache by another microservice.
 
-We'll use .NET Aspire integrations to add Redis caching to the **eShopLite** application. .NET Aspire integrations are a curated suite of NuGet packages specifically selected to facilitate the integration of cloud-native applications with prominent services and platforms such as Redis. .NET Aspire integrations handle many cloud-native concerns for you through standardized configuration patterns, such as adding health checks and telemetry.
+We'll use Aspire integrations to add Redis caching to the **eShopLite** application. Aspire integrations are a curated suite of NuGet packages specifically selected to facilitate the integration of cloud-native applications with prominent services and platforms such as Redis. Aspire integrations handle many cloud-native concerns for you through standardized configuration patterns, such as adding health checks and telemetry.
 
-Most .NET Aspire integrations consist of two separate libraries &ndash; one for AppHost and the other for individual applications. For Redis cache, we add the **Aspire.Hosting.Redis** package to the **eShopLite.AppHost** project and add the **Aspire.StackExchange.Redis.OutputCache** package to the **eShopLite.Store** project. Let's add them.
+Most Aspire integrations consist of two separate libraries &ndash; one for AppHost and the other for individual applications. For Redis cache, we add the **Aspire.Hosting.Redis** package to the **eShopLite.AppHost** project and add the **Aspire.StackExchange.Redis.OutputCache** package to the **eShopLite.Store** project. Let's add them.
 
 ### Adding host integration for Redis Cache
 
@@ -127,15 +127,15 @@ Now we have a Redis resource ready, which we can use in our application. Let's a
 
 Now, when you run the application, the products list will be cached for 10 seconds. You can change the duration to see the effect of the cache. The first time you access the page, the products list will be retrieved from the database. The next time you access the page within the cache duration, the products list will be retrieved from the cache.
 
-We intentionally didn't apply the cache to the store information. Let's find out the differences between products list and store information on the .NET Aspire dashboard.
+We intentionally didn't apply the cache to the store information. Let's find out the differences between products list and store information on the Aspire dashboard.
 
-### Verifying the cache effect on .NET Aspire dashboard
+### Verifying the cache effect on Aspire dashboard
 
-Let's see the effect of our caching implementation in the .NET Aspire dashboard.
+Let's see the effect of our caching implementation in the Aspire dashboard.
 
-1. Make sure Docker Desktop is up and running before running this .NET Aspire application.
+1. Make sure Docker Desktop is up and running before running this Aspire application.
 1. In Visual Studio, to start the app, press `F5` or **select Debug > Start Debugging**.
-1. When the .NET Aspire dashboard appears, note the you have now four resources: **redis**, **eshoplite-products**, **eshoplite-store** and **eshoplite-storeinfo**. Unlike other resources, the source of **redis** is `docker.io/library/redis`, which is the **Container** resource type.
+1. When the Aspire dashboard appears, note the you have now four resources: **redis**, **eshoplite-products**, **eshoplite-store** and **eshoplite-storeinfo**. Unlike other resources, the source of **redis** is `docker.io/library/redis`, which is the **Container** resource type.
 
    ![Dashboard Resources](./images/add-redis-caching-05.png)
 
@@ -148,13 +148,13 @@ Let's see the effect of our caching implementation in the .NET Aspire dashboard.
    > ![.NET Aspire dashboard access token](./images/console-token.png)
 
 1. Click on the **eshoplite-store** the endpoints, a new tab will open with the store website.
-1. In the .NET Aspire dashboard, click on **Traces** from the left menu. This display the traces of the requests made to the store website through the different resources.
+1. In the Aspire dashboard, click on **Traces** from the left menu. This display the traces of the requests made to the store website through the different resources.
 
    ![Dashboard Traces](./images/add-redis-caching-06.png)
 
-1. For the next few steps it will be easier to visualize the impact of the cache, to have the store website and the .NET Aspire dashboard side by side.
+1. For the next few steps it will be easier to visualize the impact of the cache, to have the store website and the Aspire dashboard side by side.
 1. In the store website, click on the **Products** link. This will display the products list.
-1. Note that in the .NET Aspire dashboard, new lines were added. Note that in the **Spans** column, some are identified as **eshoplite-store** only and the other are identified as both **eshoplite-store** and **eshoplite-products**. This is because the first time the products list was retrieved from the database (aka products).
+1. Note that in the Aspire dashboard, new lines were added. Note that in the **Spans** column, some are identified as **eshoplite-store** only and the other are identified as both **eshoplite-store** and **eshoplite-products**. This is because the first time the products list was retrieved from the database (aka products).
 
    ![Dashboard with the first request made](./images/add-redis-caching-07.png)
 
@@ -163,7 +163,7 @@ Let's see the effect of our caching implementation in the .NET Aspire dashboard.
    ![Dashboard with the first request made - trace details](./images/add-redis-caching-08.png)
 
 1. Now refresh the store website displaying the product list.
-1. Looking back at the .NET Aspire dashboard, new lines were added, but this time in the **Spans** column, there's a new record identifying both **eshoplite-store** and **redis**. This is because the products list was retrieved from the cache.
+1. Looking back at the Aspire dashboard, new lines were added, but this time in the **Spans** column, there's a new record identifying both **eshoplite-store** and **redis**. This is because the products list was retrieved from the cache.
 
    ![Dashboard with the second request made the caching enabled](./images/add-redis-caching-09.png)
 
@@ -178,15 +178,15 @@ Let's see the effect of our caching implementation in the .NET Aspire dashboard.
 
 1. Close the web browser to stop debugging the applications.
 
-So far, we have integrated Redis Cache container through .NET Aspire orchestration. .NET Aspire doesn't only make this type of integration easier, but it also makes all other cloud-native features like observability, traceability and discoverability easier and simpler.
+So far, we have integrated Redis Cache container through Aspire orchestration. Aspire doesn't only make this type of integration easier, but it also makes all other cloud-native features like observability, traceability and discoverability easier and simpler.
 
 ## ✅ Verification
 
 By the end of this section, you should have:
 
 🔹 Implemented Redis caching for improved performance  
-🔹 Integrated caching with .NET Aspire  
+🔹 Integrated caching with Aspire  
 🔹 Monitored cache effectiveness through telemetry  
 
 ---
-[← Previous: Add .NET Aspire](../5-add-dotnet-aspire/README.md) | [Next: Deploy to ACA with azd →](../7-deploy-to-aca-with-azd/README.md)
+[← Previous: Add Aspire](../5-add-dotnet-aspire/README.md) | [Next: Deploy to ACA with Aspire CLI →](../7-deploy-to-aca/README.md)

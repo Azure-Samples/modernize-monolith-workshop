@@ -158,7 +158,7 @@
 **Status:** Complete | **Date:** 2026-04-20  
 **Agent:** Arvid (.NET Developer)
 
-**Context:** After updating all csproj files from Aspire 9.4.0 → 13.2.2 and .NET 9 → .NET 10, Module 5 & 6 README prose still framed .NET Aspire as "new" (referring to its .NET 8 debut).
+**Context:** After updating all csproj files from Aspire 9.4.0 → 13.2.2 and .NET 9 → .NET 10, Module 5 & 6 README prose still framed Aspire as "new" (referring to its .NET 8 debut).
 
 **Decision:** Updated Module 5 & 6 README prose to reframe Aspire as mature/established while maintaining historical context.
 
@@ -278,6 +278,328 @@
 - README.md (pending final wording review)
 
 **Impact:** Learners now see official product name throughout workshop; reduces confusion about tooling identity.
+
+---
+
+### 11. Priority 4: Built-in Scenarios Reference — Research & Implementation
+
+**Status:** Completed | **Date:** 2026-05-04  
+**Agents:** Arvid (Research), Darlene (Content)
+
+#### Arvid's GitHub Copilot Modernization scenario UI research
+
+**Scope:** How learners actually access and invoke built-in GitHub Copilot Modernization capabilities in Visual Studio.
+
+**Exact findings from Microsoft docs:**
+
+1. **Entry points:** In Visual Studio, documented entry points are **right-click > Modernize** or **Copilot Chat + `@Modernize`**
+   - The .NET upgrade article: in Visual Studio, start by either right-clicking the solution or project in **Solution Explorer** and selecting **Modernize**, or opening **GitHub Copilot Chat** and typing `@Modernize`. Then, **tell the agent what to upgrade or migrate**.
+   - Visual Studio 17.14 release notes confirm both launch methods.
+
+2. **No documented scenario picker UI for .NET modernization**
+   - Current .NET docs consistently describe the flow as: start the modernization agent, then describe the goal in natural language.
+   - The only documented picker is the **agent picker** in Copilot Chat.
+   - Concepts/reference docs say you do **not** need to memorize scenario names because the agent discovers relevant scenarios automatically.
+
+3. **Target specific capabilities via natural language**
+   - Users ask for the outcome in chat; the agent maps that request to the right scenario and/or skills.
+   - Example prompts: "Upgrade my solution to .NET 10", "Help me upgrade from EF6 to EF Core", "Upgrade from Newtonsoft.Json"
+   - Skills load automatically when relevant code is detected, and can also be invoked by request.
+
+4. **Taxonomy correction: scenarios vs skills**
+   - **Official .NET scenarios** (currently documented):
+     1. .NET version upgrade
+     2. SDK-style conversion
+     3. Newtonsoft.Json upgrade
+     4. SqlClient upgrade
+     5. Azure Functions upgrade
+     6. Semantic Kernel to Agents
+   - **30+ built-in skills** including EF6→EF Core, MVC DI, MVC routing, OWIN, WCF/CoreWCF, and related upgrade tasks
+   - Module 3's prior list mixed scenarios and skills incorrectly; Blazor conversion, namespace cleanup, and database modernization were not found as named official scenarios
+
+5. **Right-click Modernize vs Copilot Chat: same agent, different entry point**
+   - **Right-click > Modernize:** convenience launch from Solution Explorer, naturally scoped to selected project/solution
+   - **Copilot Chat + `@Modernize`:** conversational route; clearest for requesting specific upgrade focus, asking what scenarios are available, reviewing status, switching modes
+   - No documented functional difference in capability between entry points
+
+6. **Automatic vs Guided mode**
+   - **Automatic:** agent moves through assessment, planning, execution without stopping at each boundary unless blocked
+   - **Guided:** agent pauses after assessment, after planning, and at key decision points for review
+   - Users can switch modes mid-session by saying **"pause"**, **"switch to guided"**, or **"continue"**
+
+7. **Current naming and GA status**
+   - .NET docs prefer **GitHub Copilot modernization** (lowercase 'm')
+   - VS docs reference **GitHub Copilot app modernization** (older phrasing)
+   - GA as of Sep 22, 2025 (both Java and .NET IDEs)
+   - Visual Studio includes as optional component (17.14+)
+
+**Recommendation:** Workshop prose should prefer **GitHub Copilot modernization**, noting some URLs still contain **app modernization**.
+
+---
+
+#### Darlene's Module 3 README updates (Scenarios & entry points)
+
+**Context:** Module 3 README incorrectly framed scenarios as a UI picker and listed items (Blazor conversion, namespace cleanup) not found as official scenarios in Microsoft docs.
+
+**Changes Made:**
+1. Updated Module 3 prerequisite: noted VS 2022 17.14+ requirement as optional component
+2. Replaced inaccurate "built-in scenarios" list with doc-backed two-entry-point guidance
+3. **New section:** Official scenarios vs built-in skills comparison table
+   - **Official scenarios:** .NET version upgrade, SDK-style conversion, Newtonsoft→STJ, SqlClient upgrade, Azure Functions upgrade, Semantic Kernel to Agents
+   - **Workshop-relevant skills:** EF6→EF Core, MVC dependency injection, Newtonsoft→System.Text.Json
+4. Clarified: no scenario picker UI; learners describe desired outcome in natural language
+5. Added Guided vs Automatic mode guidance, with Guided recommended for workshop
+6. Added example prompts learners can copy into chat
+7. Updated Blazor note to avoid implying menu-based scenario picker
+
+**File Modified:** `3-modernize-with-github-copilot/README.md` (~200 words, extensive rewrite with accuracy corrections)
+
+**Rationale:**
+- Arvid's research exposed gaps between workshop framing and actual product docs
+- Table format separates official scenarios from built-in skills for learner clarity
+- Example prompts lower friction for workshop attendees unfamiliar with agent interaction
+- Guided mode recommendation aligns with workshop pedagogy (reflective practice)
+
+---
+
+### 12. Priorities 5–8: Content Improvements for Learner Clarity
+
+**Status:** Completed | **Date:** 2026-05-04  
+**Agent:** Darlene (Content Developer)
+
+**Summary:** Implemented four content improvements across three files to enhance learner clarity, navigation, and IDE flexibility. All edits support the core workshop narrative: clear guidance, better transitions, and accessibility across tools.
+
+#### Priority 5: Guided vs. Automatic Mode Comparison Table
+**File:** `3-modernize-with-github-copilot/README.md`
+
+**What changed:**
+- Replaced the brief TIP box (lines 67–69) with a structured comparison section
+- Added intro explaining two workflow modes
+- Created a 3-column table comparing Guided and Automatic modes on three dimensions:
+  - How it works
+  - Best for
+  - Switch to it (commands)
+- Added recommendation callout: "For this workshop, use **Guided** mode so you can inspect each stage and learn"
+
+**Why:**
+Learners benefit from seeing mode options side-by-side. The table format is scannable and decision-friendly without being verbose. The recommendation gives clear guidance for this workshop context.
+
+---
+
+#### Priority 6: Custom Skills (Advanced) Section
+**File:** `3-modernize-with-github-copilot/README.md`
+
+**What changed:**
+- Added new section `### 🛠️ Custom Skills (Advanced)` after the "Example prompts" list
+- Explained that custom skills live in `.github/skills/` and are markdown-based patterns
+- Included example use case (database wrapping, service layers)
+- Wrapped in a "Learn More" TIP box pointing to official documentation
+- Clearly labeled as "optional and out of scope for this workshop"
+
+**Why:**
+Learners may wonder if they can extend Copilot's modernization capability. This section acknowledges that feature without overwhelming the workshop scope. It's a "learn more" pointer, not a tutorial.
+
+---
+
+#### Priority 7: Module 2B → Module 3 Flow Clarity
+**File:** `2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md`
+
+**What changed:**
+- Added `## ➡️ What's Next` section before the final `---` separator
+- Explains that Module 3 deepens the modernization work (architecture, patterns, Blazor conversion)
+- Includes TIP about fresh StartSample option in Module 3 vs. continuing with upgraded code
+- Links back to Module 3's "Choose Your Starting Point" section
+
+**Why:**
+Learners complete Module 2B and need to know what comes next and how their output connects. The TIP addresses a common question: "Can I keep my code, or should I start fresh?" This reduces friction and uncertainty at module boundaries.
+
+---
+
+#### Priority 8: IDE Flexibility Note & Extension→Built-in Update
+**File:** `1-setup-your-environment/README.md`
+
+**What changed:**
+
+**Change A (after line 25):**
+- Added IDE Flexibility callout box
+- Clarifies that workshop targets **Visual Studio 2022 (17.14+)** for deepest integration
+- Acknowledges VS Code support via `@Modernize` in Copilot Chat
+- Notes that some visual features (context menu, plan editor) may differ but core workflow is the same
+- Encourages choice: "Choose the IDE you're most comfortable with"
+
+**Change B (line 31):**
+- Updated GitHub Copilot Modernization description from "This extension" to "Built into Visual Studio 2022 17.14+ as an optional component"
+- Changed URL from `...modernization-install#visual-studio-extension` to `...modernization/install` (cleaner, more authoritative link)
+- Updated language to reflect it's now built-in, not an add-on extension
+
+**Why:**
+The GitHub Copilot Modernization tool was recently integrated into VS 2022 17.14+ as a built-in optional component, not an external extension. This was a major change from the install model. The IDE flexibility note removes the implicit assumption that Visual Studio is the only option, making the workshop more inclusive. Learners using VS Code deserve acknowledgment and guidance on their workflow.
+
+---
+
+**Learner Impact:**
+- **Clearer decision-making:** Guided vs. Automatic mode table helps learners choose the right workflow
+- **Reduced scope anxiety:** Custom Skills section manages expectations without excluding advanced learners
+- **Better module transitions:** Module 2B→3 callout reduces friction and answers common next-step questions
+- **More inclusive:** IDE flexibility note welcomes VS Code users and clarifies the install story
+
+**Technical Notes:**
+All edits were surgical, non-breaking changes to existing files. No files were deleted or restructured. The changes integrate seamlessly with existing content and maintain consistent tone, formatting, and callout style.
+
+---
+
+### 13. Module 9 WinForms Migration Architecture
+
+**Status:** Adopted | **Date:** 2026-05-11  
+**Agents:** Charlie (Lead), Arvid (.NET Dev), Darlene (Content)
+
+#### Charlie's Module 9 Architecture Decision
+
+**Context:** eShopLite workshop currently covers monolith-to-microservices modernization (Modules 1–8: web, services, orchestration, deployment, AI). A realistic modernization story usually includes internal back-office tools still running as legacy desktop apps.
+
+**Decision:** Add Module 9 as a standalone desktop client modernization module.
+
+**Module Name:** `9-migrate-winforms`
+
+**Narrative:** Position the WinForms admin tool as the "last legacy operational client" in the eShopLite estate—complementing web modernization, not replacing it. Story arc:
+- Modules 2–3: Upgrade the web monolith from .NET Framework 4.8 to .NET 10
+- Modules 4–8: Refactor into microservices, add Aspire orchestration, deploy to cloud, add AI
+- Module 9: Modernize the internal admin desktop tool that operations depends on
+
+**StartSample Design:**
+- Name: `eShopLite.Admin.WinFormsFx`
+- Target: .NET Framework 4.8
+- Style: Old-style .csproj, packages.config, App.config
+- Features: Product CRUD, read-only order viewer
+- Data: EF6 + LocalDB style persistence
+- Intention: Preserve legacy patterns authentically
+
+**CompleteSample Design:**
+- Name: `eShopLite.Admin.WinForms`
+- Target: net10.0-windows (SDK-style)
+- Style: appsettings.json, Generic Host + DI, EF Core + SQLite
+- Features: Same product CRUD, order viewer (same UI)
+- Architecture: Async services, modern config, testable layer separation
+- Intention: Show realistic post-migration modernization (not just "compile and ship")
+
+**Tooling Strategy:**
+1. **.NET Upgrade Assistant first** — handles mechanical lift (project conversion, framework migration, designer preservation)
+2. **GitHub Copilot Modernization second** — handles post-upgrade cleanup (async patterns, DI, service extraction, modern logging)
+
+**Aspire Integration:** Keep standalone. Desktop modernization is orthogonal to cloud orchestration. Optional: add a stretch goal to point the WinForms app at Aspire-hosted APIs.
+
+**Data Model Reuse:**
+- **Product:** Reuse existing eShopLite Product contract (`Id`, `Name`, `Description`, `Price`, `ImageUrl`) from Modules 5–6
+- **Order:** Add lightweight `Order` and `OrderLineItem` models locally (no upstream changes needed)
+
+**Teaching Objectives:**
+1. Project system modernization (WinForms-specific: designers, resources, fonts)
+2. Configuration migration (App.config → appsettings.json)
+3. Data access modernization (EF6 → EF Core, LocalDB → SQLite)
+4. Async patterns in desktop apps
+5. Dependency injection in Windows Forms
+6. Using AI-assisted tools for post-migration cleanup
+
+**Key WinForms-Specific Challenges to Surface:**
+- Designer file preservation and partial class integrity
+- Resource and image handling post-migration
+- Project file syntax changes (.NET Framework → SDK-style)
+- Configuration binding changes
+- Data access layer migration
+- Threading and UI responsiveness
+- Desktop-specific DI patterns
+
+**Rationale:**
+- Completes the eShopLite modernization narrative (web + services + cloud + desktop)
+- Shows that modernization applies to all client types, not just web
+- Teaches realistic desktop migration with both mechanical and engineering phases
+- Provides authentic sample of legacy WinForms code worth upgrading
+
+---
+
+#### Arvid's WinForms Migration Patterns Research
+
+**Research Scope:** Validate Module 9 architecture against existing codebase and identify key migration challenges.
+
+**Findings:**
+
+1. **Existing eShopLite Data Model:**
+   - Products service (Modules 5–6) exposes `Product` model: `id`, `name`, `description`, `price`, `imageUrl`
+   - Products API endpoints: `GET /api/products/`, `GET /api/products/{id}` (read-only)
+   - Store app consumes via `ProductApiClient`
+   - No Orders service found in Modules 4–6
+
+2. **Module 9 Prototype Shape:**
+   - **StartSample:** `9-migrate-winforms/StartSample/eShopLite.AdminFx/`
+     - .NET Framework 4.8, old-style .csproj, packages.config, App.config
+     - HttpClient + Newtonsoft.Json, classic event handlers
+   - **CompleteSample:** `9-migrate-winforms/CompleteSample/eShopLite.Admin/`
+     - net10.0-windows, SDK-style .csproj, appsettings.json
+     - Generic Host + DI + IHttpClientFactory, System.Text.Json
+
+3. **Key Migration Challenges:**
+   - **Project system conversion:** old-style → SDK-style, explicit file includes → implicit compile items
+   - **Configuration migration:** App.config → appsettings.json + IOptions binding
+   - **WinForms UI review:** default font changes can cause layout drift
+   - **Windows-only targeting:** must use `net10.0-windows` with `UseWindowsForms`
+   - **Package/API modernization:** direct carry-forward needs cleanup even if app compiles
+
+4. **Breaking Changes Worth Teaching:**
+   - API obsoletions in .NET 10 WinForms
+   - StatusStrip render mode default (now System)
+   - System.Drawing exception behavior (OutOfMemoryException → ExternalException)
+   - MenuItem/ContextMenu naming ambiguity (WPF/WinForms mixing)
+   - HtmlElement.InsertAdjacentElement parameter rename
+
+5. **Package Migration Mappings:**
+   | Legacy | Modern |
+   | --- | --- |
+   | packages.config | SDK-style PackageReference |
+   | Newtonsoft.Json | System.Text.Json |
+   | System.Data.SqlClient | Microsoft.Data.SqlClient |
+   | direct HttpClient | IHttpClientFactory |
+   | ConfigurationManager + App.config | IOptions binding |
+
+6. **Upgrade Assistant vs Manual Work:**
+   - **Usually automated:** project conversion, TFM update, package analysis, diagnostics
+   - **Usually manual:** designer validation, layout drift fixes, config pattern changes, architecture decisions
+
+**Recommendation:** Both samples built and tested. Ready for learner documentation.
+
+---
+
+#### Darlene's Module 9 README Structure
+
+**Scope:** Develop learner-facing documentation for Module 9 WinForms migration.
+
+**Content Architecture:**
+1. Title and intro (narrative: "last legacy client")
+2. What you'll do (learning path)
+3. Why this admin app matters (portfolio context)
+4. Prerequisites (SDKs, tools)
+5. StartSample overview (identity, features, legacy patterns)
+6. Migration steps (baseline → Upgrade Assistant → repair → modernize config/data → GitHub Copilot Modernization cleanup)
+7. Common issues / troubleshooting
+8. Verification checklist
+9. What you accomplished
+10. Optional next steps (Aspire API bridge)
+
+**Key Authoring Decisions:**
+- Anchor story around "last legacy client" theme
+- Surface manual work clearly (what tools automate vs. what requires engineering)
+- Use before/after code snippets for csproj, config, HTTP patterns
+- Explain local-only behavior (no backend write APIs)
+- Test guidance against actual samples
+
+**Status:** Authoring in progress; samples provide source of truth for step accuracy.
+
+---
+
+**Impact Summary:**
+- Adds coherent desktop modernization story to workshop
+- Surfaces WinForms-specific migration challenges not covered by web/cloud modules
+- Teaches realistic post-migration modernization (not just "compile and ship")
+- Completes eShopLite narrative arc: monolith → web services → cloud orchestration → internal desktop tooling
 
 ---
 

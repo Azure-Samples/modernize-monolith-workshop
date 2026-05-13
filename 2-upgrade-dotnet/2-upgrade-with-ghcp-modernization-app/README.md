@@ -32,6 +32,12 @@ This section covers:
 
 ## 🤖 Getting Started with GitHub Copilot Upgrade
 
+GitHub Copilot Modernization works through a three-stage workflow: **Assessment → Planning → Execution**.
+
+- **Assessment:** Copilot analyzes your project structure, dependencies, and code patterns to identify upgrade requirements and potential breaking changes
+- **Planning:** The tool generates a detailed upgrade plan document based on assessment findings
+- **Execution:** You review the plan, add custom requirements, and Copilot performs the automated upgrade
+
 We're going to upgrade our application to achieve three major goals:
 
 - Upgrade to .NET 10
@@ -60,6 +66,25 @@ Help me upgrade to a newer version of .NET
 1. The tool will begin analyzing your project
 
 ![Upgrade Analysis](./images/upgrade-analysis.png)
+
+### 🔍 The Assessment Phase (Behind the Scenes)
+
+While Copilot analyzes your project, it's examining:
+
+- **Project structure** — Solution layout, project interdependencies, file organization
+- **NuGet packages** — Current versions, deprecated libraries, compatibility with .NET 10
+- **API usage patterns** — Deprecated .NET Framework APIs that have replacements or breaking changes
+- **Framework dependencies** — COM interop, Windows-specific APIs, third-party integrations
+- **Frontend architecture** — MVC patterns, views, asset references (relevant for Blazor migration)
+- **Database configuration** — Connection strings, ORM setup, SQL Server specifics
+
+The analysis findings are automatically compiled into a markdown upgrade plan that shows:
+- Required package updates
+- Breaking changes to address
+- Estimated complexity and effort
+- Recommended migration paths for your specific tech stack
+
+> **💡 Tip:** During analysis, you'll see progress updates in the chat. This is a good time to review your project's dependencies manually — open a Terminal and run `dotnet list package --outdated` to see what needs updating.
 
 ### Step 3: Review and Enhance the Upgrade Plan
 
@@ -210,6 +235,14 @@ By using GitHub Copilot's modernization capabilities, you've:
 🔹 Reduced manual migration effort significantly  
 
 The combination of framework upgrade, database migration, and frontend transformation would typically take days or weeks of manual work, but with GitHub Copilot's assistance, you've accomplished it in a fraction of the time!
+
+## ➡️ What's Next
+
+You've completed the framework upgrade using GitHub Copilot Modernization. In the next module, you'll use the same Modernize agent to go deeper — refactoring architecture, modernizing patterns, and converting MVC pages to Blazor components.
+
+> 💡 **TIP**
+>
+> Module 3 provides a fresh **StartSample** if you'd prefer a clean baseline, but you can also continue with the code you just upgraded here. See Module 3's "Choose Your Starting Point" section for details.
 
 ---
 [← Previous: Upgrade .NET Applications](../README.md) | [Next: Modernize with GitHub Copilot →](../../3-modernize-with-github-copilot/README.md)

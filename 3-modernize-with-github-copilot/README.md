@@ -18,7 +18,7 @@ This section explores:
 Before starting, ensure you have:
 
 - GitHub Copilot installed and activated in Visual Studio
-- **GitHub Copilot Modernization** extension installed in Visual Studio
+- Visual Studio 2022 17.14 or later with **GitHub Copilot modernization** enabled (built in as an optional component)
 
 ### Choose Your Starting Point
 
@@ -45,27 +45,65 @@ First, verify that the **upgrade_dotnet** tool is enabled in GitHub Copilot's Ag
 
 GitHub Copilot's modernization tool follows a structured three-stage workflow: **Assessment → Planning → Execution**. First, it analyzes your codebase to identify upgrade opportunities and technical debt. Next, it creates a prioritized, step-by-step plan with proper dependency ordering. Finally, it implements changes incrementally, keeping your build green between steps.
 
-The tool includes built-in scenarios for common modernization tasks:
-- **Namespace cleanup** — Corrects inconsistent or outdated namespace declarations
-- **Dependency injection migration** — Converts legacy service patterns to modern DI
-- **Async/await patterns** — Refactors synchronous code to async best practices
-- **Database modernization** — Migrates between database providers (e.g., SQL Express → SQLite)
-- **Blazor conversion** — Transforms ASP.NET MVC/Web Forms to Blazor components
-- **JSON serialization** — Migrates Newtonsoft.Json to System.Text.Json
-- **EF6 → EF Core** — Upgrades Entity Framework to the modern ORM
+You can start **GitHub Copilot modernization** in either of these ways:
+- **Right-click the solution or project** in Solution Explorer and select **Modernize**
+- Open **Copilot Chat** and type **`@Modernize`**
 
-You can run the tool in **Automatic mode** (hands-off execution) or **Guided mode** (step-by-step with approval gates). For project-specific patterns, you can create custom upgrade skills in `.github/skills/`.
+> ⚠️ **IMPORTANT**
+>
+> There is **no scenario picker UI** for .NET modernization. Start the Modernize agent, describe your goal in natural language, and Copilot maps your request to the right scenario and skills automatically.
+
+| Official scenarios | Built-in skills relevant to this workshop |
+| --- | --- |
+| .NET version upgrade | EF6 → EF Core |
+| SDK-style conversion | Dependency injection modernization |
+| Newtonsoft.Json upgrade | MVC routing, views, and controllers |
+| SqlClient upgrade | Newtonsoft.Json → System.Text.Json |
+| Azure Functions upgrade | |
+| Semantic Kernel to Agents | |
+
+GitHub Copilot modernization also includes **30+ built-in skills** that load automatically when the agent detects matching code patterns. For this workshop, the most useful ones are **EF6 → EF Core**, **dependency injection modernization**, and **Newtonsoft.Json → System.Text.Json**.
+
+### 🎛️ Guided vs. Automatic Mode
+
+GitHub Copilot modernization runs in two workflow modes. Choose the one that fits your style:
+
+| | Guided mode | Automatic mode |
+|---|---|---|
+| **How it works** | Pauses after Assessment, Planning, and at key decisions for your review | Runs through all stages without stopping (unless blocked) |
+| **Best for** | Learning, workshops, first-time use, unfamiliar codebases | Routine upgrades, trusted patterns, speed |
+| **Switch to it** | Say `"pause"` or `"switch to guided"` | Say `"continue"` or `"go ahead"` |
+
+> 💡 **Recommendation**
+>
+> For this workshop, use **Guided** mode so you can inspect each stage and learn how Copilot structures modernization work.
+
+Example prompts learners can try:
+- `@Modernize Assess this solution and suggest the most relevant modernization work.`
+- `@Modernize Help me upgrade EF6 to EF Core in this solution.`
+- `@Modernize Replace Newtonsoft.Json with System.Text.Json.`
+- `@Modernize What scenarios are available for this solution?`
+
+### 🛠️ Custom Skills (Advanced)
+
+For project-specific modernization patterns that go beyond the built-in scenarios and skills, you can create **custom upgrade skills** in your repository's `.github/skills/` folder. Each skill is a markdown file that teaches the Modernize agent a reusable pattern — for example, how your team wraps database calls or structures service layers.
+
+> 💡 **TIP**
+>
+> Custom skills are optional and out of scope for this workshop. To learn more, see [Custom upgrade skills](https://learn.microsoft.com/dotnet/core/porting/github-copilot-app-modernization/custom-skills) in the official documentation.
 
 ## Starting the modernization process
 
-Let's start the modernization by invoking the GitHub Copilot **upgrade_dotnet** tool. The tool's **Assessment** stage will analyze your solution for upgrade opportunities, then the **Planning** stage produces a prioritized plan (framework version gaps, architectural layering, dependency injection, async/await usage, nullability, analyzers) aligned with current .NET coding standards. Finally, the **Execution** stage applies the changes incrementally, keeping builds and tests green between steps.
+Let's start the modernization by invoking the **GitHub Copilot modernization** agent. The **Assessment** stage analyzes your solution for modernization opportunities, the **Planning** stage creates a prioritized plan, and the **Execution** stage applies changes incrementally while keeping the solution stable.
 
-1. **Right-click on your solution** in Solution Explorer
-1. Select **"Upgrade with Copilot"** from the context menu or use the default **Copilot Chat**
+1. Start the agent using either entry point:
+   - **Right-click your solution** in Solution Explorer and select **Modernize**
+   - Open **Copilot Chat**, enter **`@Modernize`**, and describe the result you want
+2. Choose **Guided** mode when prompted so you can review each stage during the workshop
 
-![Upgrade with Copilot Menu](./images/upgrade-with-copilot-menu.png)
+![Modernize menu](./images/upgrade-with-copilot-menu.png)
 
-3. When prompted to select a version or provide context, do not select a version. Because we did already the migration in the previous section, here, we are aiming to modernize the application architecture and codebase.
+3. When Copilot asks for context, explain that the project is already on .NET 10. Because we completed the framework upgrade in the previous module, the goal here is to modernize the application's architecture and codebase rather than upgrade framework versions.
 
 4. Paste the following comprehensive modernization request:
 
@@ -86,7 +124,7 @@ Replace the existing SQLExpress database with SQLite. Update connection strings 
 
 > 💡 **TIP**
 >
-> The modernization tool has built-in scenarios for many of these tasks (namespace cleanup, DI migration, database modernization, Blazor conversion). The prompt above provides guidance and context, but the tool may also suggest additional modernization opportunities based on its assessment of your codebase.
+> The modernization agent can map prompts like this one to its built-in scenarios and skills. Even if your request spans several tasks, Copilot can still suggest related work such as **EF6 → EF Core**, **dependency injection modernization**, or **Newtonsoft.Json → System.Text.Json** based on its assessment.
 
 > 🪧**IMPORTANT**
 >
@@ -179,7 +217,7 @@ After completing all modernization steps:
 Great, now we are ready continuing our modernization journey by converting the existing ASP.NET MVC pages to Blazor components. 
 
 > 💡 **NOTE**  
-> Blazor conversion is one of the tool's built-in scenarios. While the manual prompt below gives you hands-on control, you can also explore the tool's automated Blazor conversion approach by right-clicking the project and selecting "Upgrade with Copilot" → selecting "Blazor conversion."
+> While the manual prompt below gives you hands-on control, you can also explore Copilot's automated help for this step by starting the **Modernize** agent and asking it to convert your MVC pages to Blazor components.
 
 Use the following prompt to guide Copilot:
 
@@ -214,6 +252,8 @@ By the end of this section, you should have:
 🔹 Leveraged GitHub Copilot for code improvements  
 🔹 Applied modern coding patterns  
 🔹 Enhanced application performance and maintainability  
+
+> **Next module preview:** Module 3 focuses on **code modernization** (patterns, APIs, language features). Module 4 continues with **architectural decomposition** — extracting microservices from the modernized codebase.
 
 ---
 [← Previous: Upgrade .NET Applications](../2-upgrade-dotnet/README.md) | [Next: Refactor into Microservices →](../4-refactor-into-microservices/README.md)

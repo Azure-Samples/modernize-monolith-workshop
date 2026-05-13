@@ -8,7 +8,7 @@ How to decide who handles what.
 |-----------|----------|----------|
 | Architecture & decisions | Charlie | Module structure, scope decisions, review coordination |
 | Code review | Charlie | Review PRs, check quality, approve/reject changes |
-| .NET code & upgrades | Arvid | Code samples, upgrade paths, .NET Aspire, API changes |
+| .NET code & upgrades | Arvid | Code samples, upgrade paths, Aspire, API changes |
 | Workshop content & docs | Darlene | README updates, instructions, flow, formatting |
 | Testing & validation | Simone | Verify steps work, check links, test code samples |
 | Scope & priorities | Charlie | What to update, trade-offs, decisions |
