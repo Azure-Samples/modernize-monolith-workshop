@@ -6,11 +6,22 @@ using System.Linq;
 
 namespace eShopLite.Admin.Forms;
 
-public partial class MainForm(ProductApiClient productApiClient, OrderRepository orderRepository, AdminOptions options) : Form
+public partial class MainForm : Form
 {
+    private readonly ProductApiClient productApiClient;
+    private readonly OrderRepository orderRepository;
+    private readonly AdminOptions options;
     private readonly BindingSource _productBindingSource = new();
     private readonly BindingSource _orderBindingSource = new();
     private BindingList<Product> _products = new();
+
+    public MainForm(ProductApiClient productApiClient, OrderRepository orderRepository, AdminOptions options)
+    {
+        this.productApiClient = productApiClient;
+        this.orderRepository = orderRepository;
+        this.options = options;
+        InitializeComponent();
+    }
 
     public MainForm() : this(new ProductApiClient(new HttpClient()), new OrderRepository(Microsoft.Extensions.Options.Options.Create(new AdminOptions())), new AdminOptions())
     {

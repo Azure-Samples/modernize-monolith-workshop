@@ -27,7 +27,7 @@ Module 9 closes that gap. The public-facing eShopLite experience is modernized, 
 
 Before you begin, make sure you have:
 
-- **Visual Studio 2022** with the **.NET desktop development** workload installed
+- **Visual Studio 2022 or later** with the **.NET desktop development** workload installed
 - the **.NET 10 SDK** installed
 - the **.NET Framework 4.8 Developer Pack** installed
 - the eShopLite **Products API** running on `https://localhost:7102/` if you want live product data during the exercise

@@ -12,12 +12,13 @@ But before we get to all that we need to install some tools.
 
 For the rest of this workshop you're going to need some tooling and frameworks that you may or may not already have.
 
-The workshop is broken up into 2 parts:
+The workshop is broken up into 3 parts:
 
 - Part 1: Modernizing .NET Framework code into modern .NET
 - Part 2: Preparing for the cloud
+- Part 3: Migrating a WinForms desktop application
 
-We'll provide starter solutions for each part - so if you want to jump right into Part 2 on preparing for the cloud, you can skip installing all the stuff needed for Part 1.
+We'll provide starter solutions for each part - so if you want to jump right into Part 2 on preparing for the cloud, you can skip installing all the stuff needed for Part 1. Part 3 is an optional capstone module for teams with desktop applications.
 
 ## Requirements all-up
 
@@ -43,6 +44,13 @@ We'll provide starter solutions for each part - so if you want to jump right int
 - [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
 - [Azure subscription](https://signup.azure.com/signup) - this is optional.
  
+## Requirements part 3 - migrating a WinForms application
+
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) with the **.NET desktop development** workload installed
+- [.NET 4.8 Framework](https://dotnet.microsoft.com/download/dotnet-framework/net48): The WinForms starter project targets .NET Framework 4.8.
+- [.NET Upgrade Assistant](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) or [GitHub Copilot Modernization](https://learn.microsoft.com/dotnet/core/porting/github-copilot-app-modernization/install): Used to migrate the WinForms project to .NET 10.
+- A running instance of the **eShopLite Products API** from an earlier module (the WinForms admin tool connects to it).
+
 ## 📚 Installing the upgrade assistants
 
 Let's walk through installing the upgrade assistants. The instructions are the same for whether you want to install the **.NET Upgrade Assistant** or the **GitHub Copilot Modernization** tool - you only have to change what you search for.
