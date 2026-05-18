@@ -27,18 +27,17 @@ Select the approach that best fits your learning style and requirements:
 - Lets you choose in-place, side-by-side, or incremental upgrade modes.
 - Works with many project types like ASP.NET, Windows Forms, and more.
 
-### Option B: What is GitHub Copilot app modernization (AI-powered approach)
-**[🤖 Upgrade with GitHub Copilot](./2-upgrade-with-ghcp-modernization-app/README.md)**
+### Option B: GitHub Copilot Modernization (AI-powered approach)
+**[🤖 Upgrade with GitHub Copilot Modernization](./2-upgrade-with-ghcp-modernization-app/README.md)**
 
 - Analyzes your solution and creates a smart upgrade plan, handling dependencies in the right order.
 - Automates code changes and upgrades, but asks for your help when needed and learns from your fixes.
 - Runs your unit tests after upgrading to make sure everything works as expected.
+- This path uses **GitHub Copilot Modernization** for an end-to-end upgrade workflow, including framework migration, database updates, and frontend modernization.
 
-## 🎯 Next steps
+**[Next: Modernize with GitHub Copilot →](../3-modernize-with-github-copilot/README.md)**
 
-After completing either approach (or both!), you'll be ready to move on to:
-
-**[🤖 Modernize with GitHub Copilot →](../3-modernize-with-github-copilot/README.md)**
+After completing either approach (or both!), you'll be ready to move on to **Module 3: Modernize with GitHub Copilot**, where you'll focus on architectural improvements and code modernization using GitHub Copilot's AI capabilities.
 
 ---
 

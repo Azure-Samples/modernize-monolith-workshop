@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Solar Powered Flashlight",
+    "description": "A fantastic product for outdoor enthusiasts",
+    "price": 19.99,
+    "imageUrl": "product1.png"
+  },
+  {
+    "id": 2,
+    "name": "Hiking Poles",
+    "description": "Ideal for camping and hiking trips",
+    "price": 24.99,
+    "imageUrl": "product2.png"
+  },
+  {
+    "id": 3,
+    "name": "Outdoor Rain Jacket",
+    "description": "This product will keep you warm and dry in all weathers",
+    "price": 49.99,
+    "imageUrl": "product3.png"
+  },
+  {
+    "id": 4,
+    "name": "Survival Kit",
+    "description": "A must-have for any outdoor adventurer",
+    "price": 99.99,
+    "imageUrl": "product4.png"
+  },
+  {
+    "id": 5,
+    "name": "Camping Backpack",
+    "description": "Spacious and durable backpack for all your adventures",
+    "price": 79.99,
+    "imageUrl": "product5.png"
+  }
+]

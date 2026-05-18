@@ -2,7 +2,7 @@
 
 This workshop is designed to help you modernize .NET applications. 
 
-Everything from modernizing code from .NET Framework to a modern .NET, getting all that code ready for the cloud with microservices and .NET Aspire, and even adding in a sprinkling of AI.
+Everything from modernizing code from .NET Framework to a modern .NET, getting all that code ready for the cloud with microservices and Aspire, and even adding in a sprinkling of AI.
 
 But before we get to all that we need to install some tools.
 
@@ -12,23 +12,28 @@ But before we get to all that we need to install some tools.
 
 For the rest of this workshop you're going to need some tooling and frameworks that you may or may not already have.
 
-The workshop is broken up into 2 parts:
+The workshop is broken up into 3 parts:
 
 - Part 1: Modernizing .NET Framework code into modern .NET
 - Part 2: Preparing for the cloud
+- Part 3: Migrating a WinForms desktop application
 
-We'll provide starter solutions for each part - so if you want to jump right into Part 2 on preparing for the cloud, you can skip installing all the stuff needed for Part 1.
+We'll provide starter solutions for each part - so if you want to jump right into Part 2 on preparing for the cloud, you can skip installing all the stuff needed for Part 1. Part 3 is an optional capstone module for teams with desktop applications.
 
 ## Requirements all-up
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) : The latest version of the .NET SDK that you'll need for development.
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) : The latest version of the .NET SDK that you'll need for development.
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) with the web workload installed.
+
+> 💡 **IDE Flexibility**
+>
+> This workshop is written for **Visual Studio 2022 (17.14+)**, which has the deepest integration with GitHub Copilot modernization (right-click → Modernize, Guided/Automatic modes, inline plan review). **VS Code** with the GitHub Copilot extension also supports modernization via `@Modernize` in Copilot Chat, though some visual features like the context-menu launch and plan editor may differ. Choose the IDE you're most comfortable with — the core workflow (Assessment → Planning → Execution) is the same.
 
 ## Requirements for part 1 - modernizing code
 
 - [.NET 4.8 Framework](https://dotnet.microsoft.com/download/dotnet-framework/net48): A version of the .NET Framework that the existing application for this workshop is currently using.
 - [.NET Upgrade Assistant](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview): A tool to help you upgrade your .NET applications.
-- [.NET Upgrade Assistant Copilot](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-install#visual-studio-extension): This copilot extension will assist you in the migration process by providing suggestions and automating some tasks.
+- [GitHub Copilot Modernization](https://learn.microsoft.com/dotnet/core/porting/github-copilot-app-modernization/install): Built into Visual Studio 2022 17.14+ as an optional component. Enable it via the Visual Studio Installer. Assists in migration by providing AI-powered suggestions and automating modernization tasks.
 - [SQL Express](https://www.microsoft.com/en-us/download/details.aspx?id=104781&lc=1033&msockid=3bf02f53610f677810c73afb608a66da): A lightweight version of SQL Server for local development and testing.
 - [GitHub Copilot Pro](https://github.com/features/copilot): Optional, as you can read through the [update with GitHub Copilot](../2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md) section.
 
@@ -39,13 +44,20 @@ We'll provide starter solutions for each part - so if you want to jump right int
 - [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
 - [Azure subscription](https://signup.azure.com/signup) - this is optional.
  
+## Requirements part 3 - migrating a WinForms application
+
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) with the **.NET desktop development** workload installed
+- [.NET 4.8 Framework](https://dotnet.microsoft.com/download/dotnet-framework/net48): The WinForms starter project targets .NET Framework 4.8.
+- [.NET Upgrade Assistant](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) or [GitHub Copilot Modernization](https://learn.microsoft.com/dotnet/core/porting/github-copilot-app-modernization/install): Used to migrate the WinForms project to .NET 10.
+- A running instance of the **eShopLite Products API** from an earlier module (the WinForms admin tool connects to it).
+
 ## 📚 Installing the upgrade assistants
 
-Let's walk through installing the upgrade assistants. The instructions are the same for whether you want to install the **.NET Upgrade Assistant** or the **GitHub Copilot app modernization** - you only have to change what you search for.
+Let's walk through installing the upgrade assistants. The instructions are the same for whether you want to install the **.NET Upgrade Assistant** or the **GitHub Copilot Modernization** tool - you only have to change what you search for.
 
 1. Open **Visual Studio**
 1. Go to the menu bar and select **Extensions > Manage Extensions**.
-1. Select the **Browse** tab and search for `.NET Upgrade Assistant` or `GitHub Copilot App Modernization`
+1. Select the **Browse** tab and search for `.NET Upgrade Assistant` or `GitHub Copilot Modernization`
 1. Click the **Install** button to install the extension.
 
    ![Visual Studio Installation](./images/visual-studio-manage-extensions.png)
