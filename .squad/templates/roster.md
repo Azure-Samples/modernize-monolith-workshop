@@ -17,7 +17,6 @@
 | {Name} | {Role} | `.squad/agents/{name}/charter.md` | ✅ Active |
 | {Name} | {Role} | `.squad/agents/{name}/charter.md` | ✅ Active |
 | Scribe | Session Logger | `.squad/agents/scribe/charter.md` | 📋 Silent |
-| Ralph | Work Monitor | — | 🔄 Monitor |
 
 ## Coding Agent
 

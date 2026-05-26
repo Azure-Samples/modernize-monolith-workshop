@@ -17,7 +17,6 @@
 | Darlene | Content Developer | .squad/agents/darlene/charter.md | 📝 Active |
 | Simone | Tester/QA | .squad/agents/simone/charter.md | 🧪 Active |
 | Scribe | Scribe | .squad/agents/scribe/charter.md | 📋 Active |
-| Ralph | Work Monitor | .squad/agents/ralph/charter.md | 🔄 Active |
 
 ## Project Context
 
