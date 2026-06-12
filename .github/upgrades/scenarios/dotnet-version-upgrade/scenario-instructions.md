@@ -7,7 +7,7 @@
 
 ## Source Control
 - **Source Branch**: main
-- **Working Branch**: upgrade-dotnet-10
+- **Working Branch**: update-june-26
 - **Commit Strategy**: Single Commit at End
 - **Branch Sync**: Auto (Merge)
 
