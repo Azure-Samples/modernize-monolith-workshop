@@ -47,9 +47,9 @@ We're going to upgrade our application to achieve three major goals:
 ### Step 1: Initiate the Upgrade
 
 1. Right-click on the solution in Solution Explorer
-1. Select **"Upgrade with GitHub Copilot"**
+1. Select **"Modernize"**
 
-![Upgrade with GitHub Copilot](./images/upgrade-with-copilot.png)
+![Modernize context menu](./images/upgrade-with-copilot.png)
 
 This will open a chat interface with agent mode enabled for analysis. Enter a prompt telling Copilot what you want to do:
 
