@@ -51,11 +51,18 @@ We're going to upgrade our application to achieve three major goals:
 
 This will open a chat interface with agent mode enabled for analysis. Click the 'Upgrade to a newer version of .NET' option in the lower-right.
 
-### Step 2: Configure the Target Version
+You will want to turn on 'Autopilot' mode for this, to allow Copilot to make changes and work in a dedicated git branch for your operation.  You can find this option at the bottom left of the Copilot chat window.
 
-1. When prompted for the target version, select **.NET 10.0** and send the message in the chat. The tool will begin analyzing your project
+![Select Autopilot option](images/select-autopilot.png)
+
+
+### Step 2: Configure the migration
+
+1. The agent will explore your project and offer you some options to get started.  Confirm that you want to upgrade to .NET 10 and that it will work in an independent branch for this project.
 
 ![Upgrade Analysis](./images/upgrade-analysis.png)
+
+![Upgrade configuration prompt](./images/upgrade-analysis-2.png)
 
 ### 🔍 The Assessment Phase (Behind the Scenes)
 
