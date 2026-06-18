@@ -49,19 +49,11 @@ We're going to upgrade our application to achieve three major goals:
 
 ![Modernize context menu](./images/upgrade-with-copilot.png)
 
-This will open a chat interface with agent mode enabled for analysis. Enter a prompt telling Copilot what you want to do:
-
-```markdown
-Help me upgrade to a newer version of .NET
-```
+This will open a chat interface with agent mode enabled for analysis. Click the 'Upgrade to a newer version of .NET' option in the lower-right.
 
 ### Step 2: Configure the Target Version
 
-1. When prompted for the target version, select **.NET 10.0** and send the message in the chat
-
-![Select .NET Version](./images/select-dotnet-version.png)
-
-1. The tool will begin analyzing your project
+1. When prompted for the target version, select **.NET 10.0** and send the message in the chat. The tool will begin analyzing your project
 
 ![Upgrade Analysis](./images/upgrade-analysis.png)
 
