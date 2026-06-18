@@ -1,8 +1,6 @@
 # 🚀 Upgrade with GitHub Copilot Modernization
 
-Let's explore an alternative approach to upgrading our eShopLite application using **GitHub Copilot Modernization**, the AI-powered upgrade extension. 
-
-![GitHub Copilot Modernization App](./images/github-copilot-modernization-app.png)
+Let's explore an alternative approach to upgrading our eShopLite application using **GitHub Copilot Modernization**, the AI-powered upgrade feature. 
 
 **GitHub Copilot Modernization** leverages AI to automate and guide the upgrade process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
 
