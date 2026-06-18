@@ -1,8 +1,6 @@
 # 🚀 Upgrade with GitHub Copilot Modernization
 
-Let's explore an alternative approach to upgrading our eShopLite application using **GitHub Copilot Modernization**, the AI-powered upgrade extension. 
-
-![GitHub Copilot Modernization App](./images/github-copilot-modernization-app.png)
+Let's explore an alternative approach to upgrading our eShopLite application using **GitHub Copilot Modernization**, the AI-powered upgrade feature. 
 
 **GitHub Copilot Modernization** leverages AI to automate and guide the upgrade process, making it easier to upgrade not just the framework, but also transition to modern architectures and technologies.
 
@@ -47,25 +45,24 @@ We're going to upgrade our application to achieve three major goals:
 ### Step 1: Initiate the Upgrade
 
 1. Right-click on the solution in Solution Explorer
-1. Select **"Upgrade with GitHub Copilot"**
+1. Select **"Modernize"**
 
-![Upgrade with GitHub Copilot](./images/upgrade-with-copilot.png)
+![Modernize context menu](./images/upgrade-with-copilot.png)
 
-This will open a chat interface with agent mode enabled for analysis. Enter a prompt telling Copilot what you want to do:
+This will open a chat interface with agent mode enabled for analysis. Click the 'Upgrade to a newer version of .NET' option in the lower-right.
 
-```markdown
-Help me upgrade to a newer version of .NET
-```
+You will want to turn on 'Autopilot' mode for this, to allow Copilot to make changes and work in a dedicated git branch for your operation.  You can find this option at the bottom left of the Copilot chat window.
 
-### Step 2: Configure the Target Version
+![Select Autopilot option](images/select-autopilot.png)
 
-1. When prompted for the target version, select **.NET 10.0** and send the message in the chat
 
-![Select .NET Version](./images/select-dotnet-version.png)
+### Step 2: Configure the migration
 
-1. The tool will begin analyzing your project
+1. The agent will explore your project and offer you some options to get started.  Confirm that you want to upgrade to .NET 10 and that it will work in an independent branch for this project.
 
 ![Upgrade Analysis](./images/upgrade-analysis.png)
+
+![Upgrade configuration prompt](./images/upgrade-analysis-2.png)
 
 ### 🔍 The Assessment Phase (Behind the Scenes)
 
@@ -85,6 +82,8 @@ The analysis findings are automatically compiled into a markdown upgrade plan th
 - Recommended migration paths for your specific tech stack
 
 > **💡 Tip:** During analysis, you'll see progress updates in the chat. This is a good time to review your project's dependencies manually — open a Terminal and run `dotnet list package --outdated` to see what needs updating.
+
+You can find a copy of what this assessment report looks like in [`assessment.md`](./assessment.md)
 
 ### Step 3: Review and Enhance the Upgrade Plan
 
@@ -125,25 +124,11 @@ The tool will now begin the automated upgrade process. During this phase:
 
 ![Upgrade Progress](./images/upgrade-progress.png)
 
-Here, you can see both the progress of the upgrade, any changes being made, and the current status of the migration.
-
-![Changes in Progress](./images/changes-in-progress.png)
-
-It will progress and fail sometimes, but don't worry, this is normal. The AI will attempt to fix issues and continue the upgrade.
-
-![Upgrade Errors](./images/upgrade-errors.png)
-
-Sometimes, the tool will ask for some Manual Intervention, usually those can be ignored, as the files are still being modified in the background. You can investigate the errors using the  **"Investigate"** button, but most of the time, you can just continue with the upgrade clicking on the **"Resume"** button.
-
-![Manual Intervention](./images/manual-intervention.png)
+Sometimes, the tool will ask for some Manual Intervention, usually those can be ignored, as the files are still being modified in the background. You can investigate the errors using the  **"Investigate"** button, but most of the time, you can just continue with the upgrade clicking on the **"Resume"** or **"Confirm"** button.
 
 The Copilot Chat is also available to help you understand the changes being made and to provide context on any issues that arise. Plus, you can ask it to fix specific issues or provide more information about the changes.
 
 ![Copilot Chat](./images/copilot-chat.png)
-
-After interacting with the Copilot, you can continue the upgrade process by clicking on the **"Resume"** button. When the upgrade is complete, you will see a message indicating that the upgrade has finished successfully.
-
-![Upgrade Complete](./images/upgrade-complete.png)
 
 ### Step 5: Finalize the Migration
 
@@ -167,7 +152,7 @@ Sometimes the tool may encounter errors during the upgrade. When this happens:
 
 The tool sometimes focuses primarily on backend work and may not fully complete the Blazor migration. 
 
-This is our chance to refine the frontend, look our current implementation:
+This is our chance to refine the frontend, look at our current implementation:
 
 ![Frontend Migration Issues](./images/frontend-migration-issues.png)
 

@@ -1,6 +1,6 @@
 # 🤖 Modernize with GitHub Copilot
 
-By using the upgrade assistants from Chapter 2, our application is now running on .NET 10. But it may not be using best practices or design patterns.
+By using GitHub Copilot from Chapter 2, our application is now running on .NET 10. But it may not be using best practices or design patterns.
 
 In this chapter, we will focus on modernizing our application using GitHub Copilot, which will assist us in refactoring the codebase, improving architecture, and enhancing overall performance.
 
@@ -256,4 +256,4 @@ By the end of this section, you should have:
 > **Next module preview:** Module 3 focuses on **code modernization** (patterns, APIs, language features). Module 4 continues with **architectural decomposition** — extracting microservices from the modernized codebase.
 
 ---
-[← Previous: Upgrade .NET Applications](../2-upgrade-dotnet/README.md) | [Next: Refactor into Microservices →](../4-refactor-into-microservices/README.md)
+[← Previous: Upgrade .NET Applications](../2-upgrade-dotnet/2-upgrade-with-ghcp-modernization-app/README.md) | [Next: Refactor into Microservices →](../4-refactor-into-microservices/README.md)

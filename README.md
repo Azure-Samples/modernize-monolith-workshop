@@ -16,7 +16,7 @@ You should be familiar with [C#](https://docs.microsoft.com/en-us/dotnet/csharp/
 
 Here are some things you will need:
 
-🔨 [Visual Studio 2022 or 2026](https://visualstudio.microsoft.com/vs/)  
+🔨 [Visual Studio 2026](https://visualstudio.microsoft.com/vs/)  
 ☁️ Access to an Azure subscription  
 🤖 Access to a GitHub Copilot Pro subscription  
 🐳 [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or another way to run container images locally)
