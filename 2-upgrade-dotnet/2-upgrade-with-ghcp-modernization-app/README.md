@@ -83,6 +83,8 @@ The analysis findings are automatically compiled into a markdown upgrade plan th
 
 > **💡 Tip:** During analysis, you'll see progress updates in the chat. This is a good time to review your project's dependencies manually — open a Terminal and run `dotnet list package --outdated` to see what needs updating.
 
+You can find a copy of what this assessment report looks like in [`assessment.md`](./assessment.md)
+
 ### Step 3: Review and Enhance the Upgrade Plan
 
 1. After analysis completes, a markdown file with the upgrade plan will be generated and will open in your editor. Review the plan carefully.
@@ -122,25 +124,11 @@ The tool will now begin the automated upgrade process. During this phase:
 
 ![Upgrade Progress](./images/upgrade-progress.png)
 
-Here, you can see both the progress of the upgrade, any changes being made, and the current status of the migration.
-
-![Changes in Progress](./images/changes-in-progress.png)
-
-It will progress and fail sometimes, but don't worry, this is normal. The AI will attempt to fix issues and continue the upgrade.
-
-![Upgrade Errors](./images/upgrade-errors.png)
-
-Sometimes, the tool will ask for some Manual Intervention, usually those can be ignored, as the files are still being modified in the background. You can investigate the errors using the  **"Investigate"** button, but most of the time, you can just continue with the upgrade clicking on the **"Resume"** button.
-
-![Manual Intervention](./images/manual-intervention.png)
+Sometimes, the tool will ask for some Manual Intervention, usually those can be ignored, as the files are still being modified in the background. You can investigate the errors using the  **"Investigate"** button, but most of the time, you can just continue with the upgrade clicking on the **"Resume"** or **"Confirm"** button.
 
 The Copilot Chat is also available to help you understand the changes being made and to provide context on any issues that arise. Plus, you can ask it to fix specific issues or provide more information about the changes.
 
 ![Copilot Chat](./images/copilot-chat.png)
-
-After interacting with the Copilot, you can continue the upgrade process by clicking on the **"Resume"** button. When the upgrade is complete, you will see a message indicating that the upgrade has finished successfully.
-
-![Upgrade Complete](./images/upgrade-complete.png)
 
 ### Step 5: Finalize the Migration
 
@@ -164,7 +152,7 @@ Sometimes the tool may encounter errors during the upgrade. When this happens:
 
 The tool sometimes focuses primarily on backend work and may not fully complete the Blazor migration. 
 
-This is our chance to refine the frontend, look our current implementation:
+This is our chance to refine the frontend, look at our current implementation:
 
 ![Frontend Migration Issues](./images/frontend-migration-issues.png)
 
