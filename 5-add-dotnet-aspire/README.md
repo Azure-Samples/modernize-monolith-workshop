@@ -1,6 +1,6 @@
 # ⭐ Add Aspire
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 Enhance your microservices with Aspire for service discovery, comprehensive telemetry, and simplified orchestration across your distributed application.
 

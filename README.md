@@ -1,6 +1,6 @@
 # 🚀 Modernize your monolith: From .NET Framework to microservices in Azure
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 In this full-day workshop, you'll take a legacy [.NET Framework](https://docs.microsoft.com/en-us/dotnet/framework/) monolith and modernize it to the latest [.NET](https://docs.microsoft.com/en-us/dotnet/) release using AI-powered tooling and the [GitHub Copilot Modernization](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-app-modernization-overview) tool. You'll learn how to layer in cloud-native capabilities with [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) for service discovery, telemetry, and orchestration, containerize the app, and deploy it to [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/) using the Aspire CLI. Along the way, you'll even explore how to integrate [Azure AI services](https://docs.microsoft.com/en-us/azure/cognitive-services/) to enhance your application with intelligent capabilities, culminating in a modernized microservices solution built for scale and agility.
 

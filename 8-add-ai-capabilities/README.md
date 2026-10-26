@@ -1,6 +1,6 @@
 # 🧠 Add AI Capabilities
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 Enhance your application with intelligent features using GitHub Models, bringing cutting-edge artificial intelligence to your modernized eShopLite solution.
 

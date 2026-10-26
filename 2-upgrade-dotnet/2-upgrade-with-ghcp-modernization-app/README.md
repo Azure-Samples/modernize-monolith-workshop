@@ -1,6 +1,6 @@
 # 🚀 Upgrade with GitHub Copilot Modernization
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 Let's explore an alternative approach to upgrading our eShopLite application using **GitHub Copilot Modernization**, the AI-powered upgrade feature. 
 

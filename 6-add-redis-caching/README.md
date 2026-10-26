@@ -1,6 +1,6 @@
 # 🚀 Add Redis Caching
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 Boost your application's performance by implementing Redis caching and integrating it seamlessly with your Aspire setup.
 

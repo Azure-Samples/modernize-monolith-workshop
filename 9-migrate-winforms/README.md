@@ -1,6 +1,6 @@
 # 🖥️ Migrate a WinForms Application
 
-> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
 
 > 🎓 **Optional Capstone Module** — This module is a bonus chapter for teams with desktop applications in their portfolio. The core workshop concludes with Module 8.
 
