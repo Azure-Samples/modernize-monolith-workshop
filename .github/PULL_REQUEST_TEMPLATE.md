@@ -1,45 +1,5 @@
-## Purpose
-<!-- Describe the intention of the changes being proposed. What problem does it solve or functionality does it add? -->
-* ...
+# Repository archived
 
-## Does this introduce a breaking change?
-<!-- Mark one with an "x". -->
-```
-[ ] Yes
-[ ] No
-```
+This repository has been archived and is read-only. Pull requests are no longer accepted.
 
-## Pull Request Type
-What kind of change does this Pull Request introduce?
-
-<!-- Please check the one that applies to this PR using "x". -->
-```
-[ ] Bugfix
-[ ] Feature
-[ ] Code style update (formatting, local variables)
-[ ] Refactoring (no functional changes, no api changes)
-[ ] Documentation content changes
-[ ] Other... Please describe:
-```
-
-## How to Test
-*  Get the code
-
-```
-git clone [repo-address]
-cd [repo-name]
-git checkout [branch-name]
-npm install
-```
-
-* Test the code
-<!-- Add steps to run the tests suite and/or manually test -->
-```
-```
-
-## What to Check
-Verify that the following are valid
-* ...
-
-## Other Information
-<!-- Add any other helpful information that may be needed here. -->
+For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).

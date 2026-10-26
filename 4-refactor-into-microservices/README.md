@@ -1,5 +1,7 @@
 # 🏗️ Refactor into Microservices
 
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+
 Learn how to break down your monolithic application into focused, scalable microservices that can be developed, deployed, and maintained independently.
 
 In Module 3, you modernized the code patterns. Now you'll decompose the application into independent microservices.
@@ -160,4 +162,3 @@ By the end of this section, you should have:
 
 ---
 [← Previous: Modernize with GitHub Copilot](../3-modernize-with-github-copilot/README.md) | [Next: Add Aspire →](../5-add-dotnet-aspire/README.md)
-

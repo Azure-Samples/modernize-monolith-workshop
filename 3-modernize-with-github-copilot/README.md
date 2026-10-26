@@ -1,5 +1,7 @@
 # 🤖 Modernize with GitHub Copilot
 
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [.NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+
 By using GitHub Copilot from Chapter 2, our application is now running on .NET 10. But it may not be using best practices or design patterns.
 
 In this chapter, we will focus on modernizing our application using GitHub Copilot, which will assist us in refactoring the codebase, improving architecture, and enhancing overall performance.
