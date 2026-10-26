@@ -1,5 +1,7 @@
 # Setting up your environment
 
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+
 This workshop is designed to help you modernize .NET applications. 
 
 Everything from modernizing code from .NET Framework to a modern .NET, getting all that code ready for the cloud with microservices and Aspire, and even adding in a sprinkling of AI.

@@ -1,5 +1,7 @@
 # ☁️ Deploy to Azure Container Apps with Aspire CLI
 
+> **Archive notice:** This repository has been archived and is read-only. For the latest information on .NET modernization, visit [ .NET Modernization for Beginners](https://microsoft.github.io/dotnet-modernization-for-beginners).
+
 Deploy your modernized microservices to Azure Container Apps using the Aspire CLI for a production-ready, scalable cloud deployment.
 
 ## 📋 What You'll Do
